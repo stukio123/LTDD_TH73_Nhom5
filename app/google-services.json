@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "516981503995",
+    "firebase_url": "https://ecommerciandroidapp.firebaseio.com",
+    "project_id": "ecommerciandroidapp",
+    "storage_bucket": "ecommerciandroidapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516981503995:android:ec8ab695f8ca5d71547d5e",
+        "android_client_info": {
+          "package_name": "com.example.ecommerciandroiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516981503995-60ee5161k2nk229vkf6kaff94t4olerp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2wxXpRS8SORoJaTE8tpclcSCGVao40mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516981503995-60ee5161k2nk229vkf6kaff94t4olerp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
