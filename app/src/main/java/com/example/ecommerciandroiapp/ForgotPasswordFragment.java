@@ -38,7 +38,7 @@ public class ForgotPasswordFragment extends Fragment {
 
     private EditText fgEmail;
     private Button btnReset;
-    private TextView goBack;
+
 
     private FrameLayout parentFrameLayout;
     private FirebaseAuth firebaseAuth;
@@ -57,7 +57,6 @@ public class ForgotPasswordFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forgot_password, container, false);
         fgEmail = view.findViewById(R.id.txt_Email);
         btnReset = view.findViewById(R.id.btn_Forgot);
-        //goBack = view.findViewById(R.id.tv_Back);
         parentFrameLayout = getActivity().findViewById(R.id.register_layout);
         firebaseAuth = FirebaseAuth.getInstance();
         viewGroup = view.findViewById(R.id.linearLayout_Container);
@@ -87,12 +86,6 @@ public class ForgotPasswordFragment extends Fragment {
                 checkInput();
             }
         });
-        /*goBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setFragment(new SignInFragment());
-            }
-        });*/
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,7 +139,7 @@ public class ForgotPasswordFragment extends Fragment {
     }
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.slide_fromright,R.anim.slideout_fromleft);
+        fragmentTransaction.setCustomAnimations(R.anim.slide_fromleft,R.anim.slideout_fromright);
         fragmentTransaction.replace(parentFrameLayout.getId(),fragment);
         fragmentTransaction.commit();
     }

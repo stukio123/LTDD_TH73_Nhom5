@@ -33,6 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.example.ecommerciandroiapp.RegisterActivity.onResetPasswordFragmen;
+import static com.example.ecommerciandroiapp.RegisterActivity.onSignUpFragmen;
 
 
 /**
@@ -82,11 +83,13 @@ public class SignInFragment extends Fragment {
         dontHaveAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                onSignUpFragmen = true;
                 setFragment(new SignUpFragment());
             }
 
 
         });
+
         btn_SignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
