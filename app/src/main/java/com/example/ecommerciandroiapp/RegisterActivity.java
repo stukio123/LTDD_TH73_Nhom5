@@ -20,7 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         framelayout = (FrameLayout) findViewById(R.id.register_layout);
-        setDefaultFragment(new SignInFragment());
+        setDefaultFragment(new HomeFragment());
     }
 
    /* @Override

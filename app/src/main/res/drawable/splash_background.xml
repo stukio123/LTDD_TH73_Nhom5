@@ -2,10 +2,14 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape>
-            <solid android:color="@color/colorPrimary"/>
+            <solid android:color="@color/Background"/>
         </shape>
     </item>
     <item>
-        <bitmap android:src="@mipmap/logo" android:gravity="center"/>
+        <bitmap android:src="@mipmap/load" android:gravity="top|center"/>
     </item>
+
+
+
 </layer-list>
+

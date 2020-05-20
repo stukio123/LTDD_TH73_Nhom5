@@ -11,10 +11,7 @@
         android:roundIcon="@mipmap/logoapp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".SplashActivity"
@@ -26,4 +23,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
