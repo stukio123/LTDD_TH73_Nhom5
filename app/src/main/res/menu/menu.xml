@@ -3,20 +3,37 @@
 
     <item
         android:id="@+id/nav_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="Home" />
+        android:icon="@drawable/ic_home_white_24dp"
+        android:title="Trang chủ"/>
+
+
+    <item
+        android:id="@+id/nav_category"
+        android:icon="@drawable/ic_border_all_white_24dp"
+        android:menuCategory="container"
+        android:title="Danh mục" />
 
     <item
         android:id="@+id/nav_search"
-        android:icon="@drawable/ic_search_black_24dp"
+        android:icon="@drawable/ic_search_white_24dp"
         android:menuCategory="container"
-        android:title="Search" />
+        android:title="Tìm kiếm" />
 
     <item
-        android:id="@+id/nav_favorites"
-        android:icon="@drawable/ic_favorite_black_24dp"
-        android:menuCategory="alternative"
-        android:title="Favorites" />
+        android:id="@+id/nav_user"
+        android:icon="@drawable/ic_account_circle_white_24dp"
+        android:menuCategory="container"
+        android:title="Cá nhân" />
+
+
+    <item
+    android:id="@+id/nav_notification"
+    android:icon="@drawable/ic_notifications_none_white_24dp"
+    android:menuCategory="container"
+    android:title="Thông báo" />
+
+
+
 
 <!--    <item-->
 <!--        android:id="@+id/nav_user"-->

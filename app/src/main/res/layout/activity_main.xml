@@ -55,9 +55,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="5dp"
-        android:background="@android:color/white"
-        app:labelVisibilityMode="auto"
+        android:background="@drawable/bogoc_footder"
+        app:itemIconTint="@android:color/white"
+        android:foreground="?attr/selectableItemBackground"
+        app:itemTextColor="@android:color/white"
+        android:visibility="visible"
         app:menu="@menu/menu" />
+
 
 
 

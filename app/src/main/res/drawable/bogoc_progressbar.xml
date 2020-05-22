@@ -5,7 +5,7 @@ android:shape="rectangle">
 
 <!-- Set màu nền-->
 <solid
-    android:color="#fff"
+    android:color="#4A2BE6"
     >
 </solid>
 
@@ -17,15 +17,15 @@ android:shape="rectangle">
 
 <!-- các thuộc tính căn chỉnh-->
 <padding
-    android:left="2dp"
-    android:top="2dp"
-    android:right="2dp"
-    android:bottom="2dp" >
+    android:left="1mm"
+    android:top="1mm"
+    android:right="1mm"
+    android:bottom="1mm" >
 </padding>
 
 <!-- và đây là bán kính đường tròn ở 4 góc -->
 <corners
-    android:radius="100dp" >
+    android:radius="5mm" >
 </corners>
 
 </shape>

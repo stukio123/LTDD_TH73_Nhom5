@@ -6,7 +6,7 @@
         </shape>
     </item>
     <item>
-        <bitmap android:src="@mipmap/load" android:gravity="top|center"/>
+        <bitmap android:src="@mipmap/hieu" android:gravity="center"/>
     </item>
 
 

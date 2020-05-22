@@ -34,11 +34,17 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_home:
                             selectedFragmet = new HomeFragment();
                             break;
-                        case R.id.nav_favorites:
-                            selectedFragmet = new FavoriteFragment();
+                        case R.id.nav_category:
+                            selectedFragmet = new CategoryFragment();
                             break;
                         case R.id.nav_search:
                             selectedFragmet = new SearchFragment();
+                            break;
+                        case R.id.nav_notification:
+                            selectedFragmet = new NotificationFragment();
+                            break;
+                        case R.id.nav_user:
+                            selectedFragmet = new UserFragment();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
