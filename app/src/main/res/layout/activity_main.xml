@@ -11,42 +11,14 @@
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="667dp"
+        android:layout_height="661dp"
         android:layout_above="@+id/bottom_navigation"
-        android:layout_marginBottom="3dp"
+        android:layout_marginBottom="6dp"
         android:backgroundTint="#FDFDFD"
+        android:layout_alignParentTop="true"
         android:foregroundTint="#FFFFFF">
 
     </FrameLayout>
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:background="@color/btnBlue"
-        android:foregroundTint="#FFFFFF">
-
-        <SearchView
-            android:id="@+id/simpleSearchView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10pt"
-            android:background="@drawable/bogoc"
-            android:backgroundTint="#FFFFFF"
-            android:foregroundTint="#FFFFFF"
-            android:iconifiedByDefault="false"
-            android:queryHint="Search Here"
-            android:textCursorDrawable="@null" />
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5pt"
-            android:layout_marginRight="10pt"
-            android:background="@color/btnBlue"
-            app:srcCompat="@drawable/ic_local_grocery_store_shop_24dp" />
-    </androidx.appcompat.widget.Toolbar>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -54,15 +26,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="5dp"
         android:background="@drawable/bogoc_footder"
-        app:itemIconTint="@android:color/white"
         android:foreground="?attr/selectableItemBackground"
-        app:itemTextColor="@android:color/white"
         android:visibility="visible"
+        app:itemIconTint="@android:color/white"
+        app:itemTextColor="@android:color/white"
         app:menu="@menu/menu" />
-
-
 
 
 </RelativeLayout>

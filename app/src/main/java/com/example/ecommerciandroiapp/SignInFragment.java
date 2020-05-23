@@ -49,7 +49,7 @@ public class SignInFragment extends Fragment {
     private FrameLayout parentFrameLayout;
 
     private EditText email,password;
-    private ImageButton ibtn_Close;
+    private ImageButton btnClose;
     private Button btn_SignIn;
 
     private TextView forgetPassword;
@@ -68,11 +68,11 @@ public class SignInFragment extends Fragment {
 
         email = (EditText) view.findViewById(R.id.txt_Email);
         password = (EditText) view.findViewById(R.id.txt_Password);
-        ibtn_Close = view.findViewById(R.id.btn_CloseSignUp);
+//        ibtn_Close = view.findViewById(R.id.btn_CloseSignUp);
         btn_SignIn = view.findViewById(R.id.btn_SignIn);
         progressBar = view.findViewById(R.id.SignIn_ProgressBar);
         forgetPassword = view.findViewById(R.id.tv_ForgotPass);
-
+        btnClose = view.findViewById(R.id.btn_close);
         firebaseAuth = FirebaseAuth.getInstance();
          return view;
     }
@@ -88,6 +88,13 @@ public class SignInFragment extends Fragment {
             }
 
 
+        });
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new UserFragment());
+            }
         });
 
         btn_SignIn.setOnClickListener(new View.OnClickListener() {
@@ -142,7 +149,7 @@ public class SignInFragment extends Fragment {
             if(password.getText().length()>=8){
                 progressBar.setVisibility(View.VISIBLE);
                 btn_SignIn.setEnabled(false);
-                btn_SignIn.setBackgroundColor(Color.rgb(128,128,128));
+//                btn_SignIn.setBackgroundColor(Color.rgb(128,128,128));
                 firebaseAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText()
                         .toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -154,7 +161,7 @@ public class SignInFragment extends Fragment {
                         }else{
                             progressBar.setVisibility(View.INVISIBLE);
                             btn_SignIn.setEnabled(true);
-                            btn_SignIn.setBackgroundColor(Color.WHITE);
+//                            btn_SignIn.setBackgroundColor(Color.WHITE);
                             String error = task.getException().getMessage();
                             Toast.makeText(getActivity(),"Lỗi: "+error,Toast.LENGTH_SHORT).show();
                         }
@@ -174,14 +181,14 @@ public class SignInFragment extends Fragment {
         if(!TextUtils.isEmpty(email.getText())){
              if(!TextUtils.isEmpty(password.getText())){
                  btn_SignIn.setEnabled(true);
-                 btn_SignIn.setBackgroundColor(Color.WHITE);
+//                 btn_SignIn.setBackgroundColor(Color.WHITE);
              }else{
                  btn_SignIn.setEnabled(false);
-                 btn_SignIn.setBackgroundColor(Color.rgb(128,128,128));
+//                 btn_SignIn.setBackgroundColor(Color.rgb(128,128,128));
              }
         }else{
             btn_SignIn.setEnabled(false);
-            btn_SignIn.setBackgroundColor(Color.rgb(128,128,128));
+//            btn_SignIn.setBackgroundColor(Color.rgb(128,128,128));
         }
     }
 

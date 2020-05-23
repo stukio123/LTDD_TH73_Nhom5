@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -47,6 +48,7 @@ public class ForgotPasswordFragment extends Fragment {
     private ImageView iconEmail;
     private TextView conText;
     private ProgressBar progressBar;
+    private ImageButton btnBack;
 
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+" ;
 
@@ -63,12 +65,21 @@ public class ForgotPasswordFragment extends Fragment {
         iconEmail = view.findViewById(R.id.iconEmail);
         conText = view.findViewById(R.id.iconConText);
         progressBar = view.findViewById(R.id.progressBar);
+        btnBack = view.findViewById(R.id.btn_back);
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new SignInFragment());
+            }
+        });
 
         fgEmail.addTextChangedListener(new TextWatcher() {
             @Override
@@ -86,6 +97,10 @@ public class ForgotPasswordFragment extends Fragment {
                 checkInput();
             }
         });
+
+
+
+
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,9 +115,9 @@ public class ForgotPasswordFragment extends Fragment {
                                 progressBar.setVisibility(View.INVISIBLE);
                                 conText.setText("Khôi phục email thành công. Vui lòng kiểm tra email");
                                 conText.setVisibility(View.VISIBLE);
-                                conText.setTextColor(Color.GREEN);
+//                                conText.setTextColor(Color.GREEN);
                                 btnReset.setEnabled(false);
-                                btnReset.setBackgroundColor(Color.rgb(128, 128, 128));
+//                                btnReset.setBackgroundColor(Color.rgb(128, 128, 128));
                             } else {
                                 progressBar.setVisibility(View.GONE);
                                 String error = task.getException().getMessage();
@@ -116,7 +131,7 @@ public class ForgotPasswordFragment extends Fragment {
                 }else
                 {
                     btnReset.setEnabled(false);
-                    btnReset.setBackgroundColor(Color.rgb(128,128,128));
+//                    btnReset.setBackgroundColor(Color.rgb(128,128,128));
                     Toast.makeText(getActivity(), "Email không đúng định dạng", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -131,12 +146,17 @@ public class ForgotPasswordFragment extends Fragment {
     private void checkInput() {
         if(!TextUtils.isEmpty(fgEmail.getText())){
             btnReset.setEnabled(true);
-            btnReset.setBackgroundColor(Color.rgb(24, 158, 255));
+//            btnReset.setBackgroundColor(Color.rgb(24, 158, 255));
         }else{
             btnReset.setEnabled(false);
-            btnReset.setBackgroundColor(Color.rgb(128,128,128));
+//            btnReset.setBackgroundColor(Color.rgb(128,128,128));
         }
     }
+
+
+
+
+
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.slide_fromleft,R.anim.slideout_fromright);
