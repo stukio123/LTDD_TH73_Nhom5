@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/logoapp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".SplashActivity"
