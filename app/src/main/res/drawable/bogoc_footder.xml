@@ -3,12 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <gradient
-        android:angle="50"
-        android:centerColor="#d62976"
-        android:endColor="#4f5bd5"
-        android:startColor="#feda75"
-        android:type="linear" />
 
     <!-- Set màu nền-->
     <solid
