@@ -9,10 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.ecommerciandroiapp.Model.HorizontalBookModel;
 import com.example.ecommerciandroiapp.R;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class HorizontalBookAdapter extends RecyclerView.Adapter<HorizontalBookAdapter.ViewHolder> {
     private List<HorizontalBookModel> horizontalBookModelList;
@@ -30,10 +34,10 @@ public class HorizontalBookAdapter extends RecyclerView.Adapter<HorizontalBookAd
 
     @Override
     public void onBindViewHolder(@NonNull HorizontalBookAdapter.ViewHolder holder, int position) {
-        int resource = horizontalBookModelList.get(position).getBookImage();
+        String resource = horizontalBookModelList.get(position).getBookImage();
         String title = horizontalBookModelList.get(position).getBookTitel();
         String category = horizontalBookModelList.get(position).getBookCategory();
-        int price = horizontalBookModelList.get(position).getBookPrice();
+        String price = horizontalBookModelList.get(position).getBookPrice();
 
         holder.setProductImage(resource);
         holder.setProductTitle(title);
@@ -65,8 +69,8 @@ public class HorizontalBookAdapter extends RecyclerView.Adapter<HorizontalBookAd
             productPrice = itemView.findViewById(R.id.h_priceBook);
         }
 
-        private void setProductImage(int url){
-            productImage.setImageResource(url);
+        private void setProductImage(String url){
+            Glide.with(itemView.getContext()).load(url).apply(new RequestOptions().override(800,600)).into(productImage);
         }
         private void setProductTitle(String title){
             productTitle.setText(title);
@@ -74,8 +78,10 @@ public class HorizontalBookAdapter extends RecyclerView.Adapter<HorizontalBookAd
         private void setProductCategory(String category){
             productCategory.setText(category);
         }
-        private void setProductPrice(int price){
-            productPrice.setText(price);
+        private void setProductPrice(String price){
+            int prices = Integer.valueOf(price);
+            String Prices = String.format("%,d đ",prices);
+            productPrice.setText(Prices);
         }
     }
 }

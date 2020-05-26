@@ -93,7 +93,9 @@ public class SignInFragment extends Fragment {
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setFragment(new UserFragment());
+                Intent mainIntent = new Intent(getActivity(),MainActivity.class);
+                startActivity(mainIntent);
+                getActivity().finish();
             }
         });
 
