@@ -1,14 +1,11 @@
 package com.example.ecommerciandroiapp.Adapter;
 
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
@@ -30,11 +27,9 @@ public class SliderAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view = LayoutInflater.from(container.getContext()).inflate(R.layout.slider_layout,container,false);
-        ConstraintLayout bannerContrainer = view.findViewById(R.id.banner_container);
-        bannerContrainer.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(sliderModelList.get(position).getBackgroundColor())));
         ImageView banner = view.findViewById(R.id.banner_slider);
-        Glide.with(container.getContext()).load(sliderModelList.get(position).getBanner())
-                .apply(new RequestOptions().override(885,294)).into(banner);
+        Glide.with(container.getContext()).load(sliderModelList.get(position).getBannerImage())
+                .apply(new RequestOptions().override(800,294)).into(banner);
         container.addView(view,0);
         return view;
     }
