@@ -1,30 +1,30 @@
 package com.example.ecommerciandroiapp.Model;
 
 public class HorizontalBookModel {
-    private String bookTitle,bookCategory,bookImage;
-    private String bookPrice;
+    private String bookTitel,bookCategory;
+    private int bookPrice,bookImage;
 
-    public HorizontalBookModel(String bookImage, String bookTitle, String bookCategory, String bookPrice) {
+    public HorizontalBookModel(int bookImage, String bookTitel, String bookCategory, int bookPrice) {
         this.bookImage = bookImage;
-        this.bookTitle = bookTitle;
+        this.bookTitel = bookTitel;
         this.bookCategory = bookCategory;
         this.bookPrice = bookPrice;
     }
 
-    public String getBookImage() {
+    public int getBookImage() {
         return bookImage;
     }
 
-    public void setBookImage(String bookImage) {
+    public void setBookImage(int bookImage) {
         this.bookImage = bookImage;
     }
 
-    public String getBookTitle() {
-        return bookTitle;
+    public String getBookTitel() {
+        return bookTitel;
     }
 
-    public void setBookTitle(String bookTitel) {
-        this.bookTitle = bookTitel;
+    public void setBookTitel(String bookTitel) {
+        this.bookTitel = bookTitel;
     }
 
     public String getBookCategory() {
@@ -35,11 +35,11 @@ public class HorizontalBookModel {
         this.bookCategory = bookCategory;
     }
 
-    public String getBookPrice() {
+    public int getBookPrice() {
         return bookPrice;
     }
 
-    public void setBookPrice(String bookPrice) {
+    public void setBookPrice(int bookPrice) {
         this.bookPrice = bookPrice;
     }
 }
