@@ -64,7 +64,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             case HomePageModel.GRID_BOOK_VIEW:
                 View GridBookView = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_book_layout,parent,false);
                 return new GridBookViewHolder(GridBookView);
-                default:
+            default:
                 return null;
 
         }
@@ -94,10 +94,8 @@ public class HomePageAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return homePageModelList.size();
     }
-
-
 
 
 

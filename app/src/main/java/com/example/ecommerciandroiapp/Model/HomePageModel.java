@@ -50,4 +50,9 @@ public class HomePageModel {
         this.horizontalBookModelList = horizontalBookModelList;
     }
     //Kết thúc khởi tạo Horizontal view
+
+    //GridLayout
+
+    //GridLayout
+
 }

@@ -3,6 +3,7 @@ package com.example.ecommerciandroiapp.Model;
 public class BookModel {
     private String author, categoryID,description,title,imageURL;
     private int isbn,price,sku;
+    public BookModel(){}
 
     public BookModel(String author, String categoryID, String description, String title, String imageURL, int isbn, int price, int sku) {
         this.author = author;

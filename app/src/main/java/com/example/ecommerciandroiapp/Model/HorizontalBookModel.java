@@ -2,13 +2,13 @@ package com.example.ecommerciandroiapp.Model;
 
 public class HorizontalBookModel {
     private String bookTitle,bookCategory,bookImage;
-    private String bookPrice;
+    private int bookPrice;
 
-    public HorizontalBookModel(String bookImage, String bookTitle, String bookCategory, String bookPrice) {
-        this.bookImage = bookImage;
-        this.bookTitle = bookTitle;
-        this.bookCategory = bookCategory;
-        this.bookPrice = bookPrice;
+    public HorizontalBookModel(BookModel books) {
+        this.bookImage = books.getImageURL();
+        this.bookTitle = books.getTitle();
+        this.bookCategory = books.getCategoryID();
+        this.bookPrice = books.getPrice();
     }
 
     public String getBookImage() {
@@ -35,11 +35,11 @@ public class HorizontalBookModel {
         this.bookCategory = bookCategory;
     }
 
-    public String getBookPrice() {
+    public int getBookPrice() {
         return bookPrice;
     }
 
-    public void setBookPrice(String bookPrice) {
+    public void setBookPrice(int bookPrice) {
         this.bookPrice = bookPrice;
     }
 }

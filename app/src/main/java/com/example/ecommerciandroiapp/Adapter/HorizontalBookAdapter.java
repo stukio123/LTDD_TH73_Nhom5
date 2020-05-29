@@ -35,9 +35,9 @@ public class HorizontalBookAdapter extends RecyclerView.Adapter<HorizontalBookAd
     @Override
     public void onBindViewHolder(@NonNull HorizontalBookAdapter.ViewHolder holder, int position) {
         String resource = horizontalBookModelList.get(position).getBookImage();
-        String title = horizontalBookModelList.get(position).getBookTitel();
+        String title = horizontalBookModelList.get(position).getBookTitle();
         String category = horizontalBookModelList.get(position).getBookCategory();
-        String price = horizontalBookModelList.get(position).getBookPrice();
+        int price = horizontalBookModelList.get(position).getBookPrice();
 
         holder.setProductImage(resource);
         holder.setProductTitle(title);
@@ -78,7 +78,7 @@ public class HorizontalBookAdapter extends RecyclerView.Adapter<HorizontalBookAd
         private void setProductCategory(String category){
             productCategory.setText(category);
         }
-        private void setProductPrice(String price){
+        private void setProductPrice(int price){
             int prices = Integer.valueOf(price);
             String Prices = String.format("%,d đ",prices);
             productPrice.setText(Prices);
