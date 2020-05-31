@@ -16,27 +16,33 @@ import com.example.ecommerciandroiapp.R;
 
 import java.util.List;
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
+public class FlashAdapter extends RecyclerView.Adapter<FlashAdapter.ViewHolder> {
 
     private List<CategoryModel> categoryModelList;
-    public CategoryAdapter(List<CategoryModel> categoryModelList){
+    public FlashAdapter(List<CategoryModel> categoryModelList){
         this.categoryModelList = categoryModelList;
     }
 
     @NonNull
     @Override
-    public CategoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_item,parent,false);
+    public FlashAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.flashsale_item,parent,false);
         return new ViewHolder(view);
     }
 
+    //////TEST
+
+    /////
+
     @Override
-    public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FlashAdapter.ViewHolder holder, int position) {
         String url = categoryModelList.get(position).getCategoryImage();
         String name = categoryModelList.get(position).getCategoryName();
         holder.setCategoryName(name);
         holder.setCategoryImage(url);
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -51,6 +57,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             super(itemView);
             categoryName = itemView.findViewById(R.id.flash_name);
             categoryImage = itemView.findViewById(R.id.flash_image);
+
         }
         private void setCategoryImage(String url){
             if(!url.equals("null")){
@@ -62,5 +69,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             categoryName.setText(name);
             //
         }
+
+
     }
 }
