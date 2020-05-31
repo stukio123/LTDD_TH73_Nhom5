@@ -2,8 +2,8 @@
 <resources>
     <color name="colorPrimary">#4B29E6</color>
     <color name="colorPrimaryDark">#4B29E6</color>
-    <color name="colorAccent">#ffffff</color>
+    <color name="colorAccent">#4B29E6</color>
     <color name="btnBlue">#4B29E6</color>
-
+    <color name="boder">#A9A9A9</color>
     <color name="Background">#FFFFFF</color>
 </resources>

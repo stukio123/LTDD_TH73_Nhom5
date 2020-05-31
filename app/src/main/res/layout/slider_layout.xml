@@ -5,15 +5,15 @@
     android:id="@+id/banner_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/bogoc"
+
 
     android:elevation="3dp"
     android:padding="8dp">
 
     <ImageView
         android:id="@+id/banner_slider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="317dp"
+        android:layout_height="139dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

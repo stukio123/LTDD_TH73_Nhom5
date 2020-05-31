@@ -6,6 +6,7 @@ public class CategoryModel {
     public CategoryModel(String categoryImage, String categoryName) {
         this.categoryImage = categoryImage;
         this.categoryName = categoryName;
+//        this.background = background;
     }
 
     public String getCategoryImage() {

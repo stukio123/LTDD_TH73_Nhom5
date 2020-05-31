@@ -4,27 +4,26 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ecommerciandroiapp.Adapter.CategoryAdapter;
+import com.example.ecommerciandroiapp.Adapter.FlashAdapter;
 import com.example.ecommerciandroiapp.HomeFragment;
 import com.example.ecommerciandroiapp.Model.CategoryModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.api.Context;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 
-public class Category {
+public class Flash {
     public static final String TAG = HomeFragment.class.getSimpleName();
     private FirebaseFirestore firebaseFirestore;
     private List<CategoryModel> categoryModelList;
-    private CategoryAdapter categoryAdapter;
-    public Category(FirebaseFirestore firebaseFirestore, List<CategoryModel> categoryModelList,
-                    CategoryAdapter categoryAdapter){
+    private FlashAdapter categoryAdapter;
+    public Flash(FirebaseFirestore firebaseFirestore, List<CategoryModel> categoryModelList,
+                 FlashAdapter categoryAdapter){
         this.categoryAdapter =categoryAdapter;
         this.categoryModelList = categoryModelList;
         this.firebaseFirestore = firebaseFirestore;

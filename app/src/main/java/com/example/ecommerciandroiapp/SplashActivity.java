@@ -38,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
 //                SystemClock.sleep(3000);
-                Intent registerIntent = new Intent(SplashActivity.this,RegisterActivity.class);
+                Intent registerIntent = new Intent(SplashActivity.this,MainActivity.class);
                 startActivity(registerIntent);
                 finish();
             }

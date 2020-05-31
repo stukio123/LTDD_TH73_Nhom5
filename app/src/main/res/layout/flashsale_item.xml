@@ -3,27 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/bogoc_imgbutton">
 
     <TextView
-        android:id="@+id/category_name"
-        android:layout_width="66dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="28dp"
-        android:text="Sách tiếng anh"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/category_image"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/flash_name"
+        android:layout_width="73dp"
+        android:layout_height="34dp"
 
-    <ImageView
-        android:id="@+id/category_image"
+        android:text="Sách tiếng anh"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/flash_image"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="@+id/flash_image"
+        app:layout_constraintTop_toBottomOf="@+id/flash_image" />
+
+    <TextView
+        android:id="@+id/flash_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:text="300000"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/flash_name"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="@+id/flash_name"
+        app:layout_constraintTop_toBottomOf="@+id/flash_name"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/flash_image"
+        android:layout_width="128dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/sym_def_app_icon" /><![CDATA[
