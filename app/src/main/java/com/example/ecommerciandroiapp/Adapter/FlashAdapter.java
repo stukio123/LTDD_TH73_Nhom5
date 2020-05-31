@@ -1,6 +1,5 @@
 package com.example.ecommerciandroiapp.Adapter;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.Constraints;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -36,7 +34,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
         String url = categoryModelList.get(position).getCategoryImage();
         String name = categoryModelList.get(position).getCategoryName();
-
         holder.setCategoryName(name);
         holder.setCategoryImage(url);
     }
@@ -49,12 +46,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
         private ImageView categoryImage;
         private TextView categoryName;
-//        private Constraints background_categori;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             categoryName = itemView.findViewById(R.id.flash_name);
             categoryImage = itemView.findViewById(R.id.flash_image);
-//            background_categori = itemView.findViewById(R.id.background_categori);
         }
         private void setCategoryImage(String url){
             if(!url.equals("null")){
@@ -66,7 +62,5 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             categoryName.setText(name);
             //
         }
-
-
     }
 }
