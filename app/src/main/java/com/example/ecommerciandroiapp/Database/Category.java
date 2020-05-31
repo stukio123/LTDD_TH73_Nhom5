@@ -23,7 +23,6 @@ public class Category {
     private FirebaseFirestore firebaseFirestore;
     private List<CategoryModel> categoryModelList;
     private CategoryAdapter categoryAdapter;
-    private Context context;
     public Category(FirebaseFirestore firebaseFirestore, List<CategoryModel> categoryModelList,
                     CategoryAdapter categoryAdapter){
         this.categoryAdapter =categoryAdapter;
