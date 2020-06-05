@@ -18,6 +18,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.ecommerciandroiapp.Database.Category;
+import com.example.ecommerciandroiapp.Model.CategoryModel;
 import com.example.ecommerciandroiapp.Model.HomePageModel;
 import com.example.ecommerciandroiapp.Model.HorizontalBookModel;
 import com.example.ecommerciandroiapp.Model.SliderModel;
@@ -30,11 +32,11 @@ import java.util.TimerTask;
 public class HomePageAdapter extends RecyclerView.Adapter {
 
     private List<HomePageModel> homePageModelList;
-    private RecyclerView.RecycledViewPool recycledViewPool;
+    //private RecyclerView.RecycledViewPool recycledViewPool;
 
     public HomePageAdapter(List<HomePageModel> homePageModelList) {
         this.homePageModelList = homePageModelList;
-        recycledViewPool = new RecyclerView.RecycledViewPool();
+        //recycledViewPool = new RecyclerView.RecycledViewPool();
     }
 
     @Override
@@ -46,6 +48,8 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 return HomePageModel.HORIZONTAL_BOOK_VIEW;
             case 2:
                 return HomePageModel.GRID_BOOK_VIEW;
+            case 3:
+                return HomePageModel.CATEGORIES_BOOK_VIEW;
             default:
                 return -1;
         }
@@ -80,13 +84,17 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             case HomePageModel.HORIZONTAL_BOOK_VIEW:
                 String horizontalLayoutTitle = homePageModelList.get(position).getBookTitle();
                 List<HorizontalBookModel> horizontalBookModelList = homePageModelList.get(position).getHorizontalBookModelList();
-                ((HorizontalBookViewHolder)holder).setHorizontalBookLayout(horizontalBookModelList,horizontalLayoutTitle);
+                ((HorizontalBookViewHolder)holder).setHorizontalBookLayout(horizontalBookModelList);
                 break;
             case HomePageModel.GRID_BOOK_VIEW:
                 String gridLayoutTitle = homePageModelList.get(position).getBookTitle();
                 List<HorizontalBookModel> gridBookModelList = homePageModelList.get(position).getHorizontalBookModelList();
                 ((GridBookViewHolder)holder).setGridBookLayout(gridBookModelList,gridLayoutTitle);
-                break;
+                break; 
+            /*case HomePageModel.CATEGORIES_BOOK_VIEW:
+                List<CategoryModel> categoryModelList = homePageModelList.get(position).getCategoryModelList();
+                ((CategoryViewHolder)holder).setBannerSliderViewPage(categoryModelList);
+                break;*/
             default:
                 return ;
         }
@@ -186,14 +194,11 @@ public class HomePageAdapter extends RecyclerView.Adapter {
 
         public HorizontalBookViewHolder(@NonNull View itemView) {
             super(itemView);
-            horizontalLayoutButton = itemView.findViewById(R.id.horizontal_scroll_layout_title);
-            horizontalLayoutButton = itemView.findViewById(R.id.horizontal_scroll_layout_button);
             horizontalRecyclerView = itemView.findViewById(R.id.horizontal_scroll_layout_recycleview);
-            horizontalRecyclerView.setRecycledViewPool(recycledViewPool);
+            //horizontalRecyclerView.setRecycledViewPool(recycledViewPool);
         }
 
-        private void setHorizontalBookLayout(List<HorizontalBookModel> horizontalBookModelList,String title){
-            horizontalLayoutTitle.setText(title);
+        private void setHorizontalBookLayout(List<HorizontalBookModel> horizontalBookModelList){
 
             if(horizontalBookModelList.size() > 8)
             {
@@ -236,6 +241,14 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 bookCategory.setText(horizontalBookModelList.get(i).getBookCategory());
                 bookPrice.setText(horizontalBookModelList.get(i).getBookPrice());
             }
+        }
+    }
+    public class CategoryViewHolder extends RecyclerView.ViewHolder{
+        public CategoryViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
+
+        public void setBannerSliderViewPage(List<CategoryModel> categoryModelList) {
         }
     }
 }

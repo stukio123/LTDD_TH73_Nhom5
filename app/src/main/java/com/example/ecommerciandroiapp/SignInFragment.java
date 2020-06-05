@@ -64,7 +64,7 @@ public class SignInFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sign_in, container, false);
         dontHaveAccount = view.findViewById(R.id.tv_SignUp);
-        parentFrameLayout = getActivity().findViewById(R.id.farm);
+        parentFrameLayout = getActivity().findViewById(R.id.register_layout);
         txt_Account = getActivity().findViewById(R.id.user_accout);
         email = (EditText) view.findViewById(R.id.txt_Email);
         password = (EditText) view.findViewById(R.id.txt_Password);

@@ -7,13 +7,13 @@ android {
 
     defaultConfig {
         applicationId "com.example.ecommerciandroiapp"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
         // The default minimum API level you want to support.
-        minSdkVersion 15
+        minSdkVersion 23
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     flavorDimensions "version"
@@ -25,7 +25,7 @@ android {
             // when deploying your app to a device running Android 5.0
             // (API level 21) or higher—regardless of what you set for
             // minSdkVersion.
-            minSdkVersion 21
+            //minSdkVersion 21
         }
         prod {
             // If you've configured the defaultConfig block for the production version of
@@ -69,6 +69,10 @@ dependencies {
 
     implementation 'androidx.multidex:multidex:2.0.0'
     implementation 'com.aurelhubert:ahbottomnavigation:0.1.3'
+    implementation 'com.android.support:design:28.1.0'
+    implementation 'com.android.support:support-core-utils:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.1.0'
+
     //Glide lib
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'

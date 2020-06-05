@@ -6,4 +6,6 @@
     <color name="btnBlue">#4B29E6</color>
     <color name="boder">#A9A9A9</color>
     <color name="Background">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="Success">#4BB543</color>
 </resources>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/Background"
+    android:elevation="3dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/book_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/sachtienganh" />
+
+    <TextView
+        android:id="@+id/cart_book_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Tên Sách"
+        android:textSize="22sp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/book_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/book_publisher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Nhà xuất bản"
+        app:layout_constraintStart_toStartOf="@+id/cart_book_title"
+        app:layout_constraintTop_toBottomOf="@+id/cart_book_title" />
+
+    <TextView
+        android:id="@+id/book_prices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Giá"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#FF0000"
+        app:layout_constraintStart_toStartOf="@+id/book_publisher"
+        app:layout_constraintTop_toBottomOf="@+id/book_publisher" />
+
+    <TextView
+        android:id="@+id/book_cutted_prices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Giá gốc"
+        app:layout_constraintStart_toStartOf="@+id/book_prices"
+        app:layout_constraintTop_toBottomOf="@+id/book_prices" />
+
+    <View
+        android:id="@+id/prices_cutted_divider"
+        android:layout_width="50dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="@+id/book_cutted_prices"
+        app:layout_constraintEnd_toEndOf="@+id/book_cutted_prices"
+        app:layout_constraintStart_toStartOf="@+id/book_cutted_prices"
+        app:layout_constraintTop_toTopOf="@+id/book_cutted_prices" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@+id/book_cutted_prices"
+        app:layout_constraintTop_toBottomOf="@+id/book_cutted_prices">
+
+        <ImageView
+            android:id="@+id/down_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_baseline_remove_circle_24" />
+
+        <TextView
+            android:id="@+id/tv_amount"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1"
+            android:textAlignment="center" />
+
+        <ImageView
+            android:id="@+id/up_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_baseline_add_circle_24" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/delete_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#ffffff"
+        android:tint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

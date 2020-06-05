@@ -11,10 +11,13 @@
         android:roundIcon="@mipmap/logoapp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".OrderDetailActivity"></activity>
+        <activity android:name=".BookDetailActivity" />
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".CategoryActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/IntroTheme">

@@ -4,11 +4,8 @@ public class HorizontalBookModel {
     private String bookTitle,bookCategory,bookImage;
     private int bookPrice;
 
-    public HorizontalBookModel(BookModel books) {
-        this.bookImage = books.getImageURL();
-        this.bookTitle = books.getTitle();
-        this.bookCategory = books.getCategoryID();
-        this.bookPrice = books.getPrice();
+    public HorizontalBookModel(String bookImage) {
+        this.bookImage = bookImage;
     }
 
     public String getBookImage() {

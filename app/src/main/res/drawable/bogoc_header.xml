@@ -24,7 +24,8 @@ android:shape="rectangle">
 <!-- và đây là bán kính đường tròn ở 4 góc -->
 <corners
 
-    android:bottomLeftRadius="40dp">
+    android:bottomLeftRadius="40dp"
+    android:bottomRightRadius="40dp">
 </corners>
 
 </shape>

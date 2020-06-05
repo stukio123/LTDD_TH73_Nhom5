@@ -4,13 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/bogoc_header">
 
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/banner_slider_view_pager"
-        android:layout_width="0dp"
-        android:layout_height="230dp"
+        android:layout_width="374dp"
+        android:layout_height="126dp"
         android:paddingLeft="16dp"
         android:paddingTop="8dp"
         android:paddingRight="16dp"

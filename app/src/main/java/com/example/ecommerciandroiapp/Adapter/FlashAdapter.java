@@ -30,10 +30,6 @@ public class FlashAdapter extends RecyclerView.Adapter<FlashAdapter.ViewHolder> 
         return new ViewHolder(view);
     }
 
-    //////TEST
-
-    /////
-
     @Override
     public void onBindViewHolder(@NonNull FlashAdapter.ViewHolder holder, int position) {
         String url = categoryModelList.get(position).getCategoryImage();
@@ -41,8 +37,6 @@ public class FlashAdapter extends RecyclerView.Adapter<FlashAdapter.ViewHolder> 
         holder.setCategoryName(name);
         holder.setCategoryImage(url);
     }
-
-
 
     @Override
     public int getItemCount() {
@@ -67,7 +61,6 @@ public class FlashAdapter extends RecyclerView.Adapter<FlashAdapter.ViewHolder> 
         }
         private void setCategoryName(String name){
             categoryName.setText(name);
-            //
         }
 
 

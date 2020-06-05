@@ -7,7 +7,25 @@ public class HomePageModel {
     public static final int BANNER_SLIDER = 0;
     public static final int HORIZONTAL_BOOK_VIEW = 1;
     public static final int GRID_BOOK_VIEW = 2;
+    public static final int CATEGORIES_BOOK_VIEW = 3;
     private int type;
+
+    public int getType() {
+        return type;
+    }
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    //Khởi tạo category
+    /*private List<CategoryModel> categoryModelList;
+
+    public void setCategoryModelList(List<CategoryModel> categoryModelList) {
+        this.categoryModelList = categoryModelList;
+    }
+
+    public List<CategoryModel> getCategoryModelList(){return categoryModelList;}*/
+    //Kết thúc khởi tạo category
 
     //Khởi Tạo Banner
     private List<SliderModel> sliderModelList;
@@ -15,12 +33,7 @@ public class HomePageModel {
         this.type = type;
         this.sliderModelList = sliderModelList;
     }
-    public int getType() {
-        return type;
-    }
-    public void setType(int type) {
-        this.type = type;
-    }
+
     public List<SliderModel> getSliderModelList() {
         return sliderModelList;
     }

@@ -20,11 +20,10 @@ import static com.example.ecommerciandroiapp.RegisterActivity.onResetPasswordFra
 import static com.example.ecommerciandroiapp.RegisterActivity.onSignUpFragmen;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class UserFragment extends Fragment {
+
     private FrameLayout parentFrameLayout;
+
     public UserFragment() {
         // Required empty public constructor
     }
@@ -32,6 +31,8 @@ public class UserFragment extends Fragment {
     private BottomNavigationView bottomNavigationView;
     private TextView txt_DangNhap;
     private Button btn_SignOut;
+    private TextView myOrder;
+    private TextView myWishList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
@@ -39,8 +40,11 @@ public class UserFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user, container, false);
         txt_DangNhap = view.findViewById(R.id.user_accout);
-        parentFrameLayout = getActivity().findViewById(R.id.farm);
+        parentFrameLayout = getActivity().findViewById(R.id.fragment_container);
         bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation_container);
+        myOrder = view.findViewById(R.id.user_quanlydonhang);
+        myWishList = view.findViewById(R.id.user_danhsachyeuthich);
+
 //        bottomNavigationView.setVisibility(View.GONE);
         btn_SignOut = view.findViewById(R.id.btn_signout);
         if(txt_DangNhap.getText().equals("Đăng nhập")){
@@ -72,6 +76,18 @@ public class UserFragment extends Fragment {
             }
 
 
+        });
+        myOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new MyOrderFragment());
+            }
+        });
+        myWishList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new MyWishListFragment());
+            }
         });
     }
 

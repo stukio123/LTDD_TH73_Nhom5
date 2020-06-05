@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firestore.v1.StructuredQuery;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragmet = new SearchFragment();
                             break;
                         case R.id.nav_notification:
-                            selectedFragmet = new NotificationFragment();
+                            selectedFragmet = new MyOrderFragment();
+
                             break;
                         case R.id.nav_user:
                             selectedFragmet = new UserFragment();
@@ -52,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
-
 
     private FrameLayout framelayout;
     private void setFragment(Fragment fragment) {

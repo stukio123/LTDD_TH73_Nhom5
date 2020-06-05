@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Background"
+    android:elevation="3dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/delivered_indicator"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="@+id/shipped_indicator"
+        app:layout_constraintTop_toBottomOf="@+id/shipped_indicator"
+        app:srcCompat="@drawable/default_dot" />
+
+    <ProgressBar
+        android:id="@+id/shipped_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:progressTint="@color/Success"
+        android:rotation="90"
+        android:transformPivotX="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/shipped_indicator"
+        app:layout_constraintStart_toEndOf="@+id/shipped_indicator"
+        app:layout_constraintTop_toTopOf="@+id/shipped_indicator"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/shipped_indicator"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="@+id/package_indicator"
+        app:layout_constraintTop_toBottomOf="@+id/package_indicator"
+        app:srcCompat="@drawable/default_dot" />
+
+    <TextView
+        android:id="@+id/package_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Đóng gói"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/package_indicator"
+        app:layout_constraintStart_toEndOf="@+id/package_indicator"
+        app:layout_constraintTop_toTopOf="@+id/package_indicator" />
+
+    <ProgressBar
+        android:id="@+id/package_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:progressTint="@color/Success"
+        android:rotation="90"
+        android:transformPivotX="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/package_indicator"
+        app:layout_constraintStart_toEndOf="@+id/package_indicator"
+        app:layout_constraintTop_toTopOf="@+id/package_indicator"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/package_indicator"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="50dp"
+
+        app:layout_constraintStart_toStartOf="@+id/order_indicator"
+        app:layout_constraintTop_toBottomOf="@+id/order_indicator"
+        app:srcCompat="@drawable/default_dot" />
+
+    <ImageView
+        android:id="@+id/book_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/sachtienganh" />
+
+    <TextView
+        android:id="@+id/book_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Sách tiếng anh"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/book_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="120.000đ"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/book_image"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/book_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="2 quyển"
+        app:layout_constraintBottom_toBottomOf="@+id/book_image"
+        app:layout_constraintEnd_toStartOf="@+id/book_image" />
+
+    <View
+        android:id="@+id/divider9"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/book_image" />
+
+    <ProgressBar
+        android:id="@+id/order_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:progressTint="@color/Success"
+        android:rotation="90"
+        android:transformPivotX="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/order_indicator"
+        app:layout_constraintStart_toEndOf="@+id/order_indicator"
+        app:layout_constraintTop_toTopOf="@+id/order_indicator" />
+
+    <TextView
+        android:id="@+id/order_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Đặt hàng"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/order_indicator"
+        app:layout_constraintStart_toEndOf="@+id/order_indicator"
+        app:layout_constraintTop_toTopOf="@+id/order_indicator" />
+
+    <ImageView
+        android:id="@+id/order_indicator"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider9"
+        app:srcCompat="@drawable/default_dot" />
+
+    <TextView
+        android:id="@+id/shipped_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Vận chuyển"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/shipped_indicator"
+        app:layout_constraintStart_toEndOf="@+id/shipped_indicator"
+        app:layout_constraintTop_toTopOf="@+id/shipped_indicator" />
+
+    <TextView
+        android:id="@+id/delivered_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Giao hàng"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/delivered_indicator"
+        app:layout_constraintStart_toEndOf="@+id/delivered_indicator"
+        app:layout_constraintTop_toTopOf="@+id/delivered_indicator" />
+
+    <TextView
+        android:id="@+id/order_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Ngày x, Tháng y, Năm z"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/order_title"
+        app:layout_constraintStart_toEndOf="@+id/order_progress_bar"
+        app:layout_constraintTop_toTopOf="@+id/order_title" />
+
+    <TextView
+        android:id="@+id/order_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Đơn hàng của bạn đã đặt thành công"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/order_title"
+        app:layout_constraintTop_toBottomOf="@+id/order_title" />
+
+    <TextView
+        android:id="@+id/package_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ngày x, Tháng y, Năm z"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/package_title"
+        app:layout_constraintStart_toStartOf="@+id/order_date"
+        app:layout_constraintTop_toTopOf="@+id/package_title" />
+
+    <TextView
+        android:id="@+id/shipped_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ngày x, Tháng y, Năm z"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/shipped_title"
+        app:layout_constraintStart_toStartOf="@+id/package_date"
+        app:layout_constraintTop_toTopOf="@+id/shipped_title" />
+
+    <TextView
+        android:id="@+id/delivered_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ngày x, Tháng y, Năm z"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/delivered_title"
+        app:layout_constraintStart_toStartOf="@+id/shipped_date"
+        app:layout_constraintTop_toTopOf="@+id/delivered_title" />
+
+    <TextView
+        android:id="@+id/package_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Hàng đã được đóng gói"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/package_title"
+        app:layout_constraintTop_toBottomOf="@+id/package_title" />
+
+    <TextView
+        android:id="@+id/shipped_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Đơn hàng đang được vận chuyển"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/shipped_title"
+        app:layout_constraintTop_toBottomOf="@+id/shipped_title" />
+
+    <TextView
+        android:id="@+id/delivered_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Giao hàng thành công"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/delivered_title"
+        app:layout_constraintTop_toBottomOf="@+id/delivered_title" />
+
+    <View
+        android:id="@+id/divider10"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/delivered_status" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Đánh giá của bạn"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider10" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:isIndicator="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+</androidx.constraintlayout.widget.ConstraintLayout>

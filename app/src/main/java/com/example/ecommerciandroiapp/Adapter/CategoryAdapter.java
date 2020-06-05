@@ -1,5 +1,6 @@
 package com.example.ecommerciandroiapp.Adapter;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.ecommerciandroiapp.CategoryActivity;
 import com.example.ecommerciandroiapp.Model.CategoryModel;
 import com.example.ecommerciandroiapp.R;
 
@@ -37,7 +39,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         String url = categoryModelList.get(position).getCategoryImage();
         String name = categoryModelList.get(position).getCategoryName();
 
-        holder.setCategoryName(name);
+        holder.setCategory(name);
         holder.setCategoryImage(url);
     }
 
@@ -62,9 +64,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             }
 
         }
-        private void setCategoryName(String name){
+        private void setCategory(final String name){
             categoryName.setText(name);
-            //
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent categoryIntent = new Intent(itemView.getContext(), CategoryActivity.class);
+                    categoryIntent.putExtra("categoryName",name);
+                    itemView.getContext().startActivity(categoryIntent);
+                }
+            });
         }
 
 

@@ -59,7 +59,7 @@ public class ForgotPasswordFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forgot_password, container, false);
         fgEmail = view.findViewById(R.id.txt_Email);
         btnReset = view.findViewById(R.id.btn_Forgot);
-        parentFrameLayout = getActivity().findViewById(R.id.farm);
+        parentFrameLayout = getActivity().findViewById(R.id.register_layout);
         firebaseAuth = FirebaseAuth.getInstance();
         viewGroup = view.findViewById(R.id.linearLayout_Container);
         iconEmail = view.findViewById(R.id.iconEmail);

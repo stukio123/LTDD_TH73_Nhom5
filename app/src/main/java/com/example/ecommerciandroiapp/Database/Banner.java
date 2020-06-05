@@ -5,6 +5,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.ecommerciandroiapp.Adapter.HomePageAdapter;
+import com.example.ecommerciandroiapp.Adapter.SliderAdapter;
 import com.example.ecommerciandroiapp.Model.HomePageModel;
 import com.example.ecommerciandroiapp.Model.SliderModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,13 +20,13 @@ import java.util.List;
 
 public class Banner {
     private FirebaseFirestore firebaseFirestore;
-    private HomePageAdapter adapter;
-    private List<HomePageModel> homePageModelList;
+    private SliderAdapter adapter;
+    private List<SliderModel> sliderModelList;
     public Banner(FirebaseFirestore firebaseFirestore,
-                  List<HomePageModel> homePageModelList,HomePageAdapter adapter) {
+                  List<SliderModel> sliderModelList,SliderAdapter adapter) {
         this.firebaseFirestore = firebaseFirestore;
         this.adapter = adapter;
-        this.homePageModelList = homePageModelList;
+        this.sliderModelList = sliderModelList;
     }
 
 
@@ -37,7 +38,6 @@ public class Banner {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful()){
-
                             for(QueryDocumentSnapshot documentSnapshot: task.getResult())
                             {
                                 if(documentSnapshot.getLong("view_type") == 0){
@@ -47,17 +47,7 @@ public class Banner {
                                     {
                                         sliderModelList.add(new SliderModel(documentSnapshot.get("banner_"+ String.valueOf(i)).toString()));
                                     }
-                                    homePageModelList.add(new HomePageModel(0,sliderModelList));
-                                }else if(documentSnapshot.getLong("view_type") == 1){
-                            /*List<HorizontalBookModel> horizontalBookModelList = new ArrayList<>();
-                            long no_of_books = documentSnapshot.getLong("no_of_books");
-                            for(int i = 1; i< no_of_books;i++)
-                            {
-                                String isbn = documentSnapshot.getString("book_"+i);
-                                horizontalBookModelList.add(new HorizontalBookModel(fetchBooks(isbn)));
-                            }
-                            homePageModelList.add(new HomePageModel(1,documentSnapshot.get("title").toString(),horizontalBookModelList));*/
-                                }else{}
+                                }
                             }
                             adapter.notifyDataSetChanged();
                         }else{

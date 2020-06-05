@@ -63,7 +63,7 @@ public class SignUpFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
         alreadyHaveAccount = view.findViewById(R.id.tv_SignUp2);
-        parentFrameLayout = getActivity().findViewById(R.id.farm);
+        parentFrameLayout = getActivity().findViewById(R.id.register_layout);
         email = (EditText) view.findViewById(R.id.txt_Email);
         name = (EditText) view.findViewById(R.id.txt_Name);
         password = (EditText) view.findViewById(R.id.txt_Password);
