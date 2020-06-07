@@ -1,8 +1,12 @@
 package com.example.ecommerciandroiapp.Adapter;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -112,6 +116,46 @@ public class CartAdapter extends RecyclerView.Adapter {
             bookPrice.setText(price);
             bookPublisher.setText(publisher);
             bookCuttedPrice.setText(cuttedPrice);
+            up_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    bookAmount.setText(String.valueOf(Integer.parseInt(bookAmount.getText().toString())+1));
+                }
+            });
+            down_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    bookAmount.setText(String.valueOf(Integer.parseInt(bookAmount.getText().toString())-1));
+                }
+            });
+            bookAmount.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final Dialog quantityDialog = new Dialog(itemView.getContext());
+                    quantityDialog.setContentView(R.layout.quantity_dialog);
+                    quantityDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                    quantityDialog.setCancelable(false);
+                    final EditText quantityNumbers = quantityDialog.findViewById(R.id.quantity_number);
+                    Button cancelBtn = quantityDialog.findViewById(R.id.cancel_button);
+                    Button saveBtn = quantityDialog.findViewById(R.id.save_btn);
+
+                    cancelBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            quantityDialog.dismiss();
+                        }
+                    });
+
+                    saveBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            bookAmount.setText(quantityNumbers.getText());
+                            quantityDialog.dismiss();
+                        }
+                    });
+                    quantityDialog.show();
+                }
+            });
         }
     }
 

@@ -1,5 +1,6 @@
 package com.example.ecommerciandroiapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -33,6 +34,9 @@ public class UserFragment extends Fragment {
     private Button btn_SignOut;
     private TextView myOrder;
     private TextView myWishList;
+    private TextView myReward;
+    private TextView myAddressed;
+    public static final int MANAGE_ADDRESS = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
@@ -44,6 +48,8 @@ public class UserFragment extends Fragment {
         bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation_container);
         myOrder = view.findViewById(R.id.user_quanlydonhang);
         myWishList = view.findViewById(R.id.user_danhsachyeuthich);
+        myReward = view.findViewById(R.id.user_magiamgia);
+        myAddressed = view.findViewById(R.id.user_sodiachi);
 
 //        bottomNavigationView.setVisibility(View.GONE);
         btn_SignOut = view.findViewById(R.id.btn_signout);
@@ -60,10 +66,9 @@ public class UserFragment extends Fragment {
         else
             txt_DangNhap.setEnabled(false);
 
-
-
         return view;
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -89,9 +94,22 @@ public class UserFragment extends Fragment {
                 setFragment(new MyWishListFragment());
             }
         });
+        myReward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new MyRewardFragment());
+            }
+        });
+
+        myAddressed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myAddressIntent = new Intent(getContext(),MyAddressActivity.class);
+                myAddressIntent.putExtra("MODE",MANAGE_ADDRESS);
+                startActivity(myAddressIntent);
+            }
+        });
     }
-
-
 
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();

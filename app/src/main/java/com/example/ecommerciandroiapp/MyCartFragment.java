@@ -1,6 +1,7 @@
 package com.example.ecommerciandroiapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.ecommerciandroiapp.Adapter.CartAdapter;
 import com.example.ecommerciandroiapp.Model.CartItemModel;
@@ -23,6 +25,7 @@ public class MyCartFragment extends Fragment {
     }
 
     private RecyclerView cartItemRecyclerView;
+    private Button pay;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,7 @@ public class MyCartFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_cart, container, false);
         cartItemRecyclerView = view.findViewById(R.id.cart_items_recycler_view);
-        Context context;
+        pay = view.findViewById(R.id.cart_continue_btn);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         cartItemRecyclerView.setLayoutManager(linearLayoutManager);
@@ -54,6 +57,14 @@ public class MyCartFragment extends Fragment {
         CartAdapter adapter = new CartAdapter(cartItemModelList);
         cartItemRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent deliveryIntent = new Intent(getContext(),AddAdressActivity.class);
+                getContext().startActivity(deliveryIntent);
+            }
+        });
         return view;
     }
 }

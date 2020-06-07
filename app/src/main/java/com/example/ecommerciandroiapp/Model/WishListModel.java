@@ -3,14 +3,14 @@ package com.example.ecommerciandroiapp.Model;
 
 
 public class WishListModel {
-    private int bookImage;
+    private String bookImage;
     private String bookTitle,bookAuthor;
-    private String rating;
-    private int totalRating;
+    private long rating;
+    private long totalRating;
     private String bookPrice;
     private String cuttedPrice;
 
-    public WishListModel(int bookImage, String bookTitle, String bookAuthor, String rating, int totalRating, String bookPrice, String cuttedPrice) {
+    public WishListModel(String bookImage, String bookTitle, String bookAuthor, long rating, long totalRating, String bookPrice, String cuttedPrice) {
         this.bookImage = bookImage;
         this.bookTitle = bookTitle;
         this.bookAuthor = bookAuthor;
@@ -20,11 +20,11 @@ public class WishListModel {
         this.cuttedPrice = cuttedPrice;
     }
 
-    public int getBookImage() {
+    public String getBookImage() {
         return bookImage;
     }
 
-    public void setBookImage(int bookImage) {
+    public void setBookImage(String bookImage) {
         this.bookImage = bookImage;
     }
 
@@ -44,19 +44,19 @@ public class WishListModel {
         this.bookAuthor = bookAuthor;
     }
 
-    public String getRating() {
+    public long getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(long rating) {
         this.rating = rating;
     }
 
-    public int getTotalRating() {
+    public long getTotalRating() {
         return totalRating;
     }
 
-    public void setTotalRating(int totalRating) {
+    public void setTotalRating(long totalRating) {
         this.totalRating = totalRating;
     }
 

@@ -43,12 +43,8 @@ public class MyWishListFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         wishlistRecyclerView.setLayoutManager(linearLayoutManager);
         List<WishListModel> wishListModelList = new ArrayList<>();
-        wishListModelList.add(new WishListModel(R.mipmap.sachtienganh,"Sách tiếng anh","Bộ Giáo Dục","4.5",27,"120.000 đ","199.000 đ"));
-        wishListModelList.add(new WishListModel(R.mipmap.sachtienganh,"Sách tiếng anh","Bộ Giáo Dục","1.5",5,"120.000 đ","199.000 đ"));
-        wishListModelList.add(new WishListModel(R.mipmap.sachtienganh,"Sách tiếng anh","Bộ Giáo Dục","2",15,"120.000 đ","199.000 đ"));
-        wishListModelList.add(new WishListModel(R.mipmap.sachtienganh,"Sách tiếng anh","Bộ Giáo Dục","5",390,"120.000 đ","199.000 đ"));
-        wishListModelList.add(new WishListModel(R.mipmap.sachtienganh,"Sách tiếng anh","Bộ Giáo Dục","3",23,"120.000 đ","199.000 đ"));
-        WishListAdapter adapter = new WishListAdapter(wishListModelList);
+
+        WishListAdapter adapter = new WishListAdapter(wishListModelList,true);
         wishlistRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         return view;

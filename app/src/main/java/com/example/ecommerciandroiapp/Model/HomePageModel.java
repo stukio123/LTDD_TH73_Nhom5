@@ -45,11 +45,27 @@ public class HomePageModel {
     //Khởi tạo Horizontal view và GridView Layout
     private String bookTitle;
     private List<HorizontalBookModel> horizontalBookModelList;
+    private List<WishListModel> viewAllList;
+    public HomePageModel(int type, String bookTitle, List<HorizontalBookModel> horizontalBookModelList,List<WishListModel> viewAllList) {
+        this.type = type;
+        this.bookTitle = bookTitle;
+        this.horizontalBookModelList = horizontalBookModelList;
+        this.viewAllList = viewAllList;
+    }
     public HomePageModel(int type, String bookTitle, List<HorizontalBookModel> horizontalBookModelList) {
         this.type = type;
         this.bookTitle = bookTitle;
         this.horizontalBookModelList = horizontalBookModelList;
     }
+
+    public List<WishListModel> getViewAllList() {
+        return viewAllList;
+    }
+
+    public void setViewAllList(List<WishListModel> viewAllList) {
+        this.viewAllList = viewAllList;
+    }
+
     public String getBookTitle() {
         return bookTitle;
     }

@@ -35,10 +35,6 @@ import java.util.Map;
 import static com.example.ecommerciandroiapp.RegisterActivity.onResetPasswordFragmen;
 import static com.example.ecommerciandroiapp.RegisterActivity.onSignUpFragmen;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class SignInFragment extends Fragment {
 
     public SignInFragment() {
@@ -90,8 +86,6 @@ public class SignInFragment extends Fragment {
 
 
         });
-
-
 
 
         btnClose.setOnClickListener(new View.OnClickListener() {
@@ -157,8 +151,8 @@ public class SignInFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            parentFrameLayout.setVisibility(View.GONE);
-                            txt_Account.setText(email.getText());
+                            //parentFrameLayout.setVisibility(View.GONE);
+                            //txt_Account.setText(email.getText());
                             btn_SignOut.setVisibility(View.VISIBLE);
                             txt_Account.setEnabled(true);
                         }else{

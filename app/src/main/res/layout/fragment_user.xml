@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UserFragment" >
+    android:layout_height="wrap_content"
+    tools:context=".UserFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -93,10 +93,10 @@
                 android:id="@+id/user_sodiachi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
                 android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
                 android:drawablePadding="10dp"
-                android:layout_margin="10dp"
                 android:text="Sổ địa chỉ"
                 android:textColor="#000000"
                 android:textSize="13dp" />
@@ -105,10 +105,10 @@
                 android:id="@+id/user_thanhtoan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
                 android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
                 android:drawablePadding="10dp"
-                android:layout_margin="10dp"
                 android:text="Thông tin thanh toán"
                 android:textColor="#000000"
                 android:textSize="13dp" />
@@ -150,14 +150,14 @@
                 android:textSize="13dp" />
 
             <TextView
-                android:id="@+id/user_donhanghuy"
+                android:id="@+id/user_magiamgia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
                 android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
                 android:drawablePadding="10dp"
-                android:text="Đơn hàng đã hủy"
+                android:text="Mã giảm giá"
                 android:textColor="#000000"
                 android:textSize="13dp" />
         </LinearLayout>

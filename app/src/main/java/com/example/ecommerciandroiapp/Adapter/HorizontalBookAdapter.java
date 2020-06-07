@@ -40,7 +40,7 @@ public class HorizontalBookAdapter extends RecyclerView.Adapter<HorizontalBookAd
         String resource = horizontalBookModelList.get(position).getBookImage();
         String title = horizontalBookModelList.get(position).getBookTitle();
         String category = horizontalBookModelList.get(position).getBookCategory();
-        int price = horizontalBookModelList.get(position).getBookPrice();
+        String price = horizontalBookModelList.get(position).getBookPrice();
 
         holder.setProductImage(resource);
         holder.setProductTitle(title);
@@ -81,7 +81,8 @@ public class HorizontalBookAdapter extends RecyclerView.Adapter<HorizontalBookAd
         }
 
         private void setProductImage(String url){
-            Glide.with(itemView.getContext()).load(url).apply(new RequestOptions().override(800,600)).into(productImage);
+            Glide.with(itemView.getContext()).load(url).apply(new RequestOptions().placeholder(R.mipmap.sachtienganh)).into(productImage);
+            //productImage.setImageResource(url);
         }
         private void setProductTitle(String title){
             productTitle.setText(title);
@@ -89,8 +90,10 @@ public class HorizontalBookAdapter extends RecyclerView.Adapter<HorizontalBookAd
         private void setProductCategory(String category){
             productCategory.setText(category);
         }
-        private void setProductPrice(int price){
-            int prices = price;
+        private void setProductPrice(String price){
+            int prices = 0;
+            if(price != null)
+                prices = Integer.parseInt(price);
             String Prices = String.format("%,d đ",prices);
             productPrice.setText(Prices);
         }

@@ -28,7 +28,7 @@ public class GridBookLayoutAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 4; // 1 grid chứ 4 object
+        return horizontalBookModelList.size();
     }
 
     @Override
@@ -59,14 +59,21 @@ public class GridBookLayoutAdapter extends BaseAdapter {
                 TextView bookCategory = view.findViewById(R.id.h_categoryBook);
                 TextView bookPrice = view.findViewById(R.id.h_priceBook);
                 Glide.with(parent.getContext()).load(horizontalBookModelList.get(position).getBookImage())
-                            .apply(new RequestOptions().override(800, 600)).into(bookImage);
-                bookTitle.setText(horizontalBookModelList.get(position).getBookTitle());
-                bookCategory.setText(horizontalBookModelList.get(position).getBookCategory());
-                bookPrice.setText(horizontalBookModelList.get(position).getBookPrice());
+                            .apply(new RequestOptions().placeholder(R.mipmap.sachtienganh)).into(bookImage);
+                bookTitle.setText(String.valueOf(horizontalBookModelList.get(position).getBookTitle()));
+                bookCategory.setText(String.valueOf(horizontalBookModelList.get(position).getBookCategory()));
+                bookPrice.setText(String.valueOf(formatPrice(horizontalBookModelList.get(position).getBookPrice())));
 
         }else {
             view = convertView;
         }
         return view;
+    }
+
+    private String formatPrice(String price){
+        int prices = 0;
+        if(price != null)
+            prices = Integer.parseInt(price);
+        return String.format("%,d đ",prices);
     }
 }

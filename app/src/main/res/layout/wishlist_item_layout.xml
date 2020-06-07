@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/Background"
-    android:layout_marginBottom="1dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
+    android:background="@color/Background">
 
     <ImageView
         android:id="@+id/book_image"
@@ -22,24 +21,26 @@
 
     <TextView
         android:id="@+id/book_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Sách tiếng anh"
-        android:textStyle="bold"
         android:textColor="#000000"
         android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/delete_btn"
         app:layout_constraintStart_toEndOf="@+id/book_image"
         app:layout_constraintTop_toTopOf="@+id/book_image" />
 
     <TextView
         android:id="@+id/book_author"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Bộ Giáo Dục"
-        android:textSize="12sp"
         android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/delete_btn"
         app:layout_constraintStart_toStartOf="@+id/book_title"
         app:layout_constraintTop_toBottomOf="@+id/book_title" />
 
@@ -75,12 +76,13 @@
 
     <TextView
         android:id="@+id/total_rating"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="(27 đánh giá)"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toStartOf="@+id/delete_btn"
         app:layout_constraintStart_toEndOf="@+id/linearLayout6"
         app:layout_constraintTop_toTopOf="@+id/linearLayout6" />
 
@@ -91,6 +93,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:text="120.000 đ"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/linearLayout6"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
@@ -114,18 +119,15 @@
         app:layout_constraintStart_toStartOf="@+id/cutted_price"
         app:layout_constraintTop_toTopOf="@+id/cutted_price" />
 
-    <ImageButton
-        android:id="@+id/delete_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/Background"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
+    <ImageView
+        android:id="@+id/delete_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_baseline_delete_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@mipmap/trash_256px" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

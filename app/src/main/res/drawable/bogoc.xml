@@ -6,14 +6,14 @@ android:shape="rectangle"
 
 <!-- Set màu nền-->
 <solid
-
+    android:color="#ffffff"
     >
 </solid>
 
 
 <!-- đặt thuộc tính màu và độ rộng của đường viền -->
 <stroke
-    android:color="#000000"
+    android:color="#ffffff"
     >
 </stroke>
 
@@ -28,7 +28,7 @@ android:shape="rectangle"
     android:height="50dp"/>
 <!-- và đây là bán kính đường tròn ở 4 góc -->
 <corners
-    android:radius="100dp" >
+    android:radius="10dp" >
 </corners>
 
 </shape>
