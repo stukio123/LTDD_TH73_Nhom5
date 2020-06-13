@@ -69,19 +69,6 @@ public class UserFragment extends Fragment {
         currentUser = firebaseAuth.getCurrentUser();
         btn_SignOut = view.findViewById(R.id.btn_signout);
 
-        /*if(txt_DangNhap.getText().equals("Đăng nhập")){
-            txt_DangNhap.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    setFragment(new SignInFragment());
-                    parentFrameLayout.setVisibility(View.VISIBLE);
-                }
-            });
-            btn_SignOut.setVisibility(View.GONE);
-        }
-        else
-            txt_DangNhap.setEnabled(false);*/
-
         return view;
     }
 

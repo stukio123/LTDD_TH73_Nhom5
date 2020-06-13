@@ -122,7 +122,7 @@ public class AddAdressActivity extends AppCompatActivity {
                         if(!TextUtils.isEmpty(phone.getText())){
                             loadingDialog.show();
                             //address.getText().toString()+selectedWard+selectedDistrict+selectedCity
-                            final String fullAddress = String.format("%s %s %s %s",address.getText().toString(),selectedWard,selectedDistrict,selectedCity);
+                            final String fullAddress = String.format("%s, %s, %s, %s",address.getText().toString(),selectedWard,selectedDistrict,selectedCity);
                             Map<String,Object> addAddress = new HashMap<>();
                             addAddress.put("list_size", (long)DataBaseQueries.addressModelList.size()+1);
                             addAddress.put("fullname_"+ String.valueOf ((long)DataBaseQueries.addressModelList.size()+1),name.getText().toString());
@@ -146,8 +146,13 @@ public class AddAdressActivity extends AppCompatActivity {
 
                                         DataBaseQueries.addressModelList.add(new AddressModel(name.getText().toString(),fullAddress,phone.getText().toString(),true));
 
-                                        Intent deliveryIntent = new Intent(AddAdressActivity.this,DeliveryActivity.class);
-                                        startActivity(deliveryIntent);
+                                        if(getIntent().getStringExtra("INTENT").equals("deliveryIntent")) {
+                                            Intent deliveryIntent = new Intent(AddAdressActivity.this, DeliveryActivity.class);
+                                            startActivity(deliveryIntent);
+                                        }else{
+                                            MyAddressActivity.refresh(DataBaseQueries.selectedAddress,DataBaseQueries.addressModelList.size() - 1);
+                                        }
+                                        DataBaseQueries.selectedAddress = DataBaseQueries.addressModelList.size() - 1;
                                         finish();
                                     }else{
                                         String error = task.getException().getMessage();

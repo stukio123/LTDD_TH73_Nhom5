@@ -30,10 +30,12 @@ public class CartAdapter extends RecyclerView.Adapter {
     private List<CartItemModel> cartItemModelList ;
     private int lastPosition = -1;
     private TextView cartTotalAmount;
+    private boolean showDeleteBtn;
 
-    public CartAdapter(List<CartItemModel> cartItemModelList,TextView cartTotalAmount) {
+    public CartAdapter(List<CartItemModel> cartItemModelList,TextView cartTotalAmount, boolean showDeleteBtn) {
         this.cartItemModelList = cartItemModelList;
         this.cartTotalAmount = cartTotalAmount;
+        this.showDeleteBtn = showDeleteBtn;
     }
 
     @Override
@@ -189,13 +191,20 @@ public class CartAdapter extends RecyclerView.Adapter {
                     quantityDialog.show();
                 }
             });
+            if(showDeleteBtn){
+                del_btn.setVisibility(View.VISIBLE);
+            }else{
+                up_btn.setEnabled(false);
+                down_btn.setEnabled(false);
+                bookAmount.setEnabled(false);
+                del_btn.setVisibility(View.GONE);
+            }
             del_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(!BookDetailActivity.RUNNING_CART_QUERY){
                         BookDetailActivity.RUNNING_CART_QUERY = true;
                         DataBaseQueries.removeCartList(position, itemView.getContext());
-
                     }
                 }
             });

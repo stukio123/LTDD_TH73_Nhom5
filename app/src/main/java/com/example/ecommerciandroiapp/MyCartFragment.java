@@ -65,7 +65,7 @@ public class MyCartFragment extends Fragment {
             loadingDialog.dismiss();
         }
 
-        cartAdapter = new CartAdapter(DataBaseQueries.cartItemModelList,totalAmount);
+        cartAdapter = new CartAdapter(DataBaseQueries.cartItemModelList,totalAmount,true);
         cartItemRecyclerView.setAdapter(cartAdapter);
         cartAdapter.notifyDataSetChanged();
 
@@ -74,8 +74,10 @@ public class MyCartFragment extends Fragment {
             public void onClick(View v) {
                 loadingDialog.show();
                 DataBaseQueries.loadAddresses(getContext(),loadingDialog);
+
             }
         });
+
         return view;
     }
 }

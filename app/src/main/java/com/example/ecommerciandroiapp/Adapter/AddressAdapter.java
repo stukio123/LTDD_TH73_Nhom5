@@ -6,10 +6,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ecommerciandroiapp.Database.DataBaseQueries;
 import com.example.ecommerciandroiapp.Model.AddressModel;
 import com.example.ecommerciandroiapp.R;
 
@@ -24,11 +26,12 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 
     private List<AddressModel> addressModelList = new ArrayList<>();
     private int MODE ;
-    private int preSelectedPosition = -1;
+    private int preSelectedPosition;
 
     public AddressAdapter(List<AddressModel> addressModelList, int mode) {
         this.addressModelList = addressModelList;
         this.MODE = mode;
+        preSelectedPosition = DataBaseQueries.selectedAddress;
     }
 
     @NonNull
@@ -90,6 +93,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
                             addressModelList.get(preSelectedPosition).setSelected(false);
                             refresh(preSelectedPosition, position);
                             preSelectedPosition = position;
+                            DataBaseQueries.selectedAddress = position;
                         }
                     }
                 });
@@ -99,15 +103,16 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
                 icon.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        System.out.println("Icon được click");
                         optionsContainer.setVisibility(View.VISIBLE);
-                        refresh(preSelectedPosition,position);
+                        //refresh(preSelectedPosition,position);
                         preSelectedPosition = position;
                     }
                 });
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        refresh(preSelectedPosition,preSelectedPosition);
+                        //refresh(preSelectedPosition,preSelectedPosition);
                         preSelectedPosition = -1;
                     }
                 });

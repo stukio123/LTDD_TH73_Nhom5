@@ -353,7 +353,10 @@ public class DataBaseQueries {
             updateCartList.put("book_id_"+i,cartList.get(i));
         }
         updateCartList.put("list_size",(long)cartList.size());
-        firebaseFirestore.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("user_data").document("my_cart")
+        firebaseFirestore.collection("users")
+                .document(FirebaseAuth.getInstance().getUid())
+                .collection("user_data")
+                .document("my_cart")
                 .set(updateCartList).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -377,7 +380,6 @@ public class DataBaseQueries {
     }
 
     public static void loadAddresses(final Context context, final Dialog loadingDialog){
-
         addressModelList.clear();
         firebaseFirestore.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("user_data")
                 .document("my_addresses").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -387,6 +389,7 @@ public class DataBaseQueries {
                     Intent deliveryIntent;
                     if(task.getResult().getLong("list_size")==0){
                         deliveryIntent = new Intent(context, AddAdressActivity.class);
+                        deliveryIntent.putExtra("INTENT","deliveryIntent");
                     }else{
                         for(long i = 1 ; i < task.getResult().getLong("list_size")+1; i++){
                             addressModelList.add(new AddressModel(task.getResult().getString("fullname_"+i)

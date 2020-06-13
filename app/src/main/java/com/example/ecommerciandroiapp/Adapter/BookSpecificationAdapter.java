@@ -12,11 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ecommerciandroiapp.Model.BookSpecificationModel;
 import com.example.ecommerciandroiapp.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookSpecificationAdapter extends RecyclerView.Adapter<BookSpecificationAdapter.ViewHolder> {
 
-    private List<BookSpecificationModel> bookSpecificationModelList;
+    private List<BookSpecificationModel> bookSpecificationModelList = new ArrayList<>();
 
     public BookSpecificationAdapter(List<BookSpecificationModel> bookSpecificationModelList) {
         this.bookSpecificationModelList = bookSpecificationModelList;

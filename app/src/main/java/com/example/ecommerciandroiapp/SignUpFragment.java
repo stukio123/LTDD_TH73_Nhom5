@@ -208,6 +208,7 @@ public class SignUpFragment extends Fragment {
                                                         documentNames.add("my_ratings");
                                                         documentNames.add("my_cart");
                                                         documentNames.add("my_addresses");
+                                                        documentNames.add("my_cart");
 
                                                         final List<Map<String,Object>> documentFields = new ArrayList<>();
                                                         documentFields.add(wishListMap);
