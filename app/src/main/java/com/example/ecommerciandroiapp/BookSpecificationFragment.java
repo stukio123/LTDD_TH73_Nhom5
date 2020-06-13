@@ -17,9 +17,11 @@ import com.example.ecommerciandroiapp.Model.BookSpecificationModel;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class BookSpecificationFragment extends Fragment {
 
     private RecyclerView bookSpecificationRecyclerView;
+    public List<BookSpecificationModel> bookSpecificationModelList;
 
     public BookSpecificationFragment() {
     }
@@ -41,11 +43,6 @@ public class BookSpecificationFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         bookSpecificationRecyclerView.setLayoutManager(linearLayoutManager);
-
-        List<BookSpecificationModel> bookSpecificationModelList = new ArrayList<>();
-        bookSpecificationModelList.add(new BookSpecificationModel("Tên sách","Mắt Biếc"));
-        bookSpecificationModelList.add(new BookSpecificationModel("Tác giả","Nguyễn Nhật Ánh"));
-        bookSpecificationModelList.add(new BookSpecificationModel("Nhà xuất bản","Tuổi trẻ"));
 
 
         BookSpecificationAdapter bookSpecificationAdapter = new BookSpecificationAdapter(bookSpecificationModelList);

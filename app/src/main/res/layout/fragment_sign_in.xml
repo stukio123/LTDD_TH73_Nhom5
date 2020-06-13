@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInFragment"
     android:background="@color/Background"
     android:orientation="vertical"
-    >
+    tools:context=".SignInFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,11 +50,11 @@
             android:background="@drawable/bogoc_signin"
             android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
             android:drawablePadding="20dp"
-            android:textColorHighlight="#3F51B5"
             android:ems="10"
             android:hint="Mật Khẩu"
             android:inputType="textPassword"
             android:textColor="@color/colorPrimary"
+            android:textColorHighlight="#3F51B5"
             android:textColorHint="#A9A9A9"
             android:textSize="13dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -175,4 +174,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</LinearLayout>
+</FrameLayout>

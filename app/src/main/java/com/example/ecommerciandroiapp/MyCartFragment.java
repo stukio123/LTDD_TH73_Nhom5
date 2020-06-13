@@ -1,5 +1,6 @@
 package com.example.ecommerciandroiapp;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.ecommerciandroiapp.Adapter.CartAdapter;
+import com.example.ecommerciandroiapp.Adapter.WishListAdapter;
+import com.example.ecommerciandroiapp.Database.DataBaseQueries;
 import com.example.ecommerciandroiapp.Model.CartItemModel;
 
 import java.util.ArrayList;
@@ -26,6 +30,9 @@ public class MyCartFragment extends Fragment {
 
     private RecyclerView cartItemRecyclerView;
     private Button pay;
+    private Dialog loadingDialog;
+    public static CartAdapter cartAdapter;
+    private TextView totalAmount;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,26 +50,30 @@ public class MyCartFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         cartItemRecyclerView.setLayoutManager(linearLayoutManager);
+        totalAmount = view.findViewById(R.id.total_prices);
 
-        List<CartItemModel> cartItemModelList = new ArrayList<>();
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(1,"Giá (3 sản phẩm)","360.000đ","Free","237.000đ","3"));
+        loadingDialog = new Dialog(getContext());
+        loadingDialog.setCancelable(false);
+        loadingDialog.setContentView(R.layout.loading_progress_layout);
+        loadingDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        loadingDialog.show();
 
-        CartAdapter adapter = new CartAdapter(cartItemModelList);
-        cartItemRecyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        if(DataBaseQueries.cartItemModelList.size() == 0 ){
+            DataBaseQueries.cartList.clear();
+            DataBaseQueries.loadCartList(getContext(),loadingDialog,true,new TextView(getContext()));
+        }else{
+            loadingDialog.dismiss();
+        }
+
+        cartAdapter = new CartAdapter(DataBaseQueries.cartItemModelList,totalAmount);
+        cartItemRecyclerView.setAdapter(cartAdapter);
+        cartAdapter.notifyDataSetChanged();
 
         pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent deliveryIntent = new Intent(getContext(),AddAdressActivity.class);
-                getContext().startActivity(deliveryIntent);
+                loadingDialog.show();
+                DataBaseQueries.loadAddresses(getContext(),loadingDialog);
             }
         });
         return view;

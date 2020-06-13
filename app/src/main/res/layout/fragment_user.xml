@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".UserFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,14 +18,160 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="506dp"
-        android:layout_marginTop="3dp"
+    <ImageView
+        android:id="@+id/user_image"
+        android:layout_width="68dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bogoc_button"
+        android:src="@drawable/ic_account_circle_white_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_image">
+
+        <TextView
+            android:id="@+id/user_accout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đăng nhập"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phạm Trí Quang"
+            android:textAlignment="center"
+            android:visibility="gone"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/user_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="stukio123@gmail.com"
+            android:textAlignment="center"
+            android:visibility="gone"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/divider12"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="#d6d6d6" />
+
+        <TextView
+            android:id="@+id/user_quanlydonhang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
+            android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
+            android:drawablePadding="10dp"
+            android:text="Quản lý đơn hàng"
+            android:textColor="#000000"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/user_danhsachyeuthich"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
+            android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
+            android:drawablePadding="10dp"
+            android:text="Danh sách yêu thích"
+            android:textColor="#000000"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/user_magiamgia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
+            android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
+            android:drawablePadding="10dp"
+            android:text="Mã giảm giá"
+            android:textColor="#000000"
+            android:textSize="13dp" />
+
+        <View
+            android:id="@+id/divider13"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="#d6d6d6" />
+
+        <TextView
+            android:id="@+id/user_sodiachi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
+            android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
+            android:drawablePadding="10dp"
+            android:text="Sổ địa chỉ"
+            android:textColor="#000000"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/user_thanhtoan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
+            android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
+            android:drawablePadding="10dp"
+            android:text="Thông tin thanh toán"
+            android:textColor="#000000"
+            android:textSize="13dp" />
+
+        <View
+            android:id="@+id/divider14"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="#d6d6d6" />
+
+        <TextView
+            android:id="@+id/user_hotro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
+            android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
+            android:drawablePadding="10dp"
+            android:text="Hỗ trợ"
+            android:textColor="#000000"
+            android:textSize="13dp" />
+
+        <View
+            android:id="@+id/divider15"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="#d6d6d6" />
 
         <Button
             android:id="@+id/btn_signout"
@@ -41,138 +187,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bogoc_imgbutton"
-            android:orientation="vertical"
-            android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-            <TextView
-                android:id="@+id/user_hotro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
-                android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
-                android:drawablePadding="10dp"
-                android:text="Hỗ trợ"
-                android:textColor="#000000"
-                android:textSize="13dp" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/user_accout"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="40dp"
-            android:text="Đăng nhập"
-            android:textAlignment="center"
-            android:textSize="15dp"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bogoc_imgbutton"
-            android:orientation="vertical"
-            android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-            <TextView
-                android:id="@+id/user_sodiachi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
-                android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
-                android:drawablePadding="10dp"
-                android:text="Sổ địa chỉ"
-                android:textColor="#000000"
-                android:textSize="13dp" />
-
-            <TextView
-                android:id="@+id/user_thanhtoan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
-                android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
-                android:drawablePadding="10dp"
-                android:text="Thông tin thanh toán"
-                android:textColor="#000000"
-                android:textSize="13dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bogoc_imgbutton"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_accout">
-
-            <TextView
-                android:id="@+id/user_quanlydonhang"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
-                android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
-                android:drawablePadding="10dp"
-                android:text="Quản lý đơn hàng"
-                android:textColor="#000000"
-                android:textSize="13dp" />
-
-            <TextView
-                android:id="@+id/user_danhsachyeuthich"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
-                android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
-                android:drawablePadding="10dp"
-                android:text="Danh sách yêu thích"
-                android:textColor="#000000"
-                android:textSize="13dp" />
-
-            <TextView
-                android:id="@+id/user_magiamgia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableLeft="@drawable/ic_headset_mic_xam_24dp"
-                android:drawableRight="@drawable/ic_chevron_right_xam_24dp"
-                android:drawablePadding="10dp"
-                android:text="Mã giảm giá"
-                android:textColor="#000000"
-                android:textSize="13dp" />
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="68dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/bogoc_button"
-        android:src="@drawable/ic_account_circle_white_24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
-
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

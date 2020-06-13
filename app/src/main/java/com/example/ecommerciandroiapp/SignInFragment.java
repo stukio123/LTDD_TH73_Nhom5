@@ -33,7 +33,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.example.ecommerciandroiapp.RegisterActivity.onResetPasswordFragmen;
-import static com.example.ecommerciandroiapp.RegisterActivity.onSignUpFragmen;
 
 public class SignInFragment extends Fragment {
 
@@ -53,6 +52,7 @@ public class SignInFragment extends Fragment {
     private ProgressBar progressBar;
     private FirebaseAuth firebaseAuth;
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+" ;
+    public static boolean disableCloseButton = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,37 +61,39 @@ public class SignInFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_sign_in, container, false);
         dontHaveAccount = view.findViewById(R.id.tv_SignUp);
         parentFrameLayout = getActivity().findViewById(R.id.register_layout);
-        txt_Account = getActivity().findViewById(R.id.user_accout);
-        email = (EditText) view.findViewById(R.id.txt_Email);
-        password = (EditText) view.findViewById(R.id.txt_Password);
-//        ibtn_Close = view.findViewById(R.id.btn_CloseSignUp);
-        btn_SignOut = getActivity().findViewById(R.id.btn_signout);
+        email = view.findViewById(R.id.txt_Email);
+        password = view.findViewById(R.id.txt_Password);
         btn_SignIn = view.findViewById(R.id.btn_SignIn);
         progressBar = view.findViewById(R.id.SignIn_ProgressBar);
         forgetPassword = view.findViewById(R.id.tv_ForgotPass);
         btnClose = view.findViewById(R.id.btn_close);
         firebaseAuth = FirebaseAuth.getInstance();
+        if(disableCloseButton){
+            btnClose.setVisibility(View.GONE);
+        }else{
+            btnClose.setVisibility(View.VISIBLE);
+        }
          return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         dontHaveAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onSignUpFragmen = true;
+                RegisterActivity.onSignUpFragment = true;
                 setFragment(new SignUpFragment());
             }
 
 
         });
-
-
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parentFrameLayout.setVisibility(View.GONE);
+                //parentFrameLayout.setVisibility(View.GONE);
+                mainIntent();
             }
         });
 
@@ -111,14 +113,10 @@ public class SignInFragment extends Fragment {
         email.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 checkInput();
@@ -127,14 +125,10 @@ public class SignInFragment extends Fragment {
         password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 checkInput();
@@ -153,8 +147,10 @@ public class SignInFragment extends Fragment {
                         if(task.isSuccessful()){
                             //parentFrameLayout.setVisibility(View.GONE);
                             //txt_Account.setText(email.getText());
-                            btn_SignOut.setVisibility(View.VISIBLE);
-                            txt_Account.setEnabled(true);
+                            //btn_SignOut.setVisibility(View.VISIBLE);
+                            Toast.makeText(getActivity(),"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
+                            mainIntent();
+                            //txt_Account.setEnabled(true);
                         }else{
                             progressBar.setVisibility(View.INVISIBLE);
                             String error = task.getException().getMessage();
@@ -182,6 +178,16 @@ public class SignInFragment extends Fragment {
         }else{
             btn_SignIn.setBackgroundColor(Color.rgb(128,128,128));
         }
+    }
+
+    private void mainIntent(){
+        if(disableCloseButton){
+            disableCloseButton = false;
+        }else{
+            Intent mainIntent = new Intent(getActivity(),MainActivity.class);
+            startActivity(mainIntent);
+        }
+        getActivity().finish();
     }
 
     private void setFragment(Fragment fragment) {

@@ -3,6 +3,7 @@ package com.example.ecommerciandroiapp.Model;
 
 
 public class WishListModel {
+    private String bookID;
     private String bookImage;
     private String bookTitle,bookAuthor;
     private long rating;
@@ -10,7 +11,8 @@ public class WishListModel {
     private String bookPrice;
     private String cuttedPrice;
 
-    public WishListModel(String bookImage, String bookTitle, String bookAuthor, long rating, long totalRating, String bookPrice, String cuttedPrice) {
+    public WishListModel(String bookID,String bookImage, String bookTitle, String bookAuthor, long rating, long totalRating, String bookPrice, String cuttedPrice) {
+        this.bookID = bookID;
         this.bookImage = bookImage;
         this.bookTitle = bookTitle;
         this.bookAuthor = bookAuthor;
@@ -18,6 +20,14 @@ public class WishListModel {
         this.totalRating = totalRating;
         this.bookPrice = bookPrice;
         this.cuttedPrice = cuttedPrice;
+    }
+
+    public String getBookID() {
+        return bookID;
+    }
+
+    public void setBookID(String bookID) {
+        this.bookID = bookID;
     }
 
     public String getBookImage() {

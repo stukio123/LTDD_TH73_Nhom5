@@ -16,5 +16,399 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
-
+    <string-array name="Vietnam_states">
+        <item>TP. Hồ Chí Minh</item>
+        <!--<item>Hà Nội</item>
+        <item>Đà Nẵng</item>
+        <item>Huế</item>
+        <item>Cần Thơ</item>
+        <item>Nghệ An</item>
+        <item>Cà Mau</item>
+        <item>Bạc Liêu</item>
+        <item>Nha Trang</item>
+        <item>Hải Phòng</item>-->
+    </string-array>
+    <string-array name="Vietnam_district">
+        <item>Quận 1</item>
+        <item>Quận 2</item>
+        <item>Quận 3</item>
+        <item>Quận 4</item>
+        <item>Quận 5</item>
+        <item>Quận 6</item>
+        <item>Quận 7</item>
+        <item>Quận 8</item>
+        <item>Quận 9</item>
+        <item>Quận 10</item>
+        <item>Quận 11</item>
+        <item>Quận 12</item>
+        <item>Bình Thạnh</item>
+        <item>Gò Vấp</item>
+        <item>Bình Chánh</item>
+        <item>Tân Bình</item>
+        <item>Bình Tân</item>
+        <item>Phú Nhuận</item>
+        <item>Tân Phú</item>
+        <item>Thủ Đức</item>
+        <item>Cần Giờ</item>
+        <item>Củ Chi</item>
+        <item>Nhà Bè</item>
+        <item>Hóc Môn</item>
+    </string-array>
+    <string-array name="ward_quan1">
+        <item>Phường Bến Nghé </item>
+        <item>Phường Bến Thành </item>
+        <item>Phường Cầu Kho </item>
+        <item>Phường Cầu Ông Lãnh </item>
+        <item>Phường Cô Giang</item>
+        <item>Phường Đa Kao</item>
+        <item>Phường Nguyễn Cư Trinh</item>
+        <item>Phường Nguyễn Thái Bình</item>
+        <item>Phường Phạm Ngũ Lão</item>
+        <item>Phường Tân Định</item>
+    </string-array>
+    <string-array name="ward_quan2">
+        <item>Phường An Khánh</item>
+        <item>Phường An Lợi Đông</item>
+        <item>Phường An Phú</item>
+        <item>Phường Bình An</item>
+        <item>Phường Bình Khánh</item>
+        <item>Phường Bình Trưng Đông</item>
+        <item>Phường Bình Trưng Tây</item>
+        <item>Phường Cát Lái</item>
+        <item>Phường Thạnh Mỹ Lợi</item>
+        <item>Phường Thảo Điền</item>
+        <item>Phường Thủ Thiêm</item>
+    </string-array>
+    <string-array name="ward_quan3">
+        <item>Phường 01</item>
+        <item>Phường 02</item>
+        <item>Phường 03</item>
+        <item>Phường 04</item>
+        <item>Phường 05</item>
+        <item>Phường 06</item>
+        <item>Phường 07</item>
+        <item>Phường 08</item>
+        <item>Phường 09</item>
+        <item>Phường 10</item>
+        <item>Phường 11</item>
+        <item>Phường 12</item>
+        <item>Phường 13</item>
+        <item>Phường 14</item>
+    </string-array>
+    <string-array name="ward_quan4">
+        <item>Phường 01</item>
+        <item>Phường 02</item>
+        <item>Phường 03</item>
+        <item>Phường 04</item>
+        <item>Phường 05</item>
+        <item>Phường 06</item>
+        <item>Phường 08</item>
+        <item>Phường 09</item>
+        <item>Phường 10</item>
+        <item>Phường 12</item>
+        <item>Phường 13</item>
+        <item>Phường 15</item>
+        <item>Phường 16</item>
+        <item>Phường 18</item>
+    </string-array>
+    <string-array name="ward_quan5">
+        <item>Phường 01</item>
+        <item>Phường 02</item>
+        <item>Phường 03</item>
+        <item>Phường 04</item>
+        <item>Phường 05</item>
+        <item>Phường 06</item>
+        <item>Phường 07</item>
+        <item>Phường 08</item>
+        <item>Phường 09</item>
+        <item>Phường 10</item>
+        <item>Phường 11</item>
+        <item>Phường 12</item>
+        <item>Phường 13</item>
+        <item>Phường 14</item>
+        <item>Phường 15</item>
+    </string-array>
+    <string-array name="ward_quan6">
+        <item>Phường 01</item>
+        <item>Phường 02</item>
+        <item>Phường 03</item>
+        <item>Phường 04</item>
+        <item>Phường 05</item>
+        <item>Phường 06</item>
+        <item>Phường 07</item>
+        <item>Phường 08</item>
+        <item>Phường 09</item>
+        <item>Phường 10</item>
+        <item>Phường 11</item>
+        <item>Phường 12</item>
+        <item>Phường 13</item>
+        <item>Phường 14</item>
+    </string-array>
+    <string-array name="ward_quan7">
+        <item>Phường Bình Thuận</item>
+        <item>Phường Phú Mỹ</item>
+        <item>Phường Phú Thuận</item>
+        <item>Phường Tân Hưng</item>
+        <item>Phường Tân Kiểng</item>
+        <item>Phường Tân Phong</item>
+        <item>Phường Tân Phú</item>
+        <item>Phường Tân Quy</item>
+        <item>Phường Tân Thuận Đông</item>
+        <item>Phường Tân Thuận Tây</item>
+    </string-array>
+    <string-array name="ward_quan8">
+        <item>Phường 01</item>
+        <item>Phường 02</item>
+        <item>Phường 03</item>
+        <item>Phường 04</item>
+        <item>Phường 05</item>
+        <item>Phường 06</item>
+        <item>Phường 08</item>
+        <item>Phường 09</item>
+        <item>Phường 10</item>
+        <item>Phường 12</item>
+        <item>Phường 13</item>
+        <item>Phường 15</item>
+        <item>Phường 16</item>
+    </string-array>
+    <string-array name="ward_quan9">
+        <item>Phường Hiệp Phú</item>
+        <item>Phường Long Bình</item>
+        <item>Phường Long Phước</item>
+        <item>Phường Long Thạnh Mỹ</item>
+        <item>Phường Long Trường</item>
+        <item>Phường Phú Hữu</item>
+        <item>Phường Phước Bình</item>
+        <item>Phường Phước Long A</item>
+        <item>Phường Phước Long B</item>
+        <item>Phường Tân Phú</item>
+        <item>Phường Tăng Nhơn Phú A</item>
+        <item>Phường Tăng Nhơn Phú B</item>
+        <item>Phường Trường Thạnh</item>
+    </string-array>
+    <string-array name="ward_quan10">
+        <item>Phường 01</item>
+        <item>Phường 02</item>
+        <item>Phường 03</item>
+        <item>Phường 04</item>
+        <item>Phường 05</item>
+        <item>Phường 06</item>
+        <item>Phường 08</item>
+        <item>Phường 09</item>
+        <item>Phường 10</item>
+        <item>Phường 12</item>
+        <item>Phường 13</item>
+        <item>Phường 15</item>
+    </string-array>
+    <string-array name="ward_quan11">
+        <item>Phường 01</item>
+        <item>Phường 02</item>
+        <item>Phường 03</item>
+        <item>Phường 04</item>
+        <item>Phường 05</item>
+        <item>Phường 06</item>
+        <item>Phường 08</item>
+        <item>Phường 09</item>
+        <item>Phường 10</item>
+        <item>Phường 12</item>
+        <item>Phường 13</item>
+        <item>Phường 15</item>
+        <item>Phường 16</item>
+    </string-array>
+    <string-array name="ward_quan12">
+        <item>Phường An Phú Đông</item>
+        <item>Phường Đông Hưng Thuận</item>
+        <item>Phường Hiệp Thành</item>
+        <item>Phường Tân Chánh Hiệp</item>
+        <item>Phường Tân Hưng Thuận</item>
+        <item>Phường Tân Thới Hiệp</item>
+        <item>Phường Tân Thới Nhất</item>
+        <item>Phường Thạnh Lộc</item>
+        <item>Phường Thạnh Xuân</item>
+        <item>Phường Thới An</item>
+        <item>Phường Trung Mỹ Tây</item>
+    </string-array>
+    <string-array name="ward_binhtan">
+        <item>Phường An Lạc</item>
+        <item>Phường An Lạc A</item>
+        <item>Phường Bình Hưng Hòa</item>
+        <item>Phường Bình Hưng Hoà A</item>
+        <item>Phường Bình Hưng Hoà B</item>
+        <item>Phường Bình Trị Đông</item>
+        <item>Phường Bình Trị Đông A</item>
+        <item>Phường Bình Trị Đông B</item>
+        <item>Phường Tân Tạo</item>
+        <item>Phường Tân Tạo A</item>
+    </string-array>
+    <string-array name="ward_binhthanh">
+        <item>Phường 01</item>
+        <item>Phường 02</item>
+        <item>Phường 03</item>
+        <item>Phường 04</item>
+        <item>Phường 05</item>
+        <item>Phường 06</item>
+        <item>Phường 08</item>
+        <item>Phường 09</item>
+        <item>Phường 10</item>
+        <item>Phường 12</item>
+        <item>Phường 13</item>
+        <item>Phường 15</item>
+        <item>Phường 16</item>
+        <item>Phường 17</item>
+        <item>Phường 18</item>
+        <item>Phường 19</item>
+        <item>Phường 20</item>
+        <item>Phường 21</item>
+        <item>Phường 22</item>
+        <item>Phường 23</item>
+        <item>Phường 24</item>
+        <item>Phường 25</item>
+        <item>Phường 26</item>
+    </string-array>
+    <string-array name="ward_govap">
+        <item>Phường 01</item>
+        <item>Phường 02</item>
+        <item>Phường 03</item>
+        <item>Phường 04</item>
+        <item>Phường 05</item>
+        <item>Phường 06</item>
+        <item>Phường 08</item>
+        <item>Phường 09</item>
+        <item>Phường 10</item>
+        <item>Phường 12</item>
+        <item>Phường 13</item>
+        <item>Phường 15</item>
+        <item>Phường 16</item>
+        <item>Phường 17</item>
+    </string-array>
+    <string-array name="ward_phunhuan">
+        <item>Phường 01</item>
+        <item>Phường 02</item>
+        <item>Phường 03</item>
+        <item>Phường 04</item>
+        <item>Phường 05</item>
+        <item>Phường 06</item>
+        <item>Phường 08</item>
+        <item>Phường 09</item>
+        <item>Phường 10</item>
+        <item>Phường 12</item>
+        <item>Phường 13</item>
+        <item>Phường 15</item>
+        <item>Phường 16</item>
+        <item>Phường 17</item>
+    </string-array>
+    <string-array name="ward_tanbinh">
+        <item>Phường 01</item>
+        <item>Phường 02</item>
+        <item>Phường 03</item>
+        <item>Phường 04</item>
+        <item>Phường 05</item>
+        <item>Phường 06</item>
+        <item>Phường 08</item>
+        <item>Phường 09</item>
+        <item>Phường 10</item>
+        <item>Phường 12</item>
+        <item>Phường 13</item>
+        <item>Phường 15</item>
+    </string-array>
+    <string-array name="ward_tanphu">
+        <item>Phường Hiệp Tân</item>
+        <item>Phường Hoà Thạnh</item>
+        <item>Phường Phú Thạnh</item>
+        <item>Phường Phú Thọ Hoà</item>
+        <item>Phường Phú Trung</item>
+        <item>Phường Sơn Kỳ</item>
+        <item>Phường Tân Qúy</item>
+        <item>Phường Tân Sơn Nhì</item>
+        <item>Phường Tân Thành</item>
+        <item>Phường Tân Thới Hoà</item>
+        <item>Phường Tây Thạnh</item>
+    </string-array>
+    <string-array name="ward_thuduc">
+        <item>Phường Bình Chiểu</item>
+        <item>Phường Bình Thọ</item>
+        <item>Phường Hiệp Bình Chánh</item>
+        <item>Phường Hiệp Bình Phước</item>
+        <item>Phường Linh Chiểu</item>
+        <item>Phường Linh Đông</item>
+        <item>Phường Linh Tây</item>
+        <item>Phường Linh Trung</item>
+        <item>Phường Linh Xuân</item>
+        <item>Phường Tam Bình</item>
+        <item>Phường Tam Phú</item>
+        <item>Phường Trường Thọ</item>
+    </string-array>
+    <string-array name="ward_binhchanh">
+        <item>Thị trấn Tân Túc</item>
+        <item>Xã An Phú Tây</item>
+        <item>Xã Bình Chánh</item>
+        <item>Xã Bình Hưng</item>
+        <item>Xã Bình Lợi</item>
+        <item>Xã Đa Phước</item>
+        <item>Xã Hưng Long</item>
+        <item>Xã Lê Minh Xuân</item>
+        <item>Xã Phạm Văn Hai</item>
+        <item>Xã Phong Phú</item>
+        <item>Xã Quy Đức</item>
+        <item>Xã Tân Kiên</item>
+        <item>Xã Tân Nhựt</item>
+        <item>Xã Tân Quý Tây</item>
+        <item>Xã Vĩnh Lộc A</item>
+        <item>Xã Vĩnh Lộc B</item>
+    </string-array>
+    <string-array name="ward_cangio">
+        <item>Thị trấn Cần Thạnh</item>
+        <item>Xã An Thới Đông</item>
+        <item>Xã Bình Khánh</item>
+        <item>Xã Long Hòa</item>
+        <item>Xã Lý Nhơn</item>
+        <item>Xã Tam Thôn Hiệp</item>
+        <item>Xã Thạnh An</item>
+    </string-array>
+    <string-array name="ward_cuchi">
+        <item>Thị trấn Củ Chi</item>
+        <item>Xã An Nhơn Tây</item>
+        <item>Xã An Phú</item>
+        <item>Xã Bình Mỹ</item>
+        <item>Xã Hòa Phú</item>
+        <item>Xã Nhuận Đức</item>
+        <item>Xã Phạm Văn Cội</item>
+        <item>Xã Phú Hòa Đông</item>
+        <item>Xã Phú Mỹ Hưng</item>
+        <item>Xã Phước Hiệp</item>
+        <item>Xã Phước Thạnh</item>
+        <item>Xã Phước Vĩnh An</item>
+        <item>Xã Tân An Hội</item>
+        <item>Xã Tân Phú Trung</item>
+        <item>Xã Tân Thạnh Đông</item>
+        <item>Xã Tân Thạnh Tây</item>
+        <item>Xã Tân Thông Hội</item>
+        <item>Xã Thái Mỹ</item>
+        <item>Xã Trung An</item>
+        <item>Xã Trung Lập Hạ</item>
+        <item>Xã Trung Lập Thượng</item>
+    </string-array>
+    <string-array name="ward_hocmon">
+        <item>Thị trấn Hóc Môn</item>
+        <item>Xã Bà Điểm</item>
+        <item>Xã Đông Thạnh</item>
+        <item>Xã Nhị Bình</item>
+        <item>Xã Tân Hiệp</item>
+        <item>Xã Tân Thới Nhì</item>
+        <item>Xã Tân Xuân</item>
+        <item>Xã Thới Tam Thôn</item>
+        <item>Xã Trung Chánh</item>
+        <item>Xã Xuân Thới Đông</item>
+        <item>Xã Xuân Thới Sơn</item>
+        <item>Xã Xuân Thới Thượng</item>
+    </string-array>
+    <string-array name="ward_nhabe">
+        <item>Thị trấn Nhà Bè</item>
+        <item>Xã Hiệp Phước</item>
+        <item>Xã Long Thới</item>
+        <item>Xã Nhơn Đức</item>
+        <item>Xã Phú Xuân</item>
+        <item>Xã Phước Kiển</item>
+        <item>Xã Phước Lộc</item>
+    </string-array>
 </resources>

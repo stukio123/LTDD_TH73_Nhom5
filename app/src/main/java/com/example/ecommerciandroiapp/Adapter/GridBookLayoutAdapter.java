@@ -42,7 +42,7 @@ public class GridBookLayoutAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, final ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         View view;
         if(convertView == null){
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_scroll_item_layout,null);
@@ -51,6 +51,7 @@ public class GridBookLayoutAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     Intent bookDetailsIntent = new Intent(parent.getContext(), BookDetailActivity.class);
+                    bookDetailsIntent.putExtra("book_id",horizontalBookModelList.get(position).getBookID());
                     parent.getContext().startActivity(bookDetailsIntent);
                 }
             });

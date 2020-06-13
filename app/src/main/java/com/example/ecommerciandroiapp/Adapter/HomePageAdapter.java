@@ -257,7 +257,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 ImageView bookImage = gridBookLayout.getChildAt(i).findViewById(R.id.h_imageBook);
                 TextView bookTitle = gridBookLayout.getChildAt(i).findViewById(R.id.h_titleBook);
                 TextView bookCategory = gridBookLayout.getChildAt(i).findViewById(R.id.h_categoryBook);
-                TextView bookPrice = gridBookLayout.getChildAt(i).findViewById(R.id.h_priceBook);
+                final TextView bookPrice = gridBookLayout.getChildAt(i).findViewById(R.id.h_priceBook);
                 Glide.with(itemView.getContext()).load(horizontalBookModelList.get(i).getBookImage())
                         .apply(new RequestOptions().placeholder(R.mipmap.sachtienganh)).into(bookImage);
                 bookTitle.setText(String.valueOf(horizontalBookModelList.get(i).getBookTitle()));
@@ -266,10 +266,12 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 bookTitle.setText(String.valueOf(horizontalBookModelList.get(i).getBookTitle()));
                 bookCategory.setText(String.valueOf(horizontalBookModelList.get(i).getBookCategory()));
                 bookPrice.setText(String.valueOf(formatPrice(horizontalBookModelList.get(i).getBookPrice())));
+                final int finalI = i;
                 gridBookLayout.getChildAt(i).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent bookDetailsIntent = new Intent(itemView.getContext(), BookDetailActivity.class);
+                        bookDetailsIntent.putExtra("book_id",horizontalBookModelList.get(finalI).getBookID());
                         itemView.getContext().startActivity(bookDetailsIntent);
                     }
                 });

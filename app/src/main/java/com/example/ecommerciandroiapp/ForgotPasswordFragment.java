@@ -28,9 +28,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+import static com.example.ecommerciandroiapp.RegisterActivity.onResetPasswordFragmen;
+
 public class ForgotPasswordFragment extends Fragment {
 
     public ForgotPasswordFragment() {
@@ -39,7 +38,6 @@ public class ForgotPasswordFragment extends Fragment {
 
     private EditText fgEmail;
     private Button btnReset;
-
 
     private FrameLayout parentFrameLayout;
     private FirebaseAuth firebaseAuth;
@@ -72,7 +70,8 @@ public class ForgotPasswordFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        /*onResetPasswordFragmen = true;
+        RegisterActivity.onSignUpFragment = false;*/
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,10 +151,6 @@ public class ForgotPasswordFragment extends Fragment {
 //            btnReset.setBackgroundColor(Color.rgb(128,128,128));
         }
     }
-
-
-
-
 
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();

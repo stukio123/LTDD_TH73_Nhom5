@@ -290,49 +290,50 @@
         app:layout_constraintTop_toTopOf="@+id/ratings_progressbar_container">
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/tv_5star"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="12"
+            android:text="0"
             android:textAlignment="center"
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/tv_4star"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="12"
+            android:text="0"
             android:textAlignment="center"
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/tv_3star"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="12"
+            android:text="0"
             android:textAlignment="center"
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/tv_2star"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="12"
+            android:text="0"
             android:textAlignment="center"
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/tv_1star"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="12"
+            android:text="0"
             android:textAlignment="center"
             android:textSize="12sp" />
+
     </LinearLayout>
 
     <View
@@ -346,26 +347,17 @@
         app:layout_constraintTop_toBottomOf="@+id/ratings_progressbar_container" />
 
     <TextView
-        android:id="@+id/total_ratings_figure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="26"
-        app:layout_constraintEnd_toEndOf="@+id/ratings_numbers_container"
-        app:layout_constraintStart_toStartOf="@+id/ratings_numbers_container"
-        app:layout_constraintTop_toBottomOf="@+id/ratings_numbers_container" />
-
-    <TextView
         android:id="@+id/tv_your_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
         android:text="Đánh giá của bạn"
         android:textColor="#000000"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/total_ratings_figure" />
+        app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
     <RatingBar
         android:id="@+id/yours_rating"
@@ -373,6 +365,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
+        android:stepSize="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

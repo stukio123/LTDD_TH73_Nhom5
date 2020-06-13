@@ -1,10 +1,12 @@
 package com.example.ecommerciandroiapp.Adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.ecommerciandroiapp.BookDetailActivity;
+import com.example.ecommerciandroiapp.Database.DataBaseQueries;
 import com.example.ecommerciandroiapp.Model.WishListModel;
 import com.example.ecommerciandroiapp.R;
 
@@ -23,8 +26,10 @@ import java.util.List;
 
 public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.ViewHolder> {
 
+
     private List<WishListModel> wishListModelList = new ArrayList<>();
     private boolean wishlist;
+    private int lastPosition = -1;
 
     public WishListAdapter(List<WishListModel> wishListModelList, boolean wishlist) {
         this.wishListModelList = wishListModelList;
@@ -40,6 +45,7 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull WishListAdapter.ViewHolder holder, int position) {
+        String id = wishListModelList.get(position).getBookID();
         String resource = wishListModelList.get(position).getBookImage();
         String title = wishListModelList.get(position).getBookTitle();
         String author = wishListModelList.get(position).getBookAuthor();
@@ -47,7 +53,14 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.ViewHo
         String cuttedPrice = wishListModelList.get(position).getCuttedPrice();
         long rating = wishListModelList.get(position).getRating();
         long totalRating = wishListModelList.get(position).getTotalRating();
-        holder.setData(resource,title,author,price,cuttedPrice,rating,totalRating);
+        holder.setData(id,resource,title,author,price,cuttedPrice,rating,totalRating,position);
+
+        if(lastPosition < position){
+            Context context;
+            Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.fragment_fade_enter);
+            holder.itemView.setAnimation(animation);
+            lastPosition = position;
+        }
     }
 
     @Override
@@ -74,7 +87,8 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.ViewHo
             cuttedPriceDivider = itemView.findViewById(R.id.cutted_price_divider);
             deleteBtn = itemView.findViewById(R.id.delete_btn);
         }
-        private void setData(String resource,String title,String author,String price,String cutted,long ratings,long totalRatings){
+        private void setData(final String id, String resource, String title, String author, String price, String cutted, long ratings, long totalRatings, final int index){
+
             Glide.with(itemView.getContext()).load(resource).apply(new RequestOptions().placeholder(R.mipmap.sachtienganh)).into(bookImage);
             bookTitle.setText(title);
             bookAuthor.setText(author);
@@ -91,7 +105,10 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.ViewHo
             deleteBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(itemView.getContext(),"Xóa khỏi danh sách",Toast.LENGTH_SHORT).show();
+                    if(!BookDetailActivity.RUNNING_WISHLIST_QUERY){
+                        BookDetailActivity.RUNNING_WISHLIST_QUERY = true;
+                        DataBaseQueries.removeWishList(index,itemView.getContext());
+                    }
                 }
             });
 
@@ -99,6 +116,7 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.ViewHo
                 @Override
                 public void onClick(View v) {
                     Intent bookDetailsIntent = new Intent(itemView.getContext(), BookDetailActivity.class);
+                    bookDetailsIntent.putExtra("book_id",id);
                     itemView.getContext().startActivity(bookDetailsIntent);
                 }
             });

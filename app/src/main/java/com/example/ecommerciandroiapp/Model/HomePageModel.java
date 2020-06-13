@@ -46,6 +46,7 @@ public class HomePageModel {
     private String bookTitle;
     private List<HorizontalBookModel> horizontalBookModelList;
     private List<WishListModel> viewAllList;
+
     public HomePageModel(int type, String bookTitle, List<HorizontalBookModel> horizontalBookModelList,List<WishListModel> viewAllList) {
         this.type = type;
         this.bookTitle = bookTitle;

@@ -9,28 +9,31 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.FrameLayout;
 
+import com.google.android.gms.common.SignInButton;
+
 public class RegisterActivity extends AppCompatActivity {
 
     private FrameLayout framelayout;
     public static boolean onResetPasswordFragmen = false;
-    public static boolean onSignUpFragmen = false;
+    public static boolean onSignUpFragment = false;
     public static boolean setSignupFragment = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        framelayout =(FrameLayout) findViewById(R.id.register_layout);
 
-        framelayout = (FrameLayout) findViewById(R.id.register_layout);
-        if(setSignupFragment) {
-            setSignupFragment = false;
+        if(onSignUpFragment) {
+            onSignUpFragment = false;
             setDefaultFragment(new SignUpFragment());
         }else {
             setDefaultFragment(new SignInFragment());
         }
+        //setDefaultFragment(new SignInFragment());
     }
 
-   /* @Override
+    /*@Override
     public void onBackPressed() {
         int count = getSupportFragmentManager().getBackStackEntryCount();
         switch (count)
@@ -50,14 +53,16 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == KeyEvent.KEYCODE_BACK){
+            SignInFragment.disableCloseButton = false;
+            SignUpFragment.disableCloseBtn = false;
             if(onResetPasswordFragmen){
                 setFragment(new SignInFragment());
                 onResetPasswordFragmen = false;
                 return false;
             }
-            if(onSignUpFragmen){
+            if(onSignUpFragment){
                 setFragment(new SignInFragment());
-                onSignUpFragmen = false;
+                onSignUpFragment = false;
                 return false;
             }
         }

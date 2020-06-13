@@ -7,14 +7,16 @@
     android:elevation="8dp"
     tools:context=".MyCartFragment">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cart_items_recycler_view"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:background="#d6d6d6"
-        app:layout_constraintBottom_toTopOf="@+id/linearlayout5"
+        android:elevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,12 +24,10 @@
         android:id="@+id/linearlayout5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:background="@color/Background"
         android:elevation="8dp"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cart_items_recycler_view">

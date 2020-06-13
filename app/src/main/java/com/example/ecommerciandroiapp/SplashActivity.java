@@ -3,6 +3,7 @@ package com.example.ecommerciandroiapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.FeatureGroupInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
@@ -38,24 +39,20 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
 //                SystemClock.sleep(3000);
-                Intent registerIntent = new Intent(SplashActivity.this,MainActivity.class);
+                /*Intent registerIntent = new Intent(SplashActivity.this, RegisterActivity.class);
                 startActivity(registerIntent);
-                finish();
+                finish();*/
             }
 
         };
          countDownTimer.start();
 
-
-
-
     }
 
-    /*@Override
+@Override
     protected void onStart() {
         super.onStart();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-
         if(currentUser == null) {
             Intent registerIntent = new Intent(SplashActivity.this,RegisterActivity.class);
             startActivity(registerIntent);
@@ -65,5 +62,5 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(mainIntent);
             finish();
         }
-    }*/
+    }
 }

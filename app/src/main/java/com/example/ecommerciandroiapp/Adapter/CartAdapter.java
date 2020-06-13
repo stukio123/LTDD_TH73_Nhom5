@@ -5,6 +5,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,6 +15,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.ecommerciandroiapp.BookDetailActivity;
+import com.example.ecommerciandroiapp.Database.DataBaseQueries;
 import com.example.ecommerciandroiapp.Model.CartItemModel;
 import com.example.ecommerciandroiapp.Model.CategoryModel;
 import com.example.ecommerciandroiapp.R;
@@ -22,9 +28,12 @@ import java.util.List;
 public class CartAdapter extends RecyclerView.Adapter {
 
     private List<CartItemModel> cartItemModelList ;
+    private int lastPosition = -1;
+    private TextView cartTotalAmount;
 
-    public CartAdapter(List<CartItemModel> cartItemModelList) {
+    public CartAdapter(List<CartItemModel> cartItemModelList,TextView cartTotalAmount) {
         this.cartItemModelList = cartItemModelList;
+        this.cartTotalAmount = cartTotalAmount;
     }
 
     @Override
@@ -58,23 +67,45 @@ public class CartAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         switch (cartItemModelList.get(position).getType()){
             case CartItemModel.CART_ITEM:
-                int resource = cartItemModelList.get(position).getBookImage();
+                String id = cartItemModelList.get(position).getBookID();
+                String resource = cartItemModelList.get(position).getBookImage();
                 String title = cartItemModelList.get(position).getBookTitle();
                 String bookPrice = cartItemModelList.get(position).getBookPrice();
                 String bookPublisher = cartItemModelList.get(position).getBookPublisher();
                 String bookCuttedPrice = cartItemModelList.get(position).getCuttedPrice();
-                ((CartItemViewHolder)holder).setItemDetails(resource,title,bookPublisher,bookPrice,bookCuttedPrice);
+                ((CartItemViewHolder)holder).setItemDetails(id,resource,title,bookPublisher,bookPrice,bookCuttedPrice,position);
                 break;
             case CartItemModel.TOTAL_AMOUNT:
-                String totalItem = cartItemModelList.get(position).getTotalItems();
-                String totalItemsPrice = cartItemModelList.get(position).getTotalItemsPrice();
-                String deliveryPrice = cartItemModelList.get(position).getDeliveryPrices();
-                String totalAmount = cartItemModelList.get(position).getTotalAmount();
-                String savedAmount = cartItemModelList.get(position).getSavedAmount();
-                ((CartTotalAmountViewHolder)holder).setTotalAmount(totalItem,totalItemsPrice,deliveryPrice,totalAmount,savedAmount);
+                int totalItems = 0;
+                int totalItemPrices = 0;
+                String deliveryPrice;
+                int totalAmount;
+                int savedAmount = 0;
+                for(int i = 0; i < cartItemModelList.size(); i++){
+                    if(cartItemModelList.get(i).getType() == CartItemModel.CART_ITEM){
+                        totalItems++;
+                        totalItemPrices = totalItemPrices + Integer.parseInt(cartItemModelList.get(i).getBookPrice());
+                    }
+                }
+                if(totalItemPrices > 500000){
+                    deliveryPrice = "Free";
+                    totalAmount = totalItemPrices;
+                }else{
+                    deliveryPrice = "30000";
+                    totalAmount = totalItemPrices + 30000;
+                }
+
+
+                ((CartTotalAmountViewHolder)holder).setTotalAmount(totalItems,totalItemPrices,deliveryPrice,totalAmount,savedAmount);
                 break;
             default:
                 return;
+        }
+        if(lastPosition < position){
+            Context context;
+            Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.fragment_fade_enter);
+            holder.itemView.setAnimation(animation);
+            lastPosition = position;
         }
 
     }
@@ -110,12 +141,12 @@ public class CartAdapter extends RecyclerView.Adapter {
             del_btn = itemView.findViewById(R.id.delete_btn);
             bookAmount = itemView.findViewById(R.id.tv_amount);
         }
-        private void setItemDetails(int resource, String title, String publisher, String price, String cuttedPrice){
-            bookImage.setImageResource(resource);
+        private void setItemDetails(String bookId, String resource, String title, String publisher, String price, String cuttedPrice, final int position){
+            Glide.with(itemView.getContext()).load(resource).apply(new RequestOptions().placeholder(R.mipmap.sachtienganh)).into(bookImage);
             bookTitle.setText(title);
-            bookPrice.setText(price);
+            bookPrice.setText(formatPrice(price));
             bookPublisher.setText(publisher);
-            bookCuttedPrice.setText(cuttedPrice);
+            bookCuttedPrice.setText(formatPrice(cuttedPrice));
             up_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -125,7 +156,9 @@ public class CartAdapter extends RecyclerView.Adapter {
             down_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    bookAmount.setText(String.valueOf(Integer.parseInt(bookAmount.getText().toString())-1));
+                    if(Integer.parseInt(bookAmount.getText().toString())>=1){
+                        bookAmount.setText(String.valueOf(Integer.parseInt(bookAmount.getText().toString())-1));
+                    }
                 }
             });
             bookAmount.setOnClickListener(new View.OnClickListener() {
@@ -156,8 +189,19 @@ public class CartAdapter extends RecyclerView.Adapter {
                     quantityDialog.show();
                 }
             });
+            del_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(!BookDetailActivity.RUNNING_CART_QUERY){
+                        BookDetailActivity.RUNNING_CART_QUERY = true;
+                        DataBaseQueries.removeCartList(position, itemView.getContext());
+
+                    }
+                }
+            });
         }
     }
+
 
     class CartTotalAmountViewHolder extends RecyclerView.ViewHolder{
 
@@ -175,12 +219,24 @@ public class CartAdapter extends RecyclerView.Adapter {
             totalAmount = itemView.findViewById(R.id.total_price);
             savedAmount = itemView.findViewById(R.id.saved_amount);
         }
-        private void setTotalAmount(String totalItemText,String totalItemPriceText,String deliveryPriceText, String totalAmountText,String savedAmountText){
-            totalItems.setText(totalItemText);
-            totalItemsPrice.setText(totalItemPriceText);
-            deliveryPrice.setText(deliveryPriceText);
-            totalAmount.setText(totalAmountText);
-            savedAmount.setText(savedAmountText);
+        private void setTotalAmount(int totalItemText,int totalItemPriceText,String deliveryPriceText, int totalAmountText,int savedAmountText){
+            totalItems.setText(String.format("Giá (%s món)",totalItemText));
+            totalItemsPrice.setText(formatPrice(String.valueOf(totalItemPriceText)));
+            if(deliveryPriceText.equals("Free")){
+                deliveryPrice.setText(deliveryPriceText);
+            }else{
+                deliveryPrice.setText(formatPrice(deliveryPriceText));
+            }
+            totalAmount.setText(formatPrice(String.valueOf(totalAmountText)));
+            cartTotalAmount.setText(formatPrice(String.valueOf(totalAmountText)));
+            savedAmount.setText(String.format("Tiết kiệm +%s",formatPrice(String.valueOf(savedAmountText))));
         }
+    }
+    private String formatPrice(String price){
+        int prices = 0;
+        if(price != null)
+            prices = Integer.parseInt(price);
+        String Prices = String.format("%,d đ",prices);
+        return Prices;
     }
 }

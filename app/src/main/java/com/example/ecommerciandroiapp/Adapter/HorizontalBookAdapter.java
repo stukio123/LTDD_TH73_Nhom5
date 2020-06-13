@@ -41,11 +41,8 @@ public class HorizontalBookAdapter extends RecyclerView.Adapter<HorizontalBookAd
         String title = horizontalBookModelList.get(position).getBookTitle();
         String category = horizontalBookModelList.get(position).getBookCategory();
         String price = horizontalBookModelList.get(position).getBookPrice();
-
-        holder.setProductImage(resource);
-        holder.setProductTitle(title);
-        holder.setProductCategory(category);
-        holder.setProductPrice(price);
+        String id = horizontalBookModelList.get(position).getBookID();
+        holder.setData(id,resource,title,category,price);
     }
 
     @Override
@@ -80,22 +77,28 @@ public class HorizontalBookAdapter extends RecyclerView.Adapter<HorizontalBookAd
             });
         }
 
-        private void setProductImage(String url){
+
+        private void setData(final String id , String url, String title, String category, String price){
             Glide.with(itemView.getContext()).load(url).apply(new RequestOptions().placeholder(R.mipmap.sachtienganh)).into(productImage);
-            //productImage.setImageResource(url);
-        }
-        private void setProductTitle(String title){
             productTitle.setText(title);
-        }
-        private void setProductCategory(String category){
             productCategory.setText(category);
+            productPrice.setText(formatPrice(price));
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent bookDetailIntent = new Intent(itemView.getContext(), BookDetailActivity.class);
+                    bookDetailIntent.putExtra("book_id",id);
+                    itemView.getContext().startActivity(bookDetailIntent);
+                }
+            });
         }
-        private void setProductPrice(String price){
+
+        private String formatPrice(String price){
             int prices = 0;
             if(price != null)
                 prices = Integer.parseInt(price);
             String Prices = String.format("%,d đ",prices);
-            productPrice.setText(Prices);
+            return Prices;
         }
     }
 }

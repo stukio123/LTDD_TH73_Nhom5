@@ -46,12 +46,10 @@ public class ViewAllActivity extends AppCompatActivity {
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
             linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
             recyclerView.setLayoutManager(linearLayoutManager);
-
             WishListAdapter adapter = new WishListAdapter(wishListModelList, false);
             recyclerView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
         }else if(layout_code == 1){
-
             gridView.setVisibility(View.VISIBLE);
             GridBookLayoutAdapter gridBookLayoutAdapter = new GridBookLayoutAdapter(horizontalBookModelList);
             gridView.setAdapter(gridBookLayoutAdapter);

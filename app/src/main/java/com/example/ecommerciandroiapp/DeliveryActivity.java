@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.ecommerciandroiapp.Adapter.CartAdapter;
 import com.example.ecommerciandroiapp.Model.CartItemModel;
@@ -24,6 +25,10 @@ public class DeliveryActivity extends AppCompatActivity {
     private RecyclerView deliveryRecyclerview;
     private Button changeOrAddAddressBtn;
     public static final int SELECT_ADDRESS = 0;
+    private TextView totalAmount;
+    private TextView fullname;
+    private TextView address;
+    private TextView phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,24 +40,20 @@ public class DeliveryActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Sổ địa chỉ");
 
+        totalAmount = findViewById(R.id.total_prices);
         deliveryRecyclerview = findViewById(R.id.delivery_recycler_view);
         changeOrAddAddressBtn = findViewById(R.id.charge_or_add_address_btn);
-        Context context;
+        fullname = findViewById(R.id.fullname);
+        address = findViewById(R.id.address);
+        phone = findViewById(R.id.phone);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         deliveryRecyclerview.setLayoutManager(linearLayoutManager);
 
         List<CartItemModel> cartItemModelList = new ArrayList<>();
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(0, R.mipmap.sachtienganh,"Sách tiếng anh","120.000đ","Bộ Giáo Dục","199.000đ",1));
-        cartItemModelList.add(new CartItemModel(1,"Giá (3 sản phẩm)","360.000đ","Free","237.000đ","3"));
 
-        CartAdapter adapter = new CartAdapter(cartItemModelList);
+        CartAdapter adapter = new CartAdapter(cartItemModelList,totalAmount);
         deliveryRecyclerview.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

@@ -28,16 +28,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import static com.example.ecommerciandroiapp.RegisterActivity.onSignUpFragmen;
+import static com.example.ecommerciandroiapp.RegisterActivity.onSignUpFragment;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class SignUpFragment extends Fragment {
 
     public SignUpFragment() {
@@ -50,6 +50,7 @@ public class SignUpFragment extends Fragment {
     private ImageButton ibtn_Close;
     private Button btn_SignUp;
     private ProgressBar progressBar;
+    public static boolean disableCloseBtn = false;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
@@ -64,17 +65,24 @@ public class SignUpFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
         alreadyHaveAccount = view.findViewById(R.id.tv_SignUp2);
         parentFrameLayout = getActivity().findViewById(R.id.register_layout);
-        email = (EditText) view.findViewById(R.id.txt_Email);
-        name = (EditText) view.findViewById(R.id.txt_Name);
-        password = (EditText) view.findViewById(R.id.txt_Password);
-        confirmpassword = (EditText) view.findViewById(R.id.txt_ConfirmPassWord);
-        phone = (EditText) view.findViewById(R.id.txt_Phone);
+        email = view.findViewById(R.id.txt_Email);
+        name = view.findViewById(R.id.txt_Name);
+        password = view.findViewById(R.id.txt_Password);
+        confirmpassword = view.findViewById(R.id.txt_ConfirmPassWord);
+        phone = view.findViewById(R.id.txt_Phone);
         ibtn_Close = view.findViewById(R.id.btn_CloseSignUp);
         btn_SignUp = view.findViewById(R.id.btn_SignUp);
         progressBar = view.findViewById(R.id.SignUp_ProgressBar);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+
+        if(disableCloseBtn){
+            ibtn_Close.setVisibility(View.GONE);
+        }else{
+            ibtn_Close.setVisibility(View.VISIBLE);
+        }
+
         return view;
     }
 
@@ -91,14 +99,10 @@ public class SignUpFragment extends Fragment {
         email.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 checkInput();
@@ -107,14 +111,10 @@ public class SignUpFragment extends Fragment {
         name.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 checkInput();
@@ -123,14 +123,10 @@ public class SignUpFragment extends Fragment {
         phone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 checkInput();
@@ -139,14 +135,10 @@ public class SignUpFragment extends Fragment {
         password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 checkInput();
@@ -155,20 +147,15 @@ public class SignUpFragment extends Fragment {
         confirmpassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 checkInput();
             }
         });
-
         btn_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -186,37 +173,82 @@ public class SignUpFragment extends Fragment {
                 progressBar.setVisibility(View.VISIBLE);
                 btn_SignUp.setEnabled(false);
                 btn_SignUp.setBackgroundColor(Color.rgb(128,128,128));
+
                 firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    Map<Object,String> userdata = new HashMap<>();
-                                    //userdata.put("email",email.getText().toString());
-                                    userdata.put("fullname",name.getText().toString());
-                                    userdata.put("phone",phone.getText().toString());
-                                    firebaseFirestore.collection("users").add(userdata)
-                                            .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<DocumentReference> task) {
-                                            if(task.isSuccessful()){
-                                                Toast.makeText(getActivity(),"Đăng ký thành công",Toast.LENGTH_SHORT).show();
-                                                Intent mainIntent = new Intent(getActivity(),MainActivity.class);
-                                                startActivity(mainIntent);
-                                                getActivity().finish();
-                                            }else{
-                                                progressBar.setVisibility(View.INVISIBLE);
-                                                btn_SignUp.setEnabled(true);
-                                                btn_SignUp.setBackgroundColor(Color.WHITE);
-                                                String error = task.getException().toString();
-                                                Toast.makeText(getActivity(),"Lỗi: "+error,Toast.LENGTH_SHORT).show();
-                                            }
-                                        }
-                                    });
+                                    Map<String, Object>  userData = new HashMap<>();
+                                    userData.put("fullname",name.getText().toString());
+                                    userData.put("phone",phone.getText().toString());
+
+                                    firebaseFirestore.collection("users").document(firebaseAuth.getUid()).set(userData)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()){
+
+                                                        final CollectionReference userDataReference = firebaseFirestore.collection("users").document(firebaseAuth.getUid()).collection("user_data");
+
+                                                        Map<String, Object> wishListMap = new HashMap<>();
+                                                        wishListMap.put("list_size",(long) 0);
+
+                                                        Map<String,Object> ratingsMap = new HashMap<>();
+                                                        ratingsMap.put("list_size",(long) 0);
+
+                                                        Map<String,Object> cartMap = new HashMap<>();
+                                                        cartMap.put("list_size",(long) 0);
+
+                                                        Map<String,Object> myAddressMap = new HashMap<>();
+                                                        myAddressMap.put("list_size",(long) 0);
+
+                                                        final List<String> documentNames = new ArrayList<>();
+                                                        documentNames.add("my_wishList");
+                                                        documentNames.add("my_ratings");
+                                                        documentNames.add("my_cart");
+                                                        documentNames.add("my_addresses");
+
+                                                        final List<Map<String,Object>> documentFields = new ArrayList<>();
+                                                        documentFields.add(wishListMap);
+                                                        documentFields.add(ratingsMap);
+                                                        documentFields.add(cartMap);
+                                                        documentFields.add(myAddressMap);
+
+                                                        for(int i = 0 ; i < documentNames.size();i++){
+
+                                                            final int finalI = i;
+                                                            userDataReference.document(documentNames.get(i)).set(documentFields.get(i))
+                                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                @Override
+                                                                public void onComplete(@NonNull Task<Void> task) {
+                                                                    userDataReference.document(documentNames.get(finalI))
+                                                                            .set(documentFields.get(finalI)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                        @Override
+                                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                                            if(task.isSuccessful()){
+                                                                                if(finalI == documentNames.size() - 1) {
+                                                                                    mainIntent();
+                                                                                }
+                                                                            }else{
+                                                                                progressBar.setVisibility(View.INVISIBLE);
+                                                                                btn_SignUp.setEnabled(true);
+                                                                                btn_SignUp.setBackgroundColor(Color.WHITE);
+                                                                                String error = task.getException().toString();
+                                                                                Toast.makeText(getActivity(),"Lỗi: "+error,Toast.LENGTH_SHORT).show();
+                                                                            }
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
+                                                        }
+                                                    }else{
+                                                        String error = task.getException().toString();
+                                                        Toast.makeText(getActivity(),"Lỗi: "+error,Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
                                 }else{
-                                    progressBar.setVisibility(View.INVISIBLE);
-                                    btn_SignUp.setEnabled(true);
-                                    btn_SignUp.setBackgroundColor(Color.WHITE);
                                     String error = task.getException().toString();
                                     Toast.makeText(getActivity(),"Lỗi: "+error,Toast.LENGTH_SHORT).show();
                                 }
@@ -232,8 +264,6 @@ public class SignUpFragment extends Fragment {
         }
     }
 
-    //Method kiểm tra các EditText đang được điền đầy đủ
-    //Nếu 1 trong những EditText chưa được điền thì button SignUp không được Enable
     private void checkInput() {
         if(!TextUtils.isEmpty(email.getText())){
             if(!TextUtils.isEmpty(name.getText())){
@@ -264,7 +294,16 @@ public class SignUpFragment extends Fragment {
         }
     }
 
-    //Method lấy fragment load lên Activity
+    private void mainIntent(){
+        if(disableCloseBtn){
+            disableCloseBtn = false;
+        }else{
+            Intent mainIntent = new Intent(getActivity(),MainActivity.class);
+            startActivity(mainIntent);
+        }
+        getActivity().finish();
+    }
+
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.slide_fromleft,R.anim.slideout_fromright);
