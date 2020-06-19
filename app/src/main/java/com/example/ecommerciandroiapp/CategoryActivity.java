@@ -28,7 +28,6 @@ import java.util.List;
 
 public class CategoryActivity extends AppCompatActivity {
     private RecyclerView categoryRecyclerView;
-    private CategoryAdapter adapter;
     private FirebaseFirestore firebaseFirestore;
 
 

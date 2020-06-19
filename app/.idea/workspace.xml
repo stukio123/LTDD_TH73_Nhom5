@@ -12,9 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="12dcabe6-da90-4630-9224-c03f7e403870" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/Adapter/CategoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/Adapter/CategoryAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/CategoryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/CategoryActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_category.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_category.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/SearchFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/SearchFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_search.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592548831652</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Category Fragment">
+      <created>1592560981502</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1592560981502</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,17 +279,18 @@
     <MESSAGE value="Banner (Model, Adapter, .xml)" />
     <MESSAGE value="Model, Adapter, .xml" />
     <MESSAGE value="Fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug" />
+    <MESSAGE value="Category Fragment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Category Fragment" />
   </component>
   <component name="WindowStateProjectService">
     <state x="449" y="140" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1592539595601">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="140" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1592539595601" />
-    <state x="332" y="0" key="CommitChangelistDialog2" timestamp="1592548829501">
+    <state x="332" y="0" key="CommitChangelistDialog2" timestamp="1592560980148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="332" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1592548829501" />
+    <state x="332" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1592560980148" />
     <state width="462" height="646" key="DebuggerActiveHint" timestamp="1592552376979">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -323,10 +331,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592548779589" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1592549135839">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1592560992820">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592549135839" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592560992820" />
     <state x="444" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1592538260162">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
