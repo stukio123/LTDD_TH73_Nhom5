@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1340534585/TH73_Nhom5-eCommerciAndroiApp.iml" filepath="$PROJECT_DIR$/.idea/modules/-1340534585/TH73_Nhom5-eCommerciAndroiApp.iml" group="eCommerciAndroiApp" />
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" group="eCommerciAndroiApp/app" />
       <module fileurl="file://$PROJECT_DIR$/../eCommerciAndroiApp.iml" filepath="$PROJECT_DIR$/../eCommerciAndroiApp.iml" group="eCommerciAndroiApp" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eCommerciAndroiApp-app.iml" filepath="$PROJECT_DIR$/.idea/modules/eCommerciAndroiApp-app.iml" group="eCommerciAndroiApp/app" />
     </modules>
   </component>
 </project>

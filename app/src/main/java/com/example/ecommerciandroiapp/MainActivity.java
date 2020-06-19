@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragmet = new SearchFragment();
                             break;
                         case R.id.nav_notification:
-                            selectedFragmet = new MyCartFragment();
+                            selectedFragmet = new NotificationFragment();
                             break;
                         case R.id.nav_user:
                             selectedFragmet = new UserFragment();

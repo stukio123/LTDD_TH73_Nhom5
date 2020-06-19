@@ -56,7 +56,6 @@ public class HomeFragment extends Fragment {
             homePageRecyclerView.setVisibility(View.VISIBLE);
             adapter = new HomePageAdapter(homePageModelList);
             homePageRecyclerView.setAdapter(adapter);
-
             if(homePageModelList.size() == 0){
                 loadFragmentData(adapter,getContext());
             }else{

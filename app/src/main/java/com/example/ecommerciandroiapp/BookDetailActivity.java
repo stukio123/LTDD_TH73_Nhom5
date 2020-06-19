@@ -259,7 +259,8 @@ public class BookDetailActivity extends AppCompatActivity {
                             addBook.put("book_id_" + String.valueOf(DataBaseQueries.cartList.size()), bookID);
                             addBook.put("list_size", (long) (DataBaseQueries.cartList.size() + 1));
 
-                            firebaseFirestore.collection("users").document(currentUser.getUid()).collection("user_data").document("my_cart")
+                            firebaseFirestore.collection("users").document(currentUser.getUid()).collection("user_data")
+                                    .document("my_cart")
                                     .update(addBook).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
@@ -505,14 +506,13 @@ public class BookDetailActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
             if (DataBaseQueries.myRating.size() == 0) {
                 loadRatingList(BookDetailActivity.this);
             }
             if (DataBaseQueries.cartList.size() == 0) {
-                loadCartList(BookDetailActivity.this, loadingDialog, false,badgeCount);
+                loadCartList(BookDetailActivity.this, loadingDialog, true,badgeCount);
             }
             if (DataBaseQueries.wishList.size() == 0) {
                 loadWishList(BookDetailActivity.this, loadingDialog, false);
@@ -547,7 +547,7 @@ public class BookDetailActivity extends AppCompatActivity {
         ImageView badgeIcon = cartItem.getActionView().findViewById(R.id.badge_icon);
         badgeIcon.setImageResource(R.drawable.ic_cart);
         badgeCount = cartItem.getActionView().findViewById(R.id.badge_count);
-        if (currentUser != null) {
+        /*if (currentUser != null) {
             if (DataBaseQueries.cartList.size() == 0) {
                 loadCartList(BookDetailActivity.this, loadingDialog, false,badgeCount);
             }else{
@@ -558,7 +558,7 @@ public class BookDetailActivity extends AppCompatActivity {
                     badgeCount.setText("99");
                 }
             }
-        }
+        }*/
         cartItem.getActionView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -571,6 +571,7 @@ public class BookDetailActivity extends AppCompatActivity {
                 }
             }
         });
+
         return true;
     }
     @Override

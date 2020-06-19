@@ -41,6 +41,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import static com.example.ecommerciandroiapp.HomeFragment.refreshLayout;
+import static java.lang.Long.getLong;
 
 public class DataBaseQueries {
 
@@ -283,7 +284,7 @@ public class DataBaseQueries {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()){
-                    for(long i = 0; i < (long) Objects.requireNonNull(task.getResult()).get("list_size"); i++){
+                    for(long i = 0; i <(long)task.getResult().get("list_size"); i++){
                         cartList.add(task.getResult().get("book_id_"+i).toString());
                         if(cartList.contains(BookDetailActivity.bookID)){
                             BookDetailActivity.ADDED_TO_CART = true;
@@ -299,9 +300,9 @@ public class DataBaseQueries {
                                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                             if(task.isSuccessful()){
                                                 int index = 0;
-                                                if(cartList.size() >= 2){
+                                                /*if(cartList.size() >= 2){
                                                     index = cartList.size()-2;
-                                                }
+                                                }*/
                                                 //int type ,String bookID, String bookImage, String bookTitle, String bookPrice, String bookPublisher, String cuttedPrice, long bookQuantity
                                                 cartItemModelList.add(index,new CartItemModel(CartItemModel.CART_ITEM
                                                         ,task.getResult().getId()
@@ -349,7 +350,7 @@ public class DataBaseQueries {
         final String removeBookID = cartList.get(index);
         cartList.remove(index);
         Map<String,Object> updateCartList = new HashMap<>();
-        for (int i = 0 ; i <wishList.size(); i++){
+        for (int i = 0 ; i <cartList.size(); i++){
             updateCartList.put("book_id_"+i,cartList.get(i));
         }
         updateCartList.put("list_size",(long)cartList.size());
@@ -378,7 +379,6 @@ public class DataBaseQueries {
             }
         });
     }
-
     public static void loadAddresses(final Context context, final Dialog loadingDialog){
         addressModelList.clear();
         firebaseFirestore.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("user_data")

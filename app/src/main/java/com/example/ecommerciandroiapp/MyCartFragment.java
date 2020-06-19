@@ -57,13 +57,13 @@ public class MyCartFragment extends Fragment {
         loadingDialog.setContentView(R.layout.loading_progress_layout);
         loadingDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         loadingDialog.show();
-
-        if(DataBaseQueries.cartItemModelList.size() == 0 ){
-            DataBaseQueries.cartList.clear();
-            DataBaseQueries.loadCartList(getContext(),loadingDialog,true,new TextView(getContext()));
-        }else{
-            loadingDialog.dismiss();
-        }
+            if(DataBaseQueries.cartItemModelList.size() == 0 ){
+                DataBaseQueries.cartList.clear();
+                DataBaseQueries.loadCartList(getContext(),loadingDialog,true,new TextView(getContext()));
+            }else{
+                DataBaseQueries.loadCartList(getContext(),loadingDialog,false,new TextView(getContext()));
+                loadingDialog.dismiss();
+            }
 
         cartAdapter = new CartAdapter(DataBaseQueries.cartItemModelList,totalAmount,true);
         cartItemRecyclerView.setAdapter(cartAdapter);
@@ -77,7 +77,6 @@ public class MyCartFragment extends Fragment {
 
             }
         });
-
         return view;
     }
 }
