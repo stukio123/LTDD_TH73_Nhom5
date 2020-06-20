@@ -2,6 +2,7 @@ package com.example.ecommerciandroiapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,8 +10,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
-import androidx.appcompat.widget.Toolbar;
 
 import com.example.ecommerciandroiapp.Adapter.WishListAdapter;
 import com.example.ecommerciandroiapp.Model.WishListModel;
@@ -23,30 +22,28 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryActivity extends AppCompatActivity {
-    private RecyclerView categoryRecyclerView;
+public class AuthorActivity extends AppCompatActivity {
+    private RecyclerView authorRecyclerView;
     private FirebaseFirestore firebaseFirestore;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category);
+        setContentView(R.layout.activity_author);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        String title = getIntent().getStringExtra("categoryName");
+        String title = getIntent().getStringExtra("author_name");
         getSupportActionBar().setTitle(title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         firebaseFirestore = FirebaseFirestore.getInstance();
-        categoryRecyclerView = findViewById(R.id.author_rc);
+        authorRecyclerView = findViewById(R.id.author_rc);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
-        categoryRecyclerView.setLayoutManager(linearLayoutManager);
+        authorRecyclerView.setLayoutManager(linearLayoutManager);
         final List<WishListModel> wishList = new ArrayList<>();
         final WishListAdapter adapter = new WishListAdapter(wishList, false);
-        categoryRecyclerView.setAdapter(adapter);
-        firebaseFirestore.collection("Books").whereEqualTo("category",title).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        authorRecyclerView.setAdapter(adapter);
+        firebaseFirestore.collection("Books").whereEqualTo("author",title).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
@@ -63,13 +60,12 @@ public class CategoryActivity extends AppCompatActivity {
                     }
                     adapter.notifyDataSetChanged();
                 }else{
-                    Toast.makeText(CategoryActivity.this,"Không tìm thấy sách",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AuthorActivity.this,"Không tìm thấy sách",Toast.LENGTH_SHORT).show();
                 }
                 //String bookID,String bookImage, String bookTitle, String bookAuthor, long rating, long totalRating, String bookPrice, String cuttedPrice
             }
         });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.search_book,menu);

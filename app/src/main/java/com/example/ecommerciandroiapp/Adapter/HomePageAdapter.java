@@ -12,6 +12,7 @@ import androidx.gridlayout.widget.GridLayout;
 
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.ecommerciandroiapp.BookAllActivity;
 import com.example.ecommerciandroiapp.BookDetailActivity;
 import com.example.ecommerciandroiapp.Model.HomePageModel;
 import com.example.ecommerciandroiapp.Model.HorizontalBookModel;
@@ -42,7 +44,6 @@ public class HomePageAdapter extends RecyclerView.Adapter {
         this.homePageModelList = homePageModelList;
         recycledViewPool = new RecyclerView.RecycledViewPool();
     }
-
     @Override
     public int getItemViewType(int position) {
         switch (homePageModelList.get(position).getType()){
@@ -52,6 +53,8 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 return HomePageModel.HORIZONTAL_BOOK_VIEW;
             case 2:
                 return HomePageModel.GRID_BOOK_VIEW;
+            /*case 3:
+                return HomePageModel.HORIZONTAL_AUTHOR_VIEW;*/
             default:
                 return -1;
         }
@@ -70,6 +73,9 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             case HomePageModel.GRID_BOOK_VIEW:
                 View GridBookView = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_book_layout,parent,false);
                 return new GridBookViewHolder(GridBookView);
+            /*case HomePageModel.HORIZONTAL_AUTHOR_VIEW:
+                View horizontalAuthorView = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_scroll_author_layout,parent,false);
+                return new HorizontalBookViewHolder(horizontalAuthorView);*/
             default:
                 return null;
 
@@ -94,6 +100,12 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 List<HorizontalBookModel> gridBookModelList = homePageModelList.get(position).getHorizontalBookModelList();
                 ((GridBookViewHolder)holder).setGridBookLayout(gridBookModelList,gridLayoutTitle);
                 break;
+            /*case HomePageModel.HORIZONTAL_AUTHOR_VIEW:
+                //String horizontalLayoutTitle = homePageModelList.get(position).getBookTitle();
+                List<WishListModel> viewAllAuthorList = homePageModelList.get(position).getViewAllList();
+                List<HorizontalBookModel> horizontalAuthorModelList = homePageModelList.get(position).getHorizontalBookModelList();
+                ((HorizontalAuthorViewHolder)holder).setHorizontalAuthorLayout(horizontalAuthorModelList,viewAllAuthorList);
+                break;*/
             default:
                 return ;
         }
@@ -103,8 +115,6 @@ public class HomePageAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return homePageModelList.size();
     }
-
-
 
     public class BannerSliderViewHolder extends RecyclerView.ViewHolder{
 
@@ -167,6 +177,10 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                     if(event.getAction() == MotionEvent.ACTION_UP) {
                         startBannerSlideShow(arrangedList);
                     }
+                    Intent bookIntent = new Intent(itemView.getContext(), BookAllActivity.class);
+                    //bookIntent.putExtra("layout_code",1);
+                    //bookIntent.putExtra("title","Quảng Cáo");
+                    itemView.getContext().startActivity(bookIntent);
                     return false;
                 }
             });
@@ -293,6 +307,42 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             if(price != null)
                 prices = Integer.parseInt(price);
             return String.format("%,d đ",prices);
+        }
+    }
+    public class HorizontalAuthorViewHolder extends RecyclerView.ViewHolder{
+
+        private Button horizontalLayoutButton;
+        private RecyclerView horizontalRecyclerView;
+
+        public HorizontalAuthorViewHolder(@NonNull View itemView) {
+            super(itemView);
+            horizontalRecyclerView = itemView.findViewById(R.id.horizontal_scroll_layout_recycleview);
+            horizontalLayoutButton = itemView.findViewById(R.id.view_all_btn);
+            horizontalRecyclerView.setRecycledViewPool(recycledViewPool);
+        }
+
+        private void setHorizontalAuthorLayout(List<HorizontalBookModel> horizontalBookModelList, final List<WishListModel> viewAllBookList){
+            if(horizontalBookModelList.size() > 8)
+            {
+                horizontalLayoutButton.setVisibility(View.VISIBLE);
+                horizontalLayoutButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ViewAllActivity.wishListModelList = viewAllBookList;
+                        Intent viewAllIntent = new Intent(itemView.getContext(), ViewAllActivity.class);
+                        viewAllIntent.putExtra("layout_code",0);
+                        itemView.getContext().startActivity(viewAllIntent);
+                    }
+                });
+            }else{
+                horizontalLayoutButton.setVisibility(View.INVISIBLE);
+            }
+            HorizontalBookAdapter horizontalBookAdapter = new HorizontalBookAdapter(horizontalBookModelList);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(itemView.getContext());
+            linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+            horizontalRecyclerView.setLayoutManager(linearLayoutManager);
+            horizontalRecyclerView.setAdapter(horizontalBookAdapter);
+            horizontalBookAdapter.notifyDataSetChanged();
         }
     }
 }

@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:layout_editor_absoluteX="8dp"
-    tools:layout_editor_absoluteY="8dp">
+    tools:layout_editor_absoluteY="8dp"
+    android:layout_marginBottom="3dp">
 
     <LinearLayout
         android:id="@+id/linearlayoutFlashSale"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bogoc_footder"
+        android:background="@drawable/bogoc_button"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,21 +76,21 @@
 
         <Button
             android:id="@+id/view_all_btn"
-            android:layout_width="50dp"
+            android:layout_width="187dp"
             android:layout_height="50dp"
+            android:layout_marginRight="20dp"
             android:layout_weight="1"
+            android:background="@color/colorAccent"
             android:text="Xem thêm"
             android:textAlignment="textEnd"
-            android:layout_marginRight="8dp"
-            android:textColor="@color/Background"
-            android:background="@color/colorAccent"/>
+            android:textColor="@color/Background" />
 
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bogoc_header"
+        android:background="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@+id/linearlayoutFlashSale"
         tools:layout_editor_absoluteX="2dp">
 

@@ -37,8 +37,9 @@ public class CategoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
         categoryRecyclerView = view.findViewById(R.id.category_recyclerview);
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),2);
+        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),1);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
         categoryRecyclerView.setLayoutManager(layoutManager);
 
         categoryModelList  = new ArrayList<CategoryModel>();

@@ -1,5 +1,6 @@
 package com.example.ecommerciandroiapp.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,6 @@ import java.util.List;
 public class SliderAdapter extends PagerAdapter {
     private List<SliderModel> sliderModelList;
 
-
     public SliderAdapter(List<SliderModel> sliderModels) {
         this.sliderModelList = sliderModels;
     }
@@ -31,6 +31,12 @@ public class SliderAdapter extends PagerAdapter {
         Glide.with(container.getContext()).load(sliderModelList.get(position).getBannerImage())
                 .apply(new RequestOptions().override(800,294)).into(banner);
         container.addView(view,0);
+        container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent bookAll = new Intent();
+            }
+        });
         return view;
     }
 

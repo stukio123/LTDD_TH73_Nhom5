@@ -8,6 +8,7 @@ public class HomePageModel {
     public static final int HORIZONTAL_BOOK_VIEW = 1;
     public static final int GRID_BOOK_VIEW = 2;
     public static final int CATEGORIES_BOOK_VIEW = 3;
+    public static final int HORIZONTAL_AUTHOR_VIEW = 3;
     private int type;
 
     public int getType() {
@@ -33,7 +34,6 @@ public class HomePageModel {
         this.type = type;
         this.sliderModelList = sliderModelList;
     }
-
     public List<SliderModel> getSliderModelList() {
         return sliderModelList;
     }
@@ -46,27 +46,24 @@ public class HomePageModel {
     private String bookTitle;
     private List<HorizontalBookModel> horizontalBookModelList;
     private List<WishListModel> viewAllList;
-
     public HomePageModel(int type, String bookTitle, List<HorizontalBookModel> horizontalBookModelList,List<WishListModel> viewAllList) {
         this.type = type;
         this.bookTitle = bookTitle;
         this.horizontalBookModelList = horizontalBookModelList;
         this.viewAllList = viewAllList;
     }
+
     public HomePageModel(int type, String bookTitle, List<HorizontalBookModel> horizontalBookModelList) {
         this.type = type;
         this.bookTitle = bookTitle;
         this.horizontalBookModelList = horizontalBookModelList;
     }
-
     public List<WishListModel> getViewAllList() {
         return viewAllList;
     }
-
     public void setViewAllList(List<WishListModel> viewAllList) {
         this.viewAllList = viewAllList;
     }
-
     public String getBookTitle() {
         return bookTitle;
     }

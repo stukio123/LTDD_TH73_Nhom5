@@ -17,6 +17,7 @@ import com.example.ecommerciandroiapp.AddAdressActivity;
 import com.example.ecommerciandroiapp.BookDetailActivity;
 import com.example.ecommerciandroiapp.DeliveryActivity;
 import com.example.ecommerciandroiapp.Model.AddressModel;
+import com.example.ecommerciandroiapp.Model.AuthorModel;
 import com.example.ecommerciandroiapp.Model.CartItemModel;
 import com.example.ecommerciandroiapp.Model.CategoryModel;
 import com.example.ecommerciandroiapp.Model.HomePageModel;
@@ -104,7 +105,6 @@ public class DataBaseQueries {
                                     long no_of_books = documentSnapshot.getLong("no_of_books");
                                     for(int i = 1; i<= no_of_books+1;i++)
                                     {
-
                                         long totalRatings ;
                                         long avgRatings;
                                         horizontalBookModelList.add(new HorizontalBookModel(documentSnapshot.getString("book_"+i+"_id"),
@@ -159,7 +159,9 @@ public class DataBaseQueries {
                                         }
                                     }
                                     homePageModelList.add(new HomePageModel(2,documentSnapshot.getString("author"),gridLayoutModelList,viewAllBookList));
-                                }
+                                }/*else if(documentSnapshot.getLong("view_type") == 3){
+
+                                }*/
                             }
                             adapter.notifyDataSetChanged();
                             refreshLayout.setRefreshing(false);

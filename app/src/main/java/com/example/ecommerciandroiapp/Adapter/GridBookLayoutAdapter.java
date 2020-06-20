@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.ecommerciandroiapp.BookDetailActivity;
+import com.example.ecommerciandroiapp.Model.AuthorModel;
 import com.example.ecommerciandroiapp.Model.HorizontalBookModel;
 import com.example.ecommerciandroiapp.R;
 
