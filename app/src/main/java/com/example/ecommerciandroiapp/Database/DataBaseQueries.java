@@ -16,6 +16,7 @@ import com.example.ecommerciandroiapp.Adapter.HomePageAdapter;
 import com.example.ecommerciandroiapp.AddAdressActivity;
 import com.example.ecommerciandroiapp.BookDetailActivity;
 import com.example.ecommerciandroiapp.DeliveryActivity;
+import com.example.ecommerciandroiapp.MainActivity;
 import com.example.ecommerciandroiapp.Model.AddressModel;
 import com.example.ecommerciandroiapp.Model.AuthorModel;
 import com.example.ecommerciandroiapp.Model.CartItemModel;
@@ -314,12 +315,14 @@ public class DataBaseQueries {
                                                         , task.getResult().getString("publisher")
                                                         , task.getResult().getString("cutted_price")
                                                         , (long)1));
+
                                                 if(cartList.size() == 1){
                                                     cartItemModelList.add(new CartItemModel(CartItemModel.TOTAL_AMOUNT));
                                                 }
                                                 if(cartList.size() == 0){
                                                     cartItemModelList.clear();
                                                 }
+                                                cartItemModelList.add(new CartItemModel(CartItemModel.TOTAL_AMOUNT));
                                                 MyCartFragment.cartAdapter.notifyDataSetChanged();
                                             }else{
                                                 String error = task.getException().getMessage();
@@ -367,6 +370,11 @@ public class DataBaseQueries {
                     if(cartItemModelList.size() != 0){
                         cartItemModelList.remove(index);
                         MyCartFragment.cartAdapter.notifyDataSetChanged();
+                        if(cartList.size()>0){
+                            MainActivity.badgeCount.setText(String.valueOf(cartList.size()));
+                        }else{
+                            MainActivity.badgeCount.setVisibility(View.GONE);
+                        }
                     }
                     if(cartList.size() == 0){
                         cartItemModelList.clear();
@@ -381,6 +389,7 @@ public class DataBaseQueries {
             }
         });
     }
+
     public static void loadAddresses(final Context context, final Dialog loadingDialog){
         addressModelList.clear();
         firebaseFirestore.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("user_data")

@@ -169,18 +169,25 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             };
             bannerSliderViewPage.addOnPageChangeListener(onPageChangeListener);
             startBannerSlideShow(arrangedList);
+            /*bannerSliderViewPage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent bookIntent = new Intent(itemView.getContext(), BookAllActivity.class);
+                    itemView.getContext().startActivity(bookIntent);
+                }
+            });*/
             bannerSliderViewPage.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     pageLoop(arrangedList);
                     stopBannerSlideShow();
-                    if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if(event.getAction() == MotionEvent.ACTION_MOVE) {
                         startBannerSlideShow(arrangedList);
-                    }
-                    Intent bookIntent = new Intent(itemView.getContext(), BookAllActivity.class);
-                    //bookIntent.putExtra("layout_code",1);
-                    //bookIntent.putExtra("title","Quảng Cáo");
-                    itemView.getContext().startActivity(bookIntent);
+
+                    }/*else if(event.getAction() == MotionEvent.ACTION_UP){
+                        Intent bookIntent = new Intent(itemView.getContext(), BookAllActivity.class);
+                        itemView.getContext().startActivity(bookIntent);
+                    }*/
                     return false;
                 }
             });

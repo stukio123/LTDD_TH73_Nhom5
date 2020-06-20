@@ -11,6 +11,7 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.ecommerciandroiapp.BookAllActivity;
 import com.example.ecommerciandroiapp.Model.SliderModel;
 import com.example.ecommerciandroiapp.R;
 
@@ -26,17 +27,18 @@ public class SliderAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View view = LayoutInflater.from(container.getContext()).inflate(R.layout.slider_layout,container,false);
+        final View view = LayoutInflater.from(container.getContext()).inflate(R.layout.slider_layout,container,false);
         ImageView banner = view.findViewById(R.id.banner_slider);
         Glide.with(container.getContext()).load(sliderModelList.get(position).getBannerImage())
                 .apply(new RequestOptions().override(800,294)).into(banner);
-        container.addView(view,0);
-        container.setOnClickListener(new View.OnClickListener() {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent bookAll = new Intent();
+                Intent bookIntent = new Intent(view.getContext(), BookAllActivity.class);
+                view.getContext().startActivity(bookIntent);
             }
         });
+        container.addView(view,0);
         return view;
     }
 

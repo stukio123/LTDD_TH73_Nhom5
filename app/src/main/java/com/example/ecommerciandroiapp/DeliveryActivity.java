@@ -147,9 +147,9 @@ public class DeliveryActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        /*fullname.setText(DataBaseQueries.addressModelList.get(DataBaseQueries.selectedAddress).getName());
+        fullname.setText(DataBaseQueries.addressModelList.get(DataBaseQueries.selectedAddress).getName());
         address.setText(DataBaseQueries.addressModelList.get(DataBaseQueries.selectedAddress).getAddress());
-        phone.setText(DataBaseQueries.addressModelList.get(DataBaseQueries.selectedAddress).getPhone());*/
+        phone.setText(DataBaseQueries.addressModelList.get(DataBaseQueries.selectedAddress).getPhone());
     }
 
     @Override
