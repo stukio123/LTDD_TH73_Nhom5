@@ -28,8 +28,8 @@
             android:ems="10"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textColor="@color/colorPrimary"
-            android:textColorHighlight="#3F51B5"
+            android:textColor="#1569F9"
+            android:textColorHighlight="#1569F9"
             android:textSize="13dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +70,7 @@
 
             android:layout_marginTop="28dp"
             android:text="Quên mật khẩu ?"
-            android:textColor="@color/colorPrimary"
+            android:textColor="#1569F9"
             app:layout_constraintEnd_toEndOf="@+id/txt_Password"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/txt_Password"
@@ -84,7 +84,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/bogoc_button"
+            android:background="#1569F9"
             android:text="Đăng Nhập"
             android:textAllCaps="false"
             android:textColor="@color/Background"
@@ -166,7 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Đăng ký tài khoản "
-                android:textColor="@color/colorPrimary"
+                android:textColor="#1569F9"
                 android:textStyle="" />
         </LinearLayout>
 

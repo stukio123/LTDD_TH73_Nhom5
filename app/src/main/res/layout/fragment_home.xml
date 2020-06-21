@@ -61,13 +61,6 @@
                     <ScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-<<<<<<< HEAD
-=======
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:numColumns="2"
->>>>>>> f13ff1f084b855923b4cf249d5da71ffb0bc00fa
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
