@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ecommerciandroiapp.Adapter.AddressAdapter;
+import com.example.ecommerciandroiapp.Adapter.WishListAdapter;
 import com.example.ecommerciandroiapp.Database.DataBaseQueries;
 import com.example.ecommerciandroiapp.Model.AddressModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -44,6 +45,7 @@ public class MyAddressActivity extends AppCompatActivity {
     private Button deliverHereBtn;
     private TextView addressesSaved;
     private Dialog loadingDialog;
+    public static AddressAdapter addressAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,7 @@ public class MyAddressActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MyAddressActivity.this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         myAddressesRecyclerView.setLayoutManager(linearLayoutManager);
+
 
         int mode = getIntent().getIntExtra("MODE",-1);
         if(mode == SELECT_ADDRESS){

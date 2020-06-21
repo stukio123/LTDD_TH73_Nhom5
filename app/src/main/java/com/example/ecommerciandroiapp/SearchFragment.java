@@ -47,33 +47,40 @@ public class SearchFragment extends Fragment {
         final List<WishListModel> wishList = new ArrayList<>();
         final WishListAdapter adapter = new WishListAdapter(wishList, false);
         searchView.setAdapter(adapter);
-        if (!searchTextView.getText().equals("")){
             searchButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    firebaseFirestore.collection("Books").whereEqualTo("title", searchTextView.getText().toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()) {
-                                for (DocumentSnapshot documentSnapshot : task.getResult()) {
-                                    wishList.add(new WishListModel(documentSnapshot.getId()
-                                            , documentSnapshot.getString("image")
-                                            , documentSnapshot.getString("title")
-                                            , documentSnapshot.getString("author")
-                                            , documentSnapshot.getLong("avg_rating")
-                                            , documentSnapshot.getLong("total_rating")
-                                            , documentSnapshot.getString("price")
-                                            , documentSnapshot.getString("cutted_price")));
+                    if (searchTextView.getText().toString().equals("")){
+                        Toast.makeText(getContext(),"Tên sách không được bỏ trống",Toast.LENGTH_SHORT).show();
+                    }else {
+                        firebaseFirestore.collection("Books").whereEqualTo("title", searchTextView.getText().toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    if(task.getResult().size() >0){
+                                        for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                                            wishList.add(new WishListModel(documentSnapshot.getId()
+                                                    , documentSnapshot.getString("image")
+                                                    , documentSnapshot.getString("title")
+                                                    , documentSnapshot.getString("author")
+                                                    , documentSnapshot.getLong("avg_rating")
+                                                    , documentSnapshot.getLong("total_rating")
+                                                    , documentSnapshot.getString("price")
+                                                    , documentSnapshot.getString("cutted_price")));
+                                        }
+                                    adapter.notifyDataSetChanged();
+                                    }else{
+                                        Toast.makeText(getContext(), "Không tìm thấy sách", Toast.LENGTH_SHORT).show();
+                                    }
+                                } else {
+                                    Toast.makeText(getContext(), "Không tìm thấy sách", Toast.LENGTH_SHORT).show();
                                 }
-                                adapter.notifyDataSetChanged();
-                            } else {
-                                Toast.makeText(getContext(), "Không tìm thấy sách", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                    });
+                        });
+                    }
                 }
             });
-        }
+
         return view;
     }
 }

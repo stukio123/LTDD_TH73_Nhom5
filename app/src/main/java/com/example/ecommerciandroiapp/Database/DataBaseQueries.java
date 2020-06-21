@@ -267,7 +267,7 @@ public class DataBaseQueries {
                             myRating.add(task.getResult().getLong("rating_" + i));
                             if (task.getResult().getString("book_id_" + i).equals(BookDetailActivity.bookID)) {
                                 BookDetailActivity.yours_rating.setRating(task.getResult().getLong("rating_" + i));
-                                BookDetailActivity.currentRatings = (int)BookDetailActivity.yours_rating.getRating();
+                                //BookDetailActivity.currentRatings = (int)BookDetailActivity.yours_rating.getRating();
                             }
                         }
                     } else {
@@ -315,10 +315,6 @@ public class DataBaseQueries {
                                                         , task.getResult().getString("publisher")
                                                         , task.getResult().getString("cutted_price")
                                                         , (long)1));
-
-                                                if(cartList.size() == 1){
-                                                    cartItemModelList.add(new CartItemModel(CartItemModel.TOTAL_AMOUNT));
-                                                }
                                                 if(cartList.size() == 0){
                                                     cartItemModelList.clear();
                                                 }
