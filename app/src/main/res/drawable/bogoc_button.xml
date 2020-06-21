@@ -5,7 +5,7 @@ android:shape="rectangle">
 
 <!-- Set màu nền-->
 <solid
-    android:color="#33f5ff"
+    android:color="#1569F9"
     >
 </solid>
 

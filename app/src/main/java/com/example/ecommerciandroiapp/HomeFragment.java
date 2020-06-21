@@ -82,7 +82,7 @@ public class HomeFragment extends Fragment {
         authorModelList = new ArrayList<>();
         authorAdapter = new AuthorAdapter(authorModelList);
         author_gridview.setAdapter(authorAdapter);
-        author_gridview.setNumColumns(2);
+        author_gridview.setNumColumns(4);
 
         if(networkInfo != null && networkInfo.isConnected()) {
             noInternetConnection.setVisibility(View.GONE);
