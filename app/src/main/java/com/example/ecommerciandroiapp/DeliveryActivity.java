@@ -42,7 +42,7 @@ public class DeliveryActivity extends AppCompatActivity {
     private RecyclerView deliveryRecyclerview;
     private Button changeOrAddAddressBtn;
     public static final int SELECT_ADDRESS = 0;
-    private TextView totalAmount;
+    public static TextView totalAmount;
     private TextView fullname;
     private TextView address;
     private TextView phone;
@@ -90,7 +90,6 @@ public class DeliveryActivity extends AppCompatActivity {
                 Intent myAddressedIntent = new Intent(DeliveryActivity.this,MyAddressActivity.class);
                 myAddressedIntent.putExtra("MODE",SELECT_ADDRESS);
                 startActivity(myAddressedIntent);
-
             }
         });
         continueBtn.setOnClickListener(new View.OnClickListener() {

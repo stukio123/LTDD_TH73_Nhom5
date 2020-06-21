@@ -378,6 +378,8 @@ public class DataBaseQueries {
                     }
                     if(cartList.size() == 0){
                         cartItemModelList.clear();
+                        MyCartFragment.totalAmount.setText("0");
+                        MyCartFragment.cartAdapter.notifyDataSetChanged();
                     }
                     Toast.makeText(context,"Xóa khỏi giỏ hàng thành công",Toast.LENGTH_LONG).show();
                 }else{

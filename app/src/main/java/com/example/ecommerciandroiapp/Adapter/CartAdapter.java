@@ -81,7 +81,7 @@ public class CartAdapter extends RecyclerView.Adapter {
                 int totalItems = 0;
                 int totalItemPrices = 0;
                 String deliveryPrice;
-                int totalAmount;
+                int totalAmount = 0;
                 int savedAmount = 0;
                 for(int i = 0; i < cartItemModelList.size(); i++){
                     if(cartItemModelList.get(i).getType() == CartItemModel.CART_ITEM){
@@ -97,14 +97,12 @@ public class CartAdapter extends RecyclerView.Adapter {
                     totalAmount = totalItemPrices + 30000;
                 }
 
-
                 ((CartTotalAmountViewHolder)holder).setTotalAmount(totalItems,totalItemPrices,deliveryPrice,totalAmount,savedAmount);
                 break;
             default:
                 return;
         }
         if(lastPosition < position){
-            Context context;
             Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.fragment_fade_enter);
             holder.itemView.setAnimation(animation);
             lastPosition = position;
@@ -128,8 +126,6 @@ public class CartAdapter extends RecyclerView.Adapter {
         private ImageView up_btn;
         private ImageView down_btn;
         private ImageView del_btn;
-
-
 
         public CartItemViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -210,8 +206,6 @@ public class CartAdapter extends RecyclerView.Adapter {
             });
         }
     }
-
-
     class CartTotalAmountViewHolder extends RecyclerView.ViewHolder{
 
         private TextView totalItems;
@@ -236,7 +230,11 @@ public class CartAdapter extends RecyclerView.Adapter {
             }else{
                 deliveryPrice.setText(formatPrice(deliveryPriceText));
             }
-            totalAmount.setText(formatPrice(String.valueOf(totalAmountText)));
+            if(cartItemModelList.size() != 0){
+                totalAmount.setText(formatPrice(String.valueOf(totalAmountText)));
+            }else{
+                totalAmount.setText(String.valueOf(0));
+            }
             cartTotalAmount.setText(formatPrice(String.valueOf(totalAmountText)));
             savedAmount.setText(String.format("Tiết kiệm +%s",formatPrice(String.valueOf(savedAmountText))));
         }

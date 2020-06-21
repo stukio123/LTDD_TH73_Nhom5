@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ecommerciandroiapp.Adapter.CartAdapter;
 import com.example.ecommerciandroiapp.Adapter.WishListAdapter;
@@ -32,7 +33,7 @@ public class MyCartFragment extends Fragment {
     private Button pay;
     private Dialog loadingDialog;
     public static CartAdapter cartAdapter;
-    private TextView totalAmount;
+    public static TextView totalAmount;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,10 +74,16 @@ public class MyCartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 loadingDialog.show();
-                DataBaseQueries.loadAddresses(getContext(),loadingDialog);
+                if(DataBaseQueries.cartList.size() != 0){
+                    DataBaseQueries.loadAddresses(getContext(),loadingDialog);
+                }else{
+                    Toast.makeText(getContext(),"Không thể tiếp tục thanh toán khi giỏ hàng trống",Toast.LENGTH_LONG).show();
+                    loadingDialog.dismiss();
+                }
 
             }
         });
+
         return view;
     }
 }
