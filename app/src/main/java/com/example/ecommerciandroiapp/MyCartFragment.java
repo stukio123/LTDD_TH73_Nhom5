@@ -78,7 +78,6 @@ public class MyCartFragment extends Fragment {
                     Toast.makeText(getContext(),"Không thể tiếp tục thanh toán khi giỏ hàng trống",Toast.LENGTH_LONG).show();
                     loadingDialog.dismiss();
                 }
-
             }
         });
 

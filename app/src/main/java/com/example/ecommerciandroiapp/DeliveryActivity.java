@@ -77,6 +77,7 @@ public class DeliveryActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         deliveryRecyclerview.setLayoutManager(linearLayoutManager);
+        totalAmount.setText(MyCartFragment.totalAmount.getText());
 
         CartAdapter adapter = new CartAdapter(DataBaseQueries.cartItemModelList,totalAmount,false);
         deliveryRecyclerview.setAdapter(adapter);
