@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         framelayout = findViewById(R.id.fragment_container);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new HomeFragment()).commit();
+//        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+//                new HomeFragment()).commit();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -172,6 +172,8 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_user:
                             selectedFragmet = new UserFragment();
                             break;
+                        default:
+                            selectedFragmet = new HomeFragment();
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragmet).commit();

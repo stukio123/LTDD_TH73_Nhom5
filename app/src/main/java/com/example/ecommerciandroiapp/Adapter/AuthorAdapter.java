@@ -56,9 +56,10 @@ public class AuthorAdapter extends BaseAdapter {
             });
             ImageView authorImage = view.findViewById(R.id.author_image);
             TextView authorname = view.findViewById(R.id.author_name);
-            Glide.with(parent.getContext()).load(authorModelList.get(position).getAuthorImage())
-                    .apply(new RequestOptions().placeholder(R.mipmap.sachtienganh)).into(authorImage);
             authorname.setText(authorModelList.get(position).getAuthorName());
+            Glide.with(parent.getContext()).load("http://upload.wikimedia.org/wikipedia/commons/9/96/Nguyen_Nhat_Anh.jpg")
+                    .apply(new RequestOptions().placeholder(R.mipmap.sachtienganh)).into(authorImage);
+
         }else{
             view = convertView;
         }

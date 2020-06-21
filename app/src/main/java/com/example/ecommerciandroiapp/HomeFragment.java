@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.gridlayout.widget.GridLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -81,6 +82,7 @@ public class HomeFragment extends Fragment {
         authorModelList = new ArrayList<>();
         authorAdapter = new AuthorAdapter(authorModelList);
         author_gridview.setAdapter(authorAdapter);
+        author_gridview.setNumColumns(2);
 
         if(networkInfo != null && networkInfo.isConnected()) {
             noInternetConnection.setVisibility(View.GONE);
@@ -90,9 +92,11 @@ public class HomeFragment extends Fragment {
             homePageRecyclerView.setAdapter(adapter);
             if(homePageModelList.size() == 0){
                 loadFragmentData(adapter,getContext());
+                adapter.notifyDataSetChanged();
             }else{
                 adapter.notifyDataSetChanged();
             }
+
             firebaseFirestore.collection("Banners")
                     .document("Deal")
                     .collection("author")
@@ -102,14 +106,18 @@ public class HomeFragment extends Fragment {
                     if(task.isSuccessful()){
                         for(DocumentSnapshot documentSnapshot : task.getResult()) {
                             authorModelList.add(new AuthorModel(documentSnapshot.getString("name"),documentSnapshot.getString("image")));
+
                         }
+                        author_gridview.setAdapter(authorAdapter);
                     }else{
                         String error = task.getException().getMessage();
                         Toast.makeText(getContext(),error,Toast.LENGTH_SHORT).show();
                     }
                 }
             });
-            authorAdapter.notifyDataSetChanged();
+
+
+
             firebaseFirestore.collection("Books").limit(8).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -142,7 +150,7 @@ public class HomeFragment extends Fragment {
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                refreshLayout.setRefreshing(true);
+          //      refreshLayout.setRefreshing(true);
                 reloadPage();
             }
         });
@@ -173,7 +181,7 @@ public class HomeFragment extends Fragment {
             Glide.with(getContext()).load(R.mipmap.nointernet_r_2x).into(noInternetConnection);
             Toast.makeText(getContext(),"Không có kết nối mạng, xin vui lòng thử lại khi kết nối mạng thành công",Toast.LENGTH_LONG).show();
             noInternetConnection.setVisibility(View.VISIBLE);
-            refreshLayout.setRefreshing(false);
+           // refreshLayout.setRefreshing(false);
         }
     }
 }

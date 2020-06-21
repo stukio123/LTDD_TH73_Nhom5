@@ -1,11 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/nav_search"
-        android:icon="@drawable/ic_search_white_24dp"
-        android:menuCategory="container"
-        android:title="Tìm kiếm"
-        app:showAsAction="always"/>
-
-</menu>
+    xmlns:app="http://schemas.android.com/apk/res-auto"/>

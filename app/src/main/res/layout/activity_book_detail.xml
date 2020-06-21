@@ -58,39 +58,41 @@
         app:layout_constraintStart_toStartOf="parent"
         android:orientation="horizontal"
         android:elevation="8dp">
+
         <LinearLayout
             android:id="@+id/add_to_card_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:background="#1569F9"
             android:gravity="center"
-            android:background="@color/Background"
-            android:layout_weight="1">
+            android:orientation="horizontal">
+
             <TextView
-                android:layout_width="wrap_content"
+
+                android:layout_width="192dp"
                 android:layout_height="match_parent"
-                android:text="Thêm vào giỏ hàng"
-                android:drawableEnd="@mipmap/shopping_cart_black_shape128xp"
-                android:drawableTint="#485f70"
-                android:drawablePadding="8dp"
+                android:drawableRight="@drawable/ic_baseline_shopping_cart_24"
+                android:drawableTint="#FFFFFF"
                 android:gravity="center"
+                android:text="Thêm vào giỏ hàng"
+                android:drawablePadding="5dp"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#485f70"
-                />
+                android:textStyle="bold" />
 
         </LinearLayout>
+
         <Button
             android:id="@+id/btn_buy_now"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Mua ngay"
             android:background="@color/colorAccent"
-            android:textColor="#ffffff"
             android:stateListAnimator="@null"
+            android:text="Mua ngay"
+            android:textColor="#ffffff"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_weight="1"/>
+            android:textStyle="bold" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
