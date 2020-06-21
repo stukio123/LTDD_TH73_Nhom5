@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="-20dp"
-        android:background="@color/Background">
+        android:background="#F2EFCF">
 
 
         <EditText
@@ -78,13 +78,13 @@
 
         <Button
             android:id="@+id/btn_SignIn"
-            android:layout_width="295dp"
-            android:layout_height="30dp"
+            android:layout_width="262dp"
+            android:layout_height="51dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:background="#1569F9"
+            android:background="#099F79"
             android:text="Đăng Nhập"
             android:textAllCaps="false"
             android:textColor="@color/Background"

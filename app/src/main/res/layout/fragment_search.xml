@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Button"
+        android:text="Tìm kiếm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,6 +36,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
+        android:hint="Nhập từ khóa"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/search_btn"
         app:layout_constraintEnd_toStartOf="@+id/search_btn"
