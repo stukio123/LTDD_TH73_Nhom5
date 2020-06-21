@@ -547,7 +547,8 @@ public class BookDetailActivity extends AppCompatActivity {
         ImageView badgeIcon = cartItem.getActionView().findViewById(R.id.badge_icon);
         badgeIcon.setImageResource(R.drawable.ic_cart);
         badgeCount = cartItem.getActionView().findViewById(R.id.badge_count);
-        /*if (currentUser != null) {
+        badgeCount.setText(String.valueOf(DataBaseQueries.cartList.size()));
+        if (currentUser != null) {
             if (DataBaseQueries.cartList.size() == 0) {
                 loadCartList(BookDetailActivity.this, loadingDialog, false,badgeCount);
             }else{
@@ -558,8 +559,8 @@ public class BookDetailActivity extends AppCompatActivity {
                     badgeCount.setText("99");
                 }
             }
-        }*/
-        cartItem.getActionView().setOnClickListener(new View.OnClickListener() {
+        }
+        /*cartItem.getActionView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (currentUser != null) {
@@ -570,7 +571,7 @@ public class BookDetailActivity extends AppCompatActivity {
                     signInDialog.show();
                 }
             }
-        });
+        });*/
 
         return true;
     }

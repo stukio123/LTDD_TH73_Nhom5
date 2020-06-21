@@ -92,10 +92,8 @@ public class CartItemModel {
     //Cart item
 
     //Cart total
-
     public CartItemModel(int type) {
         this.type = type;
     }
-
     //Cart total
 }

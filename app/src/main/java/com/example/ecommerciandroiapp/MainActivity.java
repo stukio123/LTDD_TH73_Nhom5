@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public static boolean showCart = false;
     private FrameLayout framelayout;
     public static Dialog signInDialog;
-    private TextView badgeCount;
+    public static TextView badgeCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         bottomNavigationView.setOnNavigationItemSelectedListener(navLister);
 
-        /*params = (AppBarLayout.LayoutParams) toolbar.getLayoutParams();
-        scrollFlags = params.getScrollFlags();
-        params.setScrollFlags(scrollFlags);*/
 
         if (showCart) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -67,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         Button dialogSignIn = signInDialog.findViewById(R.id.sign_in_btn);
         Button dialogSignUp = signInDialog.findViewById(R.id.sign_up_btn);
         final Intent registerIntent = new Intent(MainActivity.this, RegisterActivity.class);
-
 
         dialogSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,7 +105,8 @@ public class MainActivity extends AppCompatActivity {
         ImageView badgeIcon = cartItem.getActionView().findViewById(R.id.badge_icon);
         badgeIcon.setImageResource(R.drawable.ic_cart);
         badgeCount = cartItem.getActionView().findViewById(R.id.badge_count);
-        //badgeCount.setText(String.valueOf(DataBaseQueries.cartList.size()));
+        badgeCount.setText(String.valueOf(DataBaseQueries.cartList.size()));
+
         if (currentUser != null) {
             if (DataBaseQueries.cartList.size() == 0) {
                 loadCartList(MainActivity.this, new Dialog(MainActivity.this), false,badgeCount);
@@ -122,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+
         cartItem.getActionView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
