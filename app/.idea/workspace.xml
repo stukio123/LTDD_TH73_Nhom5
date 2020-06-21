@@ -11,13 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12dcabe6-da90-4630-9224-c03f7e403870" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/Adapter/CartAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/Adapter/CartAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/BookDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/BookDetailActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/Database/DataBaseQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/Database/DataBaseQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/DeliveryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/DeliveryActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/MyAddressActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/MyAddressActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/MyCartFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/MyCartFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/SearchFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecommerciandroiapp/SearchFragment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592560981502</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fix MyCartFragment">
+      <created>1592725521697</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1592725521697</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -283,37 +289,38 @@
     <MESSAGE value="Model, Adapter, .xml" />
     <MESSAGE value="Fix bug" />
     <MESSAGE value="Category Fragment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Category Fragment" />
+    <MESSAGE value="Fix MyCartFragment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix MyCartFragment" />
   </component>
   <component name="WindowStateProjectService">
     <state x="449" y="140" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1592539595601">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="140" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1592539595601" />
-    <state x="332" y="0" key="CommitChangelistDialog2" timestamp="1592675878689">
+    <state x="332" y="0" key="CommitChangelistDialog2" timestamp="1592725519350">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="332" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1592675878689" />
+    <state x="332" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1592725519350" />
     <state width="462" height="646" key="DebuggerActiveHint" timestamp="1592552376979">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="462" height="646" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1592552376979" />
-    <state width="1491" height="263" key="GridCell.Tab.0.bottom" timestamp="1592725461107">
+    <state width="1491" height="390" key="GridCell.Tab.0.bottom" timestamp="1592731160734">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="263" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592725461107" />
-    <state width="1491" height="263" key="GridCell.Tab.0.center" timestamp="1592725461107">
+    <state width="1491" height="390" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592731160734" />
+    <state width="1491" height="390" key="GridCell.Tab.0.center" timestamp="1592731160734">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="263" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592725461107" />
-    <state width="1491" height="263" key="GridCell.Tab.0.left" timestamp="1592725461107">
+    <state width="1491" height="390" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592731160734" />
+    <state width="1491" height="390" key="GridCell.Tab.0.left" timestamp="1592731160734">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="263" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592725461107" />
-    <state width="1491" height="263" key="GridCell.Tab.0.right" timestamp="1592725461107">
+    <state width="1491" height="390" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592731160734" />
+    <state width="1491" height="390" key="GridCell.Tab.0.right" timestamp="1592731160734">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="263" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592725461107" />
+    <state width="1491" height="390" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592731160734" />
     <state width="1491" height="343" key="GridCell.Tab.1.bottom" timestamp="1592559791691">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -334,10 +341,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592548779589" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1592675887008">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1592725685676">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592675887008" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592725685676" />
     <state x="100" y="100" width="1336" height="624" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1592670489035">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -346,9 +353,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="444" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1592722373177" />
-    <state x="577" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592530049889">
+    <state x="577" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592726592014">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="577" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1592530049889" />
+    <state x="577" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1592726592014" />
   </component>
 </project>

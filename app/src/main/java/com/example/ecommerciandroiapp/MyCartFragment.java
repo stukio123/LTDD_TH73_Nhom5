@@ -65,10 +65,8 @@ public class MyCartFragment extends Fragment {
                 DataBaseQueries.loadCartList(getContext(),loadingDialog,false,new TextView(getContext()));
                 loadingDialog.dismiss();
             }
-
         cartAdapter = new CartAdapter(DataBaseQueries.cartItemModelList,totalAmount,true);
         cartItemRecyclerView.setAdapter(cartAdapter);
-        cartAdapter.notifyDataSetChanged();
 
         pay.setOnClickListener(new View.OnClickListener() {
             @Override

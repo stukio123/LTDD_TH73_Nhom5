@@ -322,6 +322,7 @@ public class BookDetailActivity extends AppCompatActivity {
                             TextView youratingText;
                             youratingText = (TextView) ratingsNumberContainer.getChildAt(5 - (int) rating);
                             updateRating.put((int) rating + "star", String.valueOf(Integer.parseInt(youratingText.getText().toString()) + 1));
+                            //youratingText.setText(String.valueOf(Integer.parseInt(youratingText.getText().toString()) + 1));
                             updateRating.put("avg_rating", calculateAvgRating((long) rating, false));
                             updateRating.put("total_rating", documentSnapshot.getLong("total_rating") + 1);
                         }
@@ -491,9 +492,9 @@ public class BookDetailActivity extends AppCompatActivity {
     private float calculateAvgRating(long yourRatings, boolean update) {
         //totalRating = documentSnapshot.getLong("total_rating");
         float totalStars = 0;
-        for (int i = 1; i < 6; i++) {
-            TextView tv = (TextView) ratingsNumberContainer.getChildAt(5 - i);
-            totalStars = totalStars + Long.parseLong(tv.getText().toString()) * i;
+        for (int i = 0; i < 5; i++) {
+            TextView tv = (TextView) ratingsNumberContainer.getChildAt(i);
+            totalStars = totalStars + Long.parseLong(tv.getText().toString()) * (5-i);
         }
         totalStars = totalStars + yourRatings;
         if (update) {
