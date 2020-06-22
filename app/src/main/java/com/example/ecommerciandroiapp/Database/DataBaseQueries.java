@@ -410,6 +410,7 @@ public class DataBaseQueries {
                             }
                         }
                         deliveryIntent = new Intent(context, DeliveryActivity.class);
+                        deliveryIntent.putExtra("total_amout","deliveryIntent");
                     }
                     context.startActivity(deliveryIntent);
                 }else{

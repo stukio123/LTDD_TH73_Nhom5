@@ -116,7 +116,6 @@ public class AddAdressActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if(!TextUtils.isEmpty(name.getText())){
                     if(!TextUtils.isEmpty(address.getText())){
                         if(!TextUtils.isEmpty(phone.getText())){
