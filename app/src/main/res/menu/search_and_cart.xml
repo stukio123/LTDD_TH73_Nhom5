@@ -11,8 +11,9 @@
         android:visible="false"/>
     <item
         android:id="@+id/main_cart_icon"
-        android:orderInCategory="100"
         android:icon="@drawable/ic_cart_black"
+        android:orderInCategory="100"
         android:title="cart"
-        app:showAsAction="always"/>
+        android:visible="false"
+        app:showAsAction="always" />
 </menu>

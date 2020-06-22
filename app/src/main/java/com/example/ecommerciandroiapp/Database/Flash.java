@@ -31,6 +31,8 @@ public class Flash {
         this.horizontalBookAdapter =categoryAdapter;
         this.horizontalBookModelList = categoryModelList;
         this.firebaseFirestore = firebaseFirestore;
+        horizontalBookAdapter.notifyDataSetChanged();
+
     }
 
     public void getCategory(){
@@ -43,16 +45,19 @@ public class Flash {
                             for (QueryDocumentSnapshot documentSnapshot : task.getResult())
                             {
                                 try {
-                                    BookModel book = new BookModel(documentSnapshot.getString("author")
-                                            , documentSnapshot.getString("category"),documentSnapshot.getString("description")
-                                    ,documentSnapshot.getString("title"),documentSnapshot.getString("image"),(int)documentSnapshot.get("isbn")
-                                    ,(int)documentSnapshot.get("price"),(int)documentSnapshot.get("sku"));
+//                                    BookModel book = new BookModel(documentSnapshot.getString("author")
+//                                            , documentSnapshot.getString("category"),documentSnapshot.getString("description")
+//                                    ,documentSnapshot.getString("title"),documentSnapshot.getString("image"),(int)documentSnapshot.get("isbn")
+//                                    ,(int)documentSnapshot.get("price"),(int)documentSnapshot.get("sku"));
 
-                                    horizontalBookModelList.add(new CategoryModel(book.getImageURL(),book.getTitle()));
+                                    horizontalBookModelList.add(new CategoryModel
+                                            (documentSnapshot.getString("image"),documentSnapshot.getString("title")));
+                                    horizontalBookAdapter.notifyDataSetChanged();
                                 }catch (Exception e)
                                 {
                                     Log.e(TAG,"Lỗi category: "+e.getMessage());
                                 }
+
 
                             }
                             horizontalBookAdapter.notifyDataSetChanged();
@@ -65,4 +70,6 @@ public class Flash {
                     }
                 });
     }
+
+
 }

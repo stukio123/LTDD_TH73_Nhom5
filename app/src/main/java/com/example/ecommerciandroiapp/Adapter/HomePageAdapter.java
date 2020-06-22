@@ -12,6 +12,7 @@ import androidx.gridlayout.widget.GridLayout;
 
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,9 @@ import com.example.ecommerciandroiapp.Model.WishListModel;
 import com.example.ecommerciandroiapp.R;
 import com.example.ecommerciandroiapp.ViewAllActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -43,6 +46,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
     private GridView author_gridview;
     public HomePageAdapter(List<HomePageModel> homePageModelList) {
         this.homePageModelList = homePageModelList;
+
         recycledViewPool = new RecyclerView.RecycledViewPool();
     }
     @Override
@@ -227,13 +231,53 @@ public class HomePageAdapter extends RecyclerView.Adapter {
         //private TextView horizontalLayoutTitle;
         private Button horizontalLayoutButton;
         private RecyclerView horizontalRecyclerView;
-
+        private TextView txt_gio, txt_phut,txt_giay;
+        private String EVENT_DATE_TIME = "2020-7-3 21:30:00";
+        private String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+        private LinearLayout layout;
+        private Handler handler = new Handler();
+        private Runnable runnable;
         public HorizontalBookViewHolder(@NonNull View itemView) {
             super(itemView);
             horizontalRecyclerView = itemView.findViewById(R.id.horizontal_scroll_layout_recycleview);
             horizontalLayoutButton = itemView.findViewById(R.id.view_all_btn);
             horizontalRecyclerView.setRecycledViewPool(recycledViewPool);
+            txt_gio = itemView.findViewById(R.id.txt_gio);
+            txt_phut = itemView.findViewById(R.id.txt_phut);
+            txt_giay = itemView.findViewById(R.id.txt_giay);
+            runnable = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        handler.postDelayed(this, 1000);
+                        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
+                        Date event_date = dateFormat.parse(EVENT_DATE_TIME);
+                        Date current_date = new Date();
+                        if (!current_date.after(event_date)) {
+                            long diff = event_date.getTime() - current_date.getTime();
+
+                            long Hours = diff / (24 * 60 * 60 * 1000)*24 + diff / (60 * 60 * 1000) % 24;
+                            long Minutes = diff / (60 * 1000) % 60;
+                            long Seconds = diff / 1000 % 60;
+                            //
+                            //  tv_days.setText(String.format("%02d", Days));
+                            txt_gio.setText(String.format("%02d", Hours));
+                            txt_phut.setText(String.format("%02d", Minutes));
+                            txt_giay.setText(String.format("%02d", Seconds));
+
+                        } else {
+                            handler.removeCallbacks(runnable);
+
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        layout.setVisibility(View.GONE);
+                    }
+                }
+            };
+            handler.postDelayed(runnable, 0);
         }
+
 
         private void setHorizontalBookLayout(List<HorizontalBookModel> horizontalBookModelList, final List<WishListModel> viewAllBookList){
 
@@ -329,6 +373,8 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             horizontalRecyclerView.setRecycledViewPool(recycledViewPool);
         }
 
+
+
         private void setHorizontalAuthorLayout(List<HorizontalBookModel> horizontalBookModelList, final List<WishListModel> viewAllBookList){
             if(horizontalBookModelList.size() > 8)
             {
@@ -353,4 +399,6 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             horizontalBookAdapter.notifyDataSetChanged();
         }
     }
+
+
 }

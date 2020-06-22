@@ -17,7 +17,7 @@
             android:id="@+id/search_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#09FF00"
+            android:background="#ffffff"
             android:visibility="gone">
 
         </androidx.recyclerview.widget.RecyclerView>
@@ -26,7 +26,7 @@
             android:id="@+id/lv_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FF0909" />
+            android:background="#ffffff" />
 
     </FrameLayout>
 

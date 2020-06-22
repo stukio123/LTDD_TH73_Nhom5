@@ -78,8 +78,8 @@
 
         <Button
             android:id="@+id/btn_SignIn"
-            android:layout_width="262dp"
-            android:layout_height="51dp"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -110,15 +110,15 @@
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="354dp"
+            android:layout_width="match_parent"
             android:layout_height="181dp"
-            android:src="@mipmap/signin"
+            android:src="@mipmap/siginin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.098" />
+            app:layout_constraintVertical_bias="0.073" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/header2"
@@ -126,6 +126,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:foregroundTint="#FFFFFF"
+            app:collapseIcon="@drawable/abc_vector_test"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

@@ -1,5 +1,7 @@
 package com.example.ecommerciandroiapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -47,6 +49,7 @@ public class UserFragment extends Fragment {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser currentUser;
     public static final int MANAGE_ADDRESS = 1;
+    private TextView user_hotro;
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
@@ -64,6 +67,7 @@ public class UserFragment extends Fragment {
         user_name.setVisibility(View.GONE);
         user_email = view.findViewById(R.id.user_email);
         user_email.setVisibility(View.GONE);
+        user_hotro = view.findViewById(R.id.user_hotro);
 
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser();
@@ -89,12 +93,30 @@ public class UserFragment extends Fragment {
                     txt_DangNhap.setEnabled(true);*/
                     //user_name.setText(currentUser.getDisplayName());
                     //user_email.setText(currentUser.getEmail());
-                    user_name.setVisibility(View.GONE);
-                    user_email.setVisibility(View.GONE);
-                    txt_DangNhap.setVisibility(View.VISIBLE);
-                    btn_SignOut.setVisibility(View.GONE);
-                    firebaseAuth.signOut();
-                    DataBaseQueries.clearData();
+
+                    AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
+
+                    b.setTitle("Xác nhận");
+                    b.setMessage("Bạn có đồng ý thoát chương trình không?");
+
+                    b.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            user_name.setVisibility(View.GONE);
+                            user_email.setVisibility(View.GONE);
+                            txt_DangNhap.setVisibility(View.VISIBLE);
+                            btn_SignOut.setVisibility(View.GONE);
+                            firebaseAuth.signOut();
+                            setFragment(new HomeFragment());
+                            DataBaseQueries.clearData();
+                        }
+                    });
+                    b.setNegativeButton("Không đồng ý", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    b.show();
+
                 }
 
 
@@ -145,22 +167,43 @@ public class UserFragment extends Fragment {
         });
 
         myAddressed.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View v) {
+                                               if (currentUser != null) {
+                                                   Intent myAddressIntent = new Intent(getContext(), MyAddressActivity.class);
+                                                   myAddressIntent.putExtra("MODE", MANAGE_ADDRESS);
+                                                   startActivity(myAddressIntent);
+                                               } else {
+                                                   signInDialog.show();
+                                               }
+
+                                           }
+                                       });
+
+        user_hotro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (currentUser != null) {
-                    Intent myAddressIntent = new Intent(getContext(), MyAddressActivity.class);
-                    myAddressIntent.putExtra("MODE", MANAGE_ADDRESS);
-                    startActivity(myAddressIntent);
-                } else {
-                    signInDialog.show();
-                }
+                AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
+
+                b.setTitle("Hỗ trợ");
+                b.setMessage("Bạn vui lòng liên hệ đến\n028 300 2008");
+
+                b.setNegativeButton("Đóng", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                b.show();
 
             }
         });
+    }
+
        /* }else {
             signInDialog.show();
         }*/
-    }
+
+
 
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();

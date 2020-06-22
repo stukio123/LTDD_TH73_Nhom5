@@ -12,6 +12,7 @@
     <LinearLayout
         android:id="@+id/linearlayoutFlashSale"
         android:layout_width="0dp"
+android:background="#1569F9"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,67 +24,87 @@
             android:id="@+id/imageView2"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
             android:gravity="center"
             app:srcCompat="@mipmap/flash" />
 
         <TextView
             android:id="@+id/txt_gio"
-            android:layout_width="wrap_content"
+            android:layout_width="30dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#F7EF30"
             android:gravity="center"
             android:text="00"
-            android:textColor="@color/Background"
-            android:textSize="13dp" />
+            android:textColor="#000000"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView8"
-            android:layout_width="20dp"
+            android:layout_width="15dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#F7EF30"
             android:gravity="center"
             android:text=":"
             android:textAlignment="center"
-            android:textColor="@color/Background"
-            android:textSize="13dp" />
+            android:textColor="#000000"
+            android:textSize="13dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txt_phut"
-            android:layout_width="wrap_content"
+            android:layout_width="25dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+
+            android:background="#F7EF30"
             android:gravity="center"
             android:text="00"
             android:textAlignment="center"
-            android:textColor="@color/Background"
-            android:textSize="13dp" />
+            android:textColor="#000000"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView9"
-            android:layout_width="20dp"
+            android:layout_width="15dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#F7EF30"
             android:gravity="center"
             android:text=":"
-            android:textColor="@color/Background"
-            android:textSize="13dp" />
+            android:textColor="#000000"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txt_giay"
-            android:layout_width="wrap_content"
+            android:layout_width="30dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#F7EF30"
             android:gravity="center"
             android:text="00"
-            android:textColor="@color/Background"
-            android:textSize="13dp" />
+            android:textColor="#000000"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/view_all_btn"
-            android:layout_width="187dp"
-            android:layout_height="50dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="7dp"
             android:background="#1569F9"
+            android:gravity="right|center"
             android:text="Xem thêm"
-            android:textAlignment="textEnd"
             android:textColor="@color/Background" />
 
     </LinearLayout>

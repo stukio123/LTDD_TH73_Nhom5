@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         invalidateOptionsMenu();
+
     }
 
     @Override
@@ -157,8 +158,11 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragmet = null;
                     switch (item.getItemId()) {
-                        case R.id.nav_home:
+                        case R.id.nav_home:{
                             selectedFragmet = new HomeFragment();
+
+                        }
+
                             break;
                         case R.id.nav_category:
                             selectedFragmet = new CategoryFragment();
@@ -172,8 +176,8 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_user:
                             selectedFragmet = new UserFragment();
                             break;
-                        default:
-                            selectedFragmet = new HomeFragment();
+                        default: selectedFragmet = new HomeFragment();
+
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragmet).commit();

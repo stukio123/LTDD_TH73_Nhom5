@@ -16,6 +16,7 @@ import com.example.ecommerciandroiapp.BookAllActivity;
 import com.example.ecommerciandroiapp.BookDetailActivity;
 import com.example.ecommerciandroiapp.CategoryActivity;
 import com.example.ecommerciandroiapp.Model.CategoryModel;
+import com.example.ecommerciandroiapp.Model.NotificationModel;
 import com.example.ecommerciandroiapp.NotiActivity;
 import com.example.ecommerciandroiapp.R;
 
@@ -23,9 +24,9 @@ import java.util.List;
 
 public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.ViewHolder> {
 
-    private List<CategoryModel> categoryModelList;
-    public NotiAdapter(List<CategoryModel> categoryModelList){
-        this.categoryModelList = categoryModelList;
+    private List<NotificationModel> notificationModelList;
+    public NotiAdapter(List<NotificationModel> notificationModelList){
+        this.notificationModelList = notificationModelList;
     }
 
     @NonNull
@@ -37,26 +38,30 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull NotiAdapter.ViewHolder holder, int position) {
-        String url = categoryModelList.get(position).getCategoryImage();
-        String name = categoryModelList.get(position).getCategoryName();
+        String url = notificationModelList.get(position).getImage();
+        String name = notificationModelList.get(position).getContent();
+        String chitiet = notificationModelList.get(position).getChitiet();
 
         holder.setCategory(name);
         holder.setCategoryImage(url);
+        holder.setCategoryChiTiet(chitiet);
     }
 
     @Override
     public int getItemCount() {
-        return categoryModelList.size();
+        return notificationModelList.size();
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private ImageView categoryImage;
         private TextView categoryName;
+        private TextView chitiet;
 //        private Constraints background_categori;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             categoryName = itemView.findViewById(R.id.flash_name);
             categoryImage = itemView.findViewById(R.id.flash_image);
+            chitiet = itemView.findViewById(R.id.chi_tiet);
 //            background_categori = itemView.findViewById(R.id.background_categori);
         }
         private void setCategoryImage(String url){
@@ -75,5 +80,11 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.ViewHolder> {
                 }
             });
         }
+
+        private void setCategoryChiTiet(final String name){
+            chitiet.setText(name);
+
+        }
+
     }
 }

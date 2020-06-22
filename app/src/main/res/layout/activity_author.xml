@@ -7,13 +7,15 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="44dp"
         android:background="#1569F9"
         android:visibility="visible"
+        app:collapseIcon="@drawable/abc_vector_test"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="#FFFFFF"
         tools:visibility="visible">
 
     </androidx.appcompat.widget.Toolbar>

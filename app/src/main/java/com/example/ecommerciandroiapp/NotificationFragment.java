@@ -36,7 +36,7 @@ public class NotificationFragment extends Fragment {
     }
     private RecyclerView notificationRecyclerView;
     private FirebaseFirestore firebaseFirestore;
-    List<CategoryModel> notificationModelList;
+    List<NotificationModel> notificationModelList;
     private NotiAdapter adapter;
     public static final String TAG = HomeFragment.class.getSimpleName();
     @Override
@@ -54,7 +54,7 @@ public class NotificationFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         notificationRecyclerView.setLayoutManager(linearLayoutManager);
 
-       notificationModelList = new ArrayList<CategoryModel>();
+       notificationModelList = new ArrayList<NotificationModel>();
         adapter = new NotiAdapter(notificationModelList);
         notificationRecyclerView.setAdapter(adapter);
 //        notificationModelList.add(new NotificationModel("aaaaaaaaaaaa",R.drawable.ic_person_black_24dp));
@@ -71,13 +71,13 @@ public class NotificationFragment extends Fragment {
                             for (QueryDocumentSnapshot documentSnapshot : task.getResult())
                             {
                                 try {
-                                    notificationModelList.add(new CategoryModel(documentSnapshot.get("Banner").toString(),
-                                            documentSnapshot.get("Thongtin").toString()));
+                                    notificationModelList.add(new NotificationModel(documentSnapshot.get("Thongtin").toString(),
+                                            documentSnapshot.get("Banner").toString(), documentSnapshot.get("chitet").toString()));
                                 }catch (Exception e)
                                 {
                                     Log.e(TAG,"Lỗi notifi: "+e.getMessage());
                                 }
-
+                                adapter.notifyDataSetChanged();
                             }
                             adapter.notifyDataSetChanged();
                         }

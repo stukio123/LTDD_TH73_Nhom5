@@ -23,11 +23,11 @@
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="402dp"
-                android:layout_height="208dp"
-                android:src="@mipmap/load"
+                android:layout_width="match_parent"
+                android:layout_height="161dp"
+                android:src="@mipmap/signup"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.444"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +45,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="469dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:background="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
             <EditText
                 android:id="@+id/txt_Email"
                 android:layout_width="300dp"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="44dp"
                 android:layout_marginEnd="8dp"
@@ -72,7 +72,7 @@
             <EditText
                 android:id="@+id/txt_Name"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
@@ -88,7 +88,7 @@
             <EditText
                 android:id="@+id/txt_Phone"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
@@ -104,7 +104,7 @@
             <EditText
                 android:id="@+id/txt_Password"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
@@ -121,7 +121,7 @@
                 android:id="@+id/txt_ConfirmPassWord"
                 android:layout_width="300dp"
 
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
@@ -137,7 +137,7 @@
             <Button
                 android:id="@+id/btn_SignUp"
                 android:layout_width="257dp"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="28dp"
                 android:layout_marginEnd="16dp"
@@ -171,7 +171,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đã có tài khoản? Đăng nhập. "
-                android:textColor="#000000"
+                android:textColor="#1569F9"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"

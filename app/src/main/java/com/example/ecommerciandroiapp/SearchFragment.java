@@ -60,8 +60,8 @@ public class SearchFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();searchTextView.requestFocus();
-        InputMethodManager keyboard = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        keyboard.showSoftInput(searchTextView, 0);
+//        InputMethodManager keyboard = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+//        keyboard.showSoftInput(searchTextView, 0);
     }
 
     @Nullable

@@ -4,12 +4,15 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,7 +36,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static com.example.ecommerciandroiapp.Database.DataBaseQueries.firebaseFirestore;
@@ -55,14 +60,35 @@ public class HomeFragment extends Fragment {
     private RecyclerView bookHotRecyclerView;
     private List<WishListModel> wishListModelList;
     private WishListAdapter wishListAdapter;
-
+    private TextView txt_gio, txt_phut,txt_giay;
     private HomePageAdapter adapter;
     private ImageView noInternetConnection;
+///setgio
+private String EVENT_DATE_TIME = "2020-7-31 21:30:00";
+    private String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    private LinearLayout layout;
+    private Handler handler = new Handler();
+    private Runnable runnable;
+    @Override
+    public void onStart() {
+        super.onStart();
+        reloadPage();
+
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_home,container,false);
+        final View views = inflater.inflate(R.layout.horizontal_scroll_layout,container,false);
+        //setgioi
+        txt_gio = views.findViewById(R.id.txt_gio);
+        txt_phut = views.findViewById(R.id.txt_phut);
+        txt_giay = views.findViewById(R.id.txt_giay);
+
+        layout = views.findViewById(R.id.linearlayoutFlashSale);
+        //
+        //countDownStart();
         noInternetConnection = view.findViewById(R.id.no_intenet_connection);
         refreshLayout = view.findViewById(R.id.refresh_layout);
         connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -90,13 +116,14 @@ public class HomeFragment extends Fragment {
             homePageRecyclerView.setVisibility(View.VISIBLE);
             adapter = new HomePageAdapter(homePageModelList);
             homePageRecyclerView.setAdapter(adapter);
-            if(homePageModelList.size() == 0){
-                loadFragmentData(adapter,getContext());
-
-            }else{
-                adapter.notifyDataSetChanged();
-            }
-
+//            if(homePageModelList.size() == 0){
+//                loadFragmentData(adapter,getContext());
+//                adapter.notifyDataSetChanged();
+//            }else{
+//                adapter.notifyDataSetChanged();
+//            }
+            adapter.notifyDataSetChanged();
+            homePageRecyclerView.setAdapter(adapter);
             firebaseFirestore.collection("Banners")
                     .document("Deal")
                     .collection("author")
@@ -161,7 +188,8 @@ public class HomeFragment extends Fragment {
                 reloadPage();
             }
         });
-
+        txt_gio.setText("1");
+        txt_phut.setText("1");
         return view;
     }
 
@@ -184,4 +212,8 @@ public class HomeFragment extends Fragment {
            // refreshLayout.setRefreshing(false);
         }
     }
+
+
+
+
 }

@@ -2,10 +2,12 @@ package com.example.ecommerciandroiapp.Model;
 
 public class NotificationModel {
     private String content;
-    private int image;
+    private String image;
+    private String chitiet;
 
-    public NotificationModel(String content, int image) {
+    public NotificationModel(String content, String image,String chitiet) {
         this.content = content;
+        this.chitiet = chitiet;
         this.image = image;
     }
 
@@ -17,11 +19,19 @@ public class NotificationModel {
         this.content = content;
     }
 
-    public int getImage() {
+    public String getChitiet() {
+        return chitiet;
+    }
+
+    public void setChitiet(String chitiet) {
+        this.chitiet = chitiet;
+    }
+
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

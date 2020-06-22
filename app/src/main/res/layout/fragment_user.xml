@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="67dp"
+        android:layout_height="93dp"
         android:background="@drawable/userback"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,46 +18,41 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <ImageView
         android:id="@+id/user_image"
-        android:layout_width="68dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/bogoc_button"
         android:src="@drawable/ic_account_circle_white_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/user_accout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_image">
+        app:layout_constraintTop_toBottomOf="@+id/user_accout">
 
-        <TextView
-            android:id="@+id/user_accout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đăng nhập"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Phạm Trí Quang"
             android:textAlignment="center"
-            android:visibility="gone"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/user_email"
@@ -65,9 +60,9 @@
             android:layout_height="wrap_content"
             android:text="stukio123@gmail.com"
             android:textAlignment="center"
-            android:visibility="gone"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:visibility="gone" />
 
         <View
             android:id="@+id/divider12"
@@ -176,10 +171,10 @@
         <Button
             android:id="@+id/btn_signout"
             android:layout_width="match_parent"
-            android:layout_height="59dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:background="#1569F9"
+            android:layout_marginBottom="30dp"
+            android:background="#DC1416"
             android:text="Đăng xuất"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -188,4 +183,18 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/user_accout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Đăng nhập"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>

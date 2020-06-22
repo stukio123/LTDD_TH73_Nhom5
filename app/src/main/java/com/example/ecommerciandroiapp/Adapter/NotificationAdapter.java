@@ -33,8 +33,8 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String content = notificationModelList.get(position).getContent();
-        int resource = notificationModelList.get(position).getImage();
-        holder.setData(resource,content);
+        String resource = notificationModelList.get(position).getImage();
+       /// holder.setData(resource,content);
     }
 
     @Override

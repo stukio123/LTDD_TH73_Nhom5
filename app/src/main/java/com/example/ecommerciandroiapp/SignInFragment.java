@@ -148,6 +148,7 @@ public class SignInFragment extends Fragment {
                             //parentFrameLayout.setVisibility(View.GONE);
                             //txt_Account.setText(email.getText());
                             //btn_SignOut.setVisibility(View.VISIBLE);
+
                             Toast.makeText(getActivity(),"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
                             mainIntent();
                             //txt_Account.setEnabled(true);
@@ -186,6 +187,8 @@ public class SignInFragment extends Fragment {
         }else{
             Intent mainIntent = new Intent(getActivity(),MainActivity.class);
             startActivity(mainIntent);
+            setFragment(new UserFragment());
+            getActivity().finish();
         }
         getActivity().finish();
     }
