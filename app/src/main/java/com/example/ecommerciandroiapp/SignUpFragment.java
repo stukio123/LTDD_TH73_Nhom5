@@ -182,18 +182,15 @@ public class SignUpFragment extends Fragment {
                                     Map<String, Object>  userData = new HashMap<>();
                                     userData.put("fullname",name.getText().toString());
                                     userData.put("phone",phone.getText().toString());
-
+                                    //userData.put("user_data",null);
                                     firebaseFirestore.collection("users").document(firebaseAuth.getUid()).set(userData)
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if(task.isSuccessful()){
-
                                                         final CollectionReference userDataReference = firebaseFirestore.collection("users").document(firebaseAuth.getUid()).collection("user_data");
-
                                                         Map<String, Object> wishListMap = new HashMap<>();
                                                         wishListMap.put("list_size",(long) 0);
-
                                                         Map<String,Object> ratingsMap = new HashMap<>();
                                                         ratingsMap.put("list_size",(long) 0);
 
@@ -202,22 +199,24 @@ public class SignUpFragment extends Fragment {
 
                                                         Map<String,Object> myAddressMap = new HashMap<>();
                                                         myAddressMap.put("list_size",(long) 0);
+                                                        Map<String,Object> myOrderMap = new HashMap<>();
+                                                        myOrderMap.put("list_size",(long)0);
 
                                                         final List<String> documentNames = new ArrayList<>();
                                                         documentNames.add("my_wishList");
                                                         documentNames.add("my_ratings");
                                                         documentNames.add("my_cart");
                                                         documentNames.add("my_addresses");
-                                                        documentNames.add("my_cart");
+                                                        documentNames.add("my_order");
 
                                                         final List<Map<String,Object>> documentFields = new ArrayList<>();
                                                         documentFields.add(wishListMap);
                                                         documentFields.add(ratingsMap);
                                                         documentFields.add(cartMap);
                                                         documentFields.add(myAddressMap);
+                                                        documentFields.add(myOrderMap);
 
                                                         for(int i = 0 ; i < documentNames.size();i++){
-
                                                             final int finalI = i;
                                                             userDataReference.document(documentNames.get(i)).set(documentFields.get(i))
                                                                     .addOnCompleteListener(new OnCompleteListener<Void>() {

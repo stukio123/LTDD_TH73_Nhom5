@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -92,11 +93,11 @@ public class AddAdressActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectedDistrict = districtList[position];
-            }
+                System.out.println((int)id);
 
+            }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
         ArrayAdapter spinnerWard = new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,wardList);
