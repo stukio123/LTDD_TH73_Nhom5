@@ -40,6 +40,19 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:text="+ Phí ship: 30.000 đ"
+                    android:textColor="#00471C"
+                    android:textSize="18dp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -54,6 +67,7 @@
                         android:layout_marginBottom="10dp"
                         android:paddingRight="20dp"
                         android:text="Thành tiền"
+
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -66,7 +80,7 @@
                         android:layout_marginBottom="10dp"
                         android:text="0"
                         android:textColor="#A40202"
-                        android:textSize="20sp"
+                        android:textSize="28dp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
