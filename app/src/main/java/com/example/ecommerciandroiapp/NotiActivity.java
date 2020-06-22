@@ -1,16 +1,15 @@
 package com.example.ecommerciandroiapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ecommerciandroiapp.Adapter.WishListAdapter;
 import com.example.ecommerciandroiapp.Model.WishListModel;
@@ -23,7 +22,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryActivity extends AppCompatActivity {
+public class NotiActivity extends AppCompatActivity {
     private RecyclerView categoryRecyclerView;
     private FirebaseFirestore firebaseFirestore;
 
@@ -46,8 +45,7 @@ public class CategoryActivity extends AppCompatActivity {
         final List<WishListModel> wishList = new ArrayList<>();
         final WishListAdapter adapter = new WishListAdapter(wishList, false);
         categoryRecyclerView.setAdapter(adapter);
-        firebaseFirestore = FirebaseFirestore.getInstance();
-        firebaseFirestore.collection("Books").whereEqualTo("category",title).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        firebaseFirestore.collection("Books").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
@@ -61,16 +59,14 @@ public class CategoryActivity extends AppCompatActivity {
                                 , documentSnapshot.getString("price")
                                 , documentSnapshot.getString("cutted_price")));
                         //System.out.println(documentSnapshot.toString());
-                        adapter.notifyDataSetChanged();
                     }
-
+                    adapter.notifyDataSetChanged();
                 }else{
-                    Toast.makeText(CategoryActivity.this,"Không tìm thấy sách",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NotiActivity.this,"Không tìm thấy sách",Toast.LENGTH_SHORT).show();
                 }
                 //String bookID,String bookImage, String bookTitle, String bookAuthor, long rating, long totalRating, String bookPrice, String cuttedPrice
             }
         });
-        categoryRecyclerView.setAdapter(adapter);
     }
 
     @Override

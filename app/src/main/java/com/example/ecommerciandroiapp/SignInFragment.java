@@ -171,12 +171,12 @@ public class SignInFragment extends Fragment {
     private void checkInput() {
         if(!TextUtils.isEmpty(email.getText())){
              if(!TextUtils.isEmpty(password.getText())){
-                 btn_SignIn.setBackgroundColor(Color.WHITE);
+//                 btn_SignIn.setBackgroundColor(Color.WHITE);
              }else{
-                 btn_SignIn.setBackgroundColor(Color.rgb(128,128,128));
+//                 btn_SignIn.setBackgroundColor(Color.rgb(128,128,128));
              }
         }else{
-            btn_SignIn.setBackgroundColor(Color.rgb(128,128,128));
+//            btn_SignIn.setBackgroundColor(Color.rgb(128,128,128));
         }
     }
 

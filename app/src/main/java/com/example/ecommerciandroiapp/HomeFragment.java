@@ -92,7 +92,7 @@ public class HomeFragment extends Fragment {
             homePageRecyclerView.setAdapter(adapter);
             if(homePageModelList.size() == 0){
                 loadFragmentData(adapter,getContext());
-                adapter.notifyDataSetChanged();
+
             }else{
                 adapter.notifyDataSetChanged();
             }

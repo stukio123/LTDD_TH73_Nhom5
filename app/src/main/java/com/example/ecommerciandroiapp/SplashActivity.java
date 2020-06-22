@@ -38,10 +38,19 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-//                SystemClock.sleep(3000);
-                /*Intent registerIntent = new Intent(SplashActivity.this, RegisterActivity.class);
-                startActivity(registerIntent);
-                finish();*/
+                SystemClock.sleep(3000);
+
+                FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+                if(currentUser == null) {
+                    Intent registerIntent = new Intent(SplashActivity.this,RegisterActivity.class);
+                    startActivity(registerIntent);
+                    finish();
+                }else{
+                    Intent mainIntent = new Intent(SplashActivity.this,MainActivity.class);
+                    startActivity(mainIntent);
+                    finish();
+                }
+
             }
 
         };
@@ -52,15 +61,7 @@ public class SplashActivity extends AppCompatActivity {
 @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if(currentUser == null) {
-            Intent registerIntent = new Intent(SplashActivity.this,RegisterActivity.class);
-            startActivity(registerIntent);
-            finish();
-        }else{
-            Intent mainIntent = new Intent(SplashActivity.this,MainActivity.class);
-            startActivity(mainIntent);
-            finish();
-        }
+
+
     }
 }

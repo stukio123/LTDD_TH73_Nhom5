@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:background="#4B29E6"
         android:minHeight="?attr/actionBarSize"
+        android:backgroundTint="#1569F9"
         android:theme="?attr/actionBarTheme" />
 
     <ScrollView
