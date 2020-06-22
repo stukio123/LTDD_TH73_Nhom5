@@ -118,7 +118,7 @@ public class HomeFragment extends Fragment {
 
 
 
-            firebaseFirestore.collection("Books").limit(8).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            firebaseFirestore.collection("Books").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     if (task.isSuccessful()) {
