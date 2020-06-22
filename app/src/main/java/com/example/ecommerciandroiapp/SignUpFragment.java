@@ -233,7 +233,7 @@ public class SignUpFragment extends Fragment {
                                                                             }else{
                                                                                 progressBar.setVisibility(View.INVISIBLE);
                                                                                 btn_SignUp.setEnabled(true);
-                                                                                btn_SignUp.setBackgroundColor(Color.WHITE);
+
                                                                                 String error = task.getException().toString();
                                                                                 Toast.makeText(getActivity(),"Lỗi: "+error,Toast.LENGTH_SHORT).show();
                                                                             }
@@ -271,26 +271,26 @@ public class SignUpFragment extends Fragment {
                     if(!TextUtils.isEmpty(password.getText()) && password.length()>=8){
                         if(!TextUtils.isEmpty(confirmpassword.getText())){
                             btn_SignUp.setEnabled(true);
-                            btn_SignUp.setBackgroundColor(Color.WHITE);
+//                            btn_SignUp.setBackgroundColor(Color.WHITE);
                         }else{
                             btn_SignUp.setEnabled(false);
-                            btn_SignUp.setBackgroundColor(Color.rgb(128,128,128));
+//                            btn_SignUp.setBackgroundColor(Color.rgb(128,128,128));
                         }
                     }else{
                         btn_SignUp.setEnabled(false);
-                        btn_SignUp.setBackgroundColor(Color.rgb(128,128,128));
+                    //    btn_SignUp.setBackgroundColor(Color.rgb(128,128,128));
                     }
                 }else{
                     btn_SignUp.setEnabled(false);
-                    btn_SignUp.setBackgroundColor(Color.rgb(128,128,128));
+                //    btn_SignUp.setBackgroundColor(Color.rgb(128,128,128));
                 }
             }else{
                 btn_SignUp.setEnabled(false);
-                btn_SignUp.setBackgroundColor(Color.rgb(128,128,128));
+            ///    btn_SignUp.setBackgroundColor(Color.rgb(128,128,128));
             }
         }else{
             btn_SignUp.setEnabled(false);
-            btn_SignUp.setBackgroundColor(Color.rgb(128,128,128));
+          //  btn_SignUp.setBackgroundColor(Color.rgb(128,128,128));
         }
     }
 

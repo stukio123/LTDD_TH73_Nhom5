@@ -251,10 +251,10 @@ public class BookDetailActivity extends AppCompatActivity {
                 } else {
                     if (!RUNNING_CART_QUERY) {
                         RUNNING_CART_QUERY = true;
-                        if (ADDED_TO_CART) {
-                            RUNNING_CART_QUERY = false;
-                            Toast.makeText(BookDetailActivity.this, "Sách đã có trong giỏ hàng", Toast.LENGTH_LONG).show();
-                        } else {
+//                        if (ADDED_TO_CART) {
+//                            RUNNING_CART_QUERY = false;
+//                            Toast.makeText(BookDetailActivity.this, "Sách đã có trong giỏ hàng", Toast.LENGTH_LONG).show();
+//                        } else {
                             Map<String, Object> addBook = new HashMap<>();
                             addBook.put("book_id_" + String.valueOf(DataBaseQueries.cartList.size()), bookID);
                             addBook.put("list_size", (long) (DataBaseQueries.cartList.size() + 1));
@@ -290,7 +290,7 @@ public class BookDetailActivity extends AppCompatActivity {
                         }
                     }
                 }
-            }
+//            }
         });
 
         //Xuất hiện lỗi khi click trở lại sách đã rating thì avg_rating trong database trả về 0
