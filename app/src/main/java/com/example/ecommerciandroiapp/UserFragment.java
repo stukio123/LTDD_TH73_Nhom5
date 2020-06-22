@@ -93,7 +93,6 @@ public class UserFragment extends Fragment {
                     txt_DangNhap.setEnabled(true);*/
                     //user_name.setText(currentUser.getDisplayName());
                     //user_email.setText(currentUser.getEmail());
-
                     AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
 
                     b.setTitle("Xác nhận");
@@ -106,6 +105,7 @@ public class UserFragment extends Fragment {
                             txt_DangNhap.setVisibility(View.VISIBLE);
                             btn_SignOut.setVisibility(View.GONE);
                             firebaseAuth.signOut();
+                            currentUser = null;
                             setFragment(new HomeFragment());
                             DataBaseQueries.clearData();
                         }
@@ -202,8 +202,6 @@ public class UserFragment extends Fragment {
        /* }else {
             signInDialog.show();
         }*/
-
-
 
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();

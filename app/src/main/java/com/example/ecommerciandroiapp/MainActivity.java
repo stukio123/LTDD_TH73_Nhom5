@@ -23,6 +23,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import static com.example.ecommerciandroiapp.Database.DataBaseQueries.currentUser;
 import static com.example.ecommerciandroiapp.Database.DataBaseQueries.loadCartList;
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        //currentUser = FirebaseAuth.getInstance().getCurrentUser();
         invalidateOptionsMenu();
 
     }
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         badgeCount = cartItem.getActionView().findViewById(R.id.badge_count);
         badgeCount.setText(String.valueOf(DataBaseQueries.cartList.size()));
 
-        if (currentUser != null) {
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             if (DataBaseQueries.cartList.size() == 0) {
                 loadCartList(MainActivity.this, new Dialog(MainActivity.this), false,badgeCount);
             }else{
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         cartItem.getActionView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (currentUser != null) {
+                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
                     setFragment(new MyCartFragment());
                 } else {
                     signInDialog.show();
@@ -137,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.main_cart_icon) {
-            if (currentUser == null) {
+            if (FirebaseAuth.getInstance().getCurrentUser() == null) {
                 signInDialog.show();
             } else {
                 setFragment(new MyCartFragment());
