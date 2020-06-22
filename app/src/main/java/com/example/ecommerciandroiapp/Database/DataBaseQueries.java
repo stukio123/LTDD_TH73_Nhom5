@@ -318,8 +318,8 @@ public class DataBaseQueries {
                                                 if(cartList.size() == 0){
                                                     cartItemModelList.clear();
                                                 }
-                                                cartItemModelList.add(new CartItemModel(CartItemModel.TOTAL_AMOUNT));
                                                 MyCartFragment.cartAdapter.notifyDataSetChanged();
+                                                cartItemModelList.add(new CartItemModel(CartItemModel.TOTAL_AMOUNT));
                                             }else{
                                                 String error = task.getException().getMessage();
                                                 Toast.makeText(context,"Lỗi: "+error,Toast.LENGTH_SHORT).show();
@@ -328,6 +328,7 @@ public class DataBaseQueries {
                                     });
                         }
                     }
+
                     /*if(cartList.size() != 0){
                         badgeCount.setVisibility(View.VISIBLE);
                     }else{
@@ -338,6 +339,7 @@ public class DataBaseQueries {
                     }else{
                         badgeCount.setText("99");
                     }*/
+
                 }else{
                     String error = task.getException().getMessage();
                     Toast.makeText(context,"Lỗi: "+error,Toast.LENGTH_SHORT).show();

@@ -122,10 +122,14 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.ViewHo
             });
         }
         private String formatPrice(String price){
-            int prices = 0;
-            if(price != null)
-                prices = Integer.parseInt(price);
-            return String.format("%,d đ",prices);
+            if(price.equals("")){
+                return "0 đ";
+            }else {
+                int prices = 0;
+                if (price != null)
+                    prices = Integer.parseInt(price);
+                return String.format("%,d đ", prices);
+            }
         }
     }
 }
